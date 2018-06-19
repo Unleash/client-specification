@@ -1,0 +1,23 @@
+{
+  "name": "client-specification",
+  "version": "1.0.0",
+  "description": "A collection of test specifications to guide client implementations in various langugages",
+  "scripts": {
+    "test": "node index",
+    "install": "node index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Unleash/client-specification.git"
+  },
+  "author": "",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/Unleash/client-specification/issues"
+  },
+  "homepage": "https://github.com/Unleash/client-specification#readme",
+  "dependencies": {
+    "chalk": "^2.4.1",
+    "joi": "^13.4.0"
+  }
+}
