@@ -1,0 +1,44 @@
+{
+    "state": {
+        "version": 1,
+        "features": [
+            {
+                "name": "Feature.A",
+                "description": "Enabled toggle",
+                "enabled": true,
+                "strategies": [{
+                    "name": "default"
+                }]
+            },
+            {
+                "name": "Feature.B",
+                "description": "Disabled toggle",
+                "enabled": false,
+                "strategies": [{
+                    "name": "default"
+                }]
+            }
+        ]
+    },
+    "tests": [
+        {
+            "description": "Feature.A should be enabled",
+            "context": {},
+            "toggleName": "Feature.A",
+            "expectedResult": true
+        },
+        {
+            "description": "Feature.B should be disabled",
+            "context": {},
+            "toggleName": "Feature.B",
+            "expectedResult": false
+        },
+        {
+            "description": "Unknown feature toggle should be disabled",
+            "context": {},
+            "toggleName": "Feature.C",
+            "expectedResult": false
+        }
+    ]
+}
+
