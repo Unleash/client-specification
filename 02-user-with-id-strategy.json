@@ -1,4 +1,5 @@
 {
+    "name": "02-user-with-id-strategy",
     "state": {
         "version": 1,
         "features": [
