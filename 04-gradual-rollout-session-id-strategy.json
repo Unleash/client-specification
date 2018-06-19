@@ -1,15 +1,15 @@
 {
-  "name": "03-gradual-rollout-user-id-strategy",
+  "name": "04-gradual-rollout-session-id-strategy",
   "state": {
     "version": 1,
     "features": [
       {
-        "name": "Feature.A3",
+        "name": "Feature.A4",
         "description": "Enabled toggle for 100%",
         "enabled": true,
         "strategies": [
           {
-            "name": "gradualRolloutUserId",
+            "name": "gradualRolloutSessionId",
             "parameters": {
               "percentage": "100",
               "groupId": "AB12A"
@@ -18,12 +18,12 @@
         ]
       },
       {
-        "name": "Feature.B3",
+        "name": "Feature.B4",
         "description": "Enabled toggle for 50%",
         "enabled": true,
         "strategies": [
           {
-            "name": "gradualRolloutUserId",
+            "name": "gradualRolloutSessionId",
             "parameters": {
               "percentage": "50",
               "groupId": "AB12A"
@@ -32,11 +32,11 @@
         ]
       },
       {
-        "name": "Feature.C3",
+        "name": "Feature.C4",
         "enabled": true,
         "strategies": [
           {
-            "name": "gradualRolloutUserId",
+            "name": "gradualRolloutSessionId",
             "parameters": {
               "percentage": "0",
               "groupId": "AB12A"
@@ -45,11 +45,11 @@
         ]
       },
       {
-        "name": "Feature.D3",
+        "name": "Feature.D4",
         "enabled": true,
         "strategies": [
           {
-            "name": "gradualRolloutUserId",
+            "name": "gradualRolloutSessionId",
             "parameters": {
               "percentage": "0",
               "groupId": "AB12A"
@@ -64,47 +64,47 @@
   },
   "tests": [
     {
-      "description": "Feature.A3 should be enabled for user on context",
+      "description": "Feature.A4 should be enabled for user on context",
       "context": {
-        "userId": "123"
+        "sessionId": "123"
       },
-      "toggleName": "Feature.A3",
+      "toggleName": "Feature.A4",
       "expectedResult": true
     },
     {
-      "description": "Feature.A3 should be disabled when no user on context",
+      "description": "Feature.A4 should be disabled when no user on context",
       "context": {},
-      "toggleName": "Feature.A3",
+      "toggleName": "Feature.A4",
       "expectedResult": false
     },
     {
-      "description": "Feature.B3 should be enabled for userId=122",
+      "description": "Feature.B4 should be enabled for sessionId=122",
       "context": {
-        "userId": "122"
+        "sessionId": "122"
       },
-      "toggleName": "Feature.B3",
+      "toggleName": "Feature.B4",
       "expectedResult": true
     },
     {
-      "description": "Feature.B3 should be disabled for userId=155",
+      "description": "Feature.B4 should be disabled for sessionId=155",
       "context": {
-        "userId": "155"
+        "sessionId": "155"
       },
-      "toggleName": "Feature.B3",
+      "toggleName": "Feature.B4",
       "expectedResult": false
     },
     {
-      "description": "Feature.C3 should be disabled",
+      "description": "Feature.C4 should be disabled",
       "context": {
-        "userId": "122"
+        "sessionId": "122"
       },
-      "toggleName": "Feature.C3",
+      "toggleName": "Feature.C4",
       "expectedResult": false
     },
     {
-      "description": "Feature.D3 should be enabled for all because of default strategy",
+      "description": "Feature.D4 should be enabled for all because of default strategy",
       "context": {},
-      "toggleName": "Feature.D3",
+      "toggleName": "Feature.D4",
       "expectedResult": true
     }
   ]
