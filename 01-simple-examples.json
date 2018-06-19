@@ -18,6 +18,11 @@
                 "strategies": [{
                     "name": "default"
                 }]
+            },
+            {
+                "name": "Feature.C",
+                "enabled": false,
+                "strategies": []
             }
         ]
     },
@@ -35,9 +40,15 @@
             "expectedResult": false
         },
         {
-            "description": "Unknown feature toggle should be disabled",
+            "description": "Feature.C should be enabled when strategy missing",
             "context": {},
             "toggleName": "Feature.C",
+            "expectedResult": true
+        },
+        {
+            "description": "Unknown feature toggle should be disabled",
+            "context": {},
+            "toggleName": "Unknown",
             "expectedResult": false
         }
     ]
