@@ -82,7 +82,7 @@
       "description": "Feature.D5 should be disabled",
       "context": {},
       "toggleName": "Feature.D5",
-      "expectedResult": true
+      "expectedResult": false
     }
   ]
 }
