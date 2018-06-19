@@ -1,4 +1,5 @@
 [
   "01-simple-examples.json",
-  "02-user-with-id-strategy.json"
+  "02-user-with-id-strategy.json",
+  "03-gradual-rollout-user-id-strategy.json"
 ]
