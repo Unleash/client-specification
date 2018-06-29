@@ -3,5 +3,7 @@
   "02-user-with-id-strategy.json",
   "03-gradual-rollout-user-id-strategy.json",
   "04-gradual-rollout-session-id-strategy.json",
-  "05-gradual-rollout-random-strategy.json"
+  "05-gradual-rollout-random-strategy.json",
+  "06-remote-address-strategy.json",
+  "07-multiple-strategies.json"
 ]
