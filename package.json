@@ -16,7 +16,7 @@
     "url": "https://github.com/Unleash/client-specification/issues"
   },
   "homepage": "https://github.com/Unleash/client-specification#readme",
-  "dependencies": {
+  "devDependencies": {
     "chalk": "^2.4.1",
     "joi": "^13.4.0"
   }
