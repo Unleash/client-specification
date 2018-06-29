@@ -3,8 +3,7 @@
   "version": "0.0.2",
   "description": "A collection of test specifications to guide client implementations in various langugages",
   "scripts": {
-    "test": "node index",
-    "install": "node index"
+    "test": "node index"
   },
   "repository": {
     "type": "git",
