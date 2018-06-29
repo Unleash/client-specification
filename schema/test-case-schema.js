@@ -10,6 +10,7 @@ const schema = Joi.object().keys({
             context: Joi.object().keys({
                 userId: Joi.string(),
                 sessionId: Joi.string(),
+                remoteAddress: Joi.string(),
             }),
             toggleName: Joi.string().required(),
             expectedResult: Joi.boolean().required(),
