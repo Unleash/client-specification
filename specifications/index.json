@@ -5,5 +5,6 @@
   "04-gradual-rollout-session-id-strategy.json",
   "05-gradual-rollout-random-strategy.json",
   "06-remote-address-strategy.json",
-  "07-multiple-strategies.json"
+  "07-multiple-strategies.json",
+  "10-grouped-strategies.json"
 ]

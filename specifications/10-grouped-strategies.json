@@ -1,0 +1,166 @@
+{
+  "name": "10-grouped-strategies",
+  "state": {
+    "version": 1,
+    "features": [
+      {
+        "name": "Feature.grouped.simple",
+        "description": "lorem ipsum",
+        "enabled": true,
+        "strategies": [{
+          "name": "__internal-strategy-group",
+          "operator": "AND",
+          "group": [{
+            "name": "default",
+            "parameters": {}
+          },
+            {
+              "name": "gradualRolloutRandom",
+              "parameters": {
+                "percentage": "100"
+              }
+            }
+          ]
+        }
+        ]
+      },
+      {
+        "name": "Feature.grouped.double",
+        "description": "lorem ipsum",
+        "enabled": true,
+        "strategies": [{
+          "name": "__internal-strategy-group",
+          "operator": "AND",
+          "group": [{
+            "name": "default",
+            "parameters": {}
+          },
+            {
+              "name": "gradualRolloutRandom",
+              "parameters": {
+                "percentage": "0"
+              }
+            }
+          ]
+        },
+          {
+            "name": "__internal-strategy-group",
+            "operator": "OR",
+            "group": [{
+              "name": "userWithId",
+              "parameters": {
+                "userIds": "123"
+              }
+            },
+              {
+                "name": "gradualRolloutRandom",
+                "parameters": {
+                  "percentage": "0"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Feature.grouped.and.enabled",
+        "description": "lorem ipsum",
+        "enabled": true,
+        "strategies": [{
+          "name": "__internal-strategy-group",
+          "operator": "AND",
+          "group": [{
+            "name": "default",
+            "parameters": {}
+          },
+            {
+              "name": "gradualRolloutRandom",
+              "parameters": {
+                "percentage": "0"
+              }
+            }
+          ]
+        },
+          {
+            "name": "__internal-strategy-group",
+            "operator": "OR",
+            "group": [{
+              "name": "default",
+              "parameters": {}
+            },
+              {
+                "name": "gradualRolloutRandom",
+                "parameters": {
+                  "percentage": "100"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Feature.grouped.or",
+        "description": "lorem ipsum",
+        "enabled": true,
+        "strategies": [{
+          "name": "__internal-strategy-group",
+          "operator": "OR",
+          "group": [
+            {
+              "name": "gradualRolloutRandom",
+              "parameters": {
+                "percentage": "0"
+              }
+            },
+            {
+              "name": "gradualRolloutUserId",
+              "parameters": {
+                "percentage": "0"
+              }
+            },
+            {
+              "name": "default",
+              "parameters": {}
+            }
+          ]
+        }
+        ]
+      }
+    ]
+  },
+  "tests": [
+    {
+      "description": "Feature.grouped.simple should be enabled",
+      "context": {},
+      "toggleName": "Feature.grouped.simple",
+      "expectedResult": true
+    },
+    {
+      "description": "Feature.grouped.double should not be enabled for empty userId",
+      "context": {},
+      "toggleName": "Feature.grouped.double",
+      "expectedResult": false
+    },
+    {
+      "description": "Feature.grouped.double should be enabled for userId=123",
+      "context": {
+        "userId": "123"
+      },
+      "toggleName": "Feature.grouped.double",
+      "expectedResult": true
+    },
+    {
+      "description": "Feature.grouped.and.enabled should be enabled",
+      "context": {},
+      "toggleName": "Feature.grouped.and.enabled",
+      "expectedResult": true
+    },
+    {
+      "description": "Feature.grouped.or should be enabled",
+      "context": {},
+      "toggleName": "Feature.grouped.or",
+      "expectedResult": true
+    }
+  ]
+}
+
