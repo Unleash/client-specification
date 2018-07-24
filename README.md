@@ -7,7 +7,7 @@ This project tries to define the expected results of certain predefined set of f
 
 
 ### Test structure
-All the tests are located in the [/specifications]('./specifications') folder. 
+All the tests are located in the [/specifications](specifications) folder. 
 
 There is an entry point for all the tests, which will include a list of all the defined specification test cases, [/specifications/index.json](https://github.com/Unleash/client-specification/blob/master/specifications/index.json). Clients should parse this entry-point in order to discover all specifications to run. 
 
