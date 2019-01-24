@@ -19,7 +19,8 @@ There is an entry point for all the tests, which will include a list of all the 
   "04-gradual-rollout-session-id-strategy.json",
   "05-gradual-rollout-random-strategy.json",
   "06-remote-address-strategy.json",
-  "07-multiple-strategies.json"
+  "07-multiple-strategies.json",
+  "08-variants.json"
 ]
 ```
 

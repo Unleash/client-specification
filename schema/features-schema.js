@@ -15,6 +15,16 @@ const schema = Joi.object().keys({
                     parameters: Joi.object(),
                 })
             ),
+            variants: Joi.array().items(
+                Joi.object().keys({
+                    name: Joi.string().required(),
+                    payload: Joi.object().required().keys({
+                        type: Joi.string().required(),
+                        value: Joi.string().required().allow(""),
+                    }),
+                    weight: Joi.number().min(0).max(100000),
+                })
+            )
         })
     ),
 });
