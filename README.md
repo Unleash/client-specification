@@ -41,8 +41,8 @@ A Test Specifications will have the following shape:
             "expectedResult": false
         }
     ],
-    "variantTests: [
-      {
+    "variantTests": [
+        {
             "description": "Feature with variants",
             "context": {
                 "userId": "1234"
