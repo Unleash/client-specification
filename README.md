@@ -40,6 +40,23 @@ A Test Specifications will have the following shape:
             "toggleName": "Unknown.Toggle",
             "expectedResult": false
         }
+    ],
+    "variantTests: [
+      {
+            "description": "Feature with variants",
+            "context": {
+                "userId": "1234"
+            },
+            "toggleName": "Feature.Variants",
+            "expectedResult": {
+                "name": "variant",
+                "payload": {
+                    "type": "string",
+                    "value": "value"
+                },
+                "enabled": true
+            }
+        },
     ]
 }
 ``` 
@@ -48,8 +65,13 @@ Fields description:
 
 - **name** - The name of the specification
 - **state** - The list of toggles comming from the unleash-server. Would be the same response as the client will see when requesting `http://unleash-apu/client/features`. The state will be used for all test cases in this specification. 
-- **tests** - The list of tests cases to run. 
+- **tests** - The list of `isEnabled` tests cases to run. 
   - **description** - Describes what this test case is testing. Suitable to output as the error message if the test case fails. 
   - **context** - The [unleash context](https://github.com/Unleash/unleash/blob/master/docs/unleash-context.md) the client should setup. 
   - **toggleName** - The toggle name to send in to the `isEnabled` call in this test case. 
   - **expectedResult** - The expected result of the `isEnabled` call with the given `toggleName`. 
+- **variantTests** - The list of `getVariant` tests cases to run. 
+  - **description** - Describes what this test case is testing. Suitable to output as the error message if the test case fails. 
+  - **context** - The [unleash context](https://github.com/Unleash/unleash/blob/master/docs/unleash-context.md) the client should setup. 
+  - **toggleName** - The toggle name to send in to the `isEnabled` call in this test case. 
+  - **expectedResult** - The expected result of the `getVariant` call with the given `toggleName`. 
