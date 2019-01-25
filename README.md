@@ -56,7 +56,7 @@ A Test Specifications will have the following shape:
                 },
                 "enabled": true
             }
-        },
+        }
     ]
 }
 ``` 
