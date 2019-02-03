@@ -111,6 +111,42 @@
                         }
                     }
                 ]
+            },
+            {
+                "name": "Feature.Variants.override.D",
+                "description": "",
+                "enabled": true,
+                "strategies": [],
+                "variants": [
+                    {
+                        "name": "variant1",
+                        "weight": 33,
+                        "payload": {
+                            "type": "string",
+                            "value": "val1"
+                        },
+                        "overrides": [{
+                            "field": "userId",
+                            "values": ["132", "61"]
+                        }]
+                    },
+                    {
+                        "name": "variant2",
+                        "weight": 33,
+                        "payload": {
+                            "type": "string",
+                            "value": "val2"
+                        }
+                    },
+                    {
+                        "name": "variant3",
+                        "weight": 34,
+                        "payload": {
+                            "type": "string",
+                            "value": "val3"
+                        }
+                    }
+                ]
             }
         ]
     },
@@ -255,6 +291,51 @@
                 "payload": {
                     "type": "string",
                     "value": "val3"
+                },
+                "enabled": true
+            }
+        },
+        {
+            "description": "Feature.Variants.override.D should return variant1 for user 132",
+            "context": {
+                "userId": "132"
+            },
+            "toggleName": "Feature.Variants.override.D",
+            "expectedResult": {
+                "name": "variant1",
+                "payload": {
+                    "type": "string",
+                    "value": "val1"
+                },
+                "enabled": true
+            }
+        },
+        {
+            "description": "Feature.Variants.override.D should return variant1 for user 61",
+            "context": {
+                "userId": "61"
+            },
+            "toggleName": "Feature.Variants.override.D",
+            "expectedResult": {
+                "name": "variant1",
+                "payload": {
+                    "type": "string",
+                    "value": "val1"
+                },
+                "enabled": true
+            }
+        },
+        {
+            "description": "Feature.Variants.override.D should return variant2 for user 82",
+            "context": {
+                "userId": "82"
+            },
+            "toggleName": "Feature.Variants.override.D",
+            "expectedResult": {
+                "name": "variant2",
+                "payload": {
+                    "type": "string",
+                    "value": "val2"
                 },
                 "enabled": true
             }
