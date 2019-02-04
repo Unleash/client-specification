@@ -126,7 +126,7 @@
                             "value": "val1"
                         },
                         "overrides": [{
-                            "field": "userId",
+                            "contextName": "userId",
                             "values": ["132", "61"]
                         }]
                     },
