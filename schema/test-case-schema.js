@@ -23,7 +23,7 @@ const schema = Joi.object().keys({
                 payload: Joi.object().required().keys({
                     type: Joi.string().required(),
                     value: Joi.string().required().allow(""),
-                }),
+                }).optional(),
                 enabled: Joi.boolean().required()
             }),
         })

@@ -50,7 +50,7 @@
             },
             {
                 "name": "Feature.Variants.C",
-                "description": "",
+                "description": "Testing three variants",
                 "enabled": true,
                 "strategies": [],
                 "variants": [
@@ -82,7 +82,7 @@
             },
             {
                 "name": "Feature.Variants.D",
-                "description": "",
+                "description": "Variants with payload",
                 "enabled": true,
                 "strategies": [],
                 "variants": [
@@ -114,7 +114,7 @@
             },
             {
                 "name": "Feature.Variants.override.D",
-                "description": "",
+                "description": "Variant with overrides",
                 "enabled": true,
                 "strategies": [],
                 "variants": [
