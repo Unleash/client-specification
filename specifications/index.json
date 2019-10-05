@@ -7,5 +7,6 @@
   "06-remote-address-strategy.json",
   "07-multiple-strategies.json",
   "08-variants.json",
-  "09-strategy-constraints.json"
+  "09-strategy-constraints.json",
+  "10-flexible-rollout-strategy.json"
 ]
