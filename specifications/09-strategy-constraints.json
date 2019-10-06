@@ -121,6 +121,25 @@
                         ]
                     }
                 ]
+            },
+            {
+                "name": "Feature.constraints.empty",
+                "description": "Always disabled for empty list of values",
+                "enabled": true,
+                "strategies": [
+                    {
+                        "name": "default",
+                        "parameters": {},
+                        "constraints": [
+                            {
+                                "contextName": "environment",
+                                "operator": "IN",
+                                "values": []
+
+                            }
+                        ]
+                    }
+                ]
             }
         ]
     },
@@ -217,7 +236,17 @@
             },
             "toggleName": "Feature.constraints.dual",
             "expectedResult": false
+        },
+        {
+            "description": "Feature.constraints.empty should always be disabled",
+            "context": {
+                "environment": "dev"
+            },
+            "toggleName": "Feature.constraints.empty",
+            "expectedResult": false
         }
+
+        
 
     ]
 }
