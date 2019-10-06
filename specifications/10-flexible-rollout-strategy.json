@@ -131,7 +131,7 @@
             "expectedResult": false
         },
         {
-            "description": "Feature.flexibleRollout.sessionId.42 should be disabled for sessionId=147",
+            "description": "Feature.flexibleRollout.sessionId.42 should be enabled for sessionId=147",
             "context": {
                 "sessionId": "147"
             },
