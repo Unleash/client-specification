@@ -125,7 +125,7 @@
             "expectedResult": false
         },
         {
-            "description": "Feature.flexibleRollout.userId.55 should be disabled",
+            "description": "Feature.flexibleRollout.userId.55 should be disabled if no userId in context",
             "context": {},
             "toggleName": "Feature.flexibleRollout.userId.55",
             "expectedResult": false
