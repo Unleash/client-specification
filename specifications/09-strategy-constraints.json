@@ -207,7 +207,9 @@
             "description": "Feature.constraints.custom should be enabled in prod for norway",
             "context": {
                 "environment": "prod",
-                "country": "norway"
+                "properties": {
+                    "country": "norway"
+                }
             },
             "toggleName": "Feature.constraints.custom",
             "expectedResult": true
@@ -216,7 +218,9 @@
             "description": "Feature.constraints.custom should NOT be enabled in prod for denmark",
             "context": {
                 "environment": "prod",
-                "country": "denmark"
+                "properties": {
+                    "country": "denmark"
+                }
             },
             "toggleName": "Feature.constraints.custom",
             "expectedResult": false
