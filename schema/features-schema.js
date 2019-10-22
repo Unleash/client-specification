@@ -13,6 +13,13 @@ const schema = Joi.object().keys({
                 Joi.object().keys({
                     name: Joi.string().required(),
                     parameters: Joi.object(),
+                    constraints: Joi.array().items(
+                        Joi.object().keys({
+                            contextName: Joi.string().required(),
+                            operator: Joi.string().required(),
+                            values: Joi.array().items(Joi.string())
+                        }).optional()
+                    ),
                 })
             ),
             variants: Joi.array().items(
