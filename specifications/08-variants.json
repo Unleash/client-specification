@@ -159,6 +159,7 @@
             "toggleName": "Feature.Variants.A",
             "expectedResult": {
                 "name": "variant1",
+                "weight": 1,
                 "payload": {
                     "type": "string",
                     "value": "val1"
@@ -183,6 +184,7 @@
             "toggleName": "Feature.Variants.B",
             "expectedResult": {
                 "name": "variant1",
+                "weight": 1,
                 "payload": {
                     "type": "string",
                     "value": "val1"
@@ -198,6 +200,7 @@
             "toggleName": "Feature.Variants.B",
             "expectedResult": {
                 "name": "variant2",
+                "weight": 1,
                 "payload": {
                     "type": "string",
                     "value": "val2"
@@ -213,6 +216,7 @@
             "toggleName": "Feature.Variants.C",
             "expectedResult": {
                 "name": "variant1",
+                "weight": 33,
                 "payload": {
                     "type": "string",
                     "value": "val1"
@@ -228,6 +232,7 @@
             "toggleName": "Feature.Variants.C",
             "expectedResult": {
                 "name": "variant2",
+                "weight": 33,
                 "payload": {
                     "type": "string",
                     "value": "val2"
@@ -243,6 +248,7 @@
             "toggleName": "Feature.Variants.C",
             "expectedResult": {
                 "name": "variant3",
+                "weight": 33,
                 "payload": {
                     "type": "string",
                     "value": "val3"
@@ -258,6 +264,7 @@
             "toggleName": "Feature.Variants.D",
             "expectedResult": {
                 "name": "variant1",
+                "weight": 1,
                 "payload": {
                     "type": "string",
                     "value": "val1"
@@ -273,6 +280,7 @@
             "toggleName": "Feature.Variants.D",
             "expectedResult": {
                 "name": "variant2",
+                "weight": 49,
                 "payload": {
                     "type": "string",
                     "value": "val2"
@@ -288,6 +296,7 @@
             "toggleName": "Feature.Variants.D",
             "expectedResult": {
                 "name": "variant3",
+                "weight": 50,
                 "payload": {
                     "type": "string",
                     "value": "val3"
@@ -303,6 +312,7 @@
             "toggleName": "Feature.Variants.override.D",
             "expectedResult": {
                 "name": "variant1",
+                "weight": 33,
                 "payload": {
                     "type": "string",
                     "value": "val1"
@@ -318,6 +328,7 @@
             "toggleName": "Feature.Variants.override.D",
             "expectedResult": {
                 "name": "variant1",
+                "weight": 33,
                 "payload": {
                     "type": "string",
                     "value": "val1"
@@ -333,6 +344,7 @@
             "toggleName": "Feature.Variants.override.D",
             "expectedResult": {
                 "name": "variant2",
+                "weight": 33,
                 "payload": {
                     "type": "string",
                     "value": "val2"
