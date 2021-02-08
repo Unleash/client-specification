@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/Unleash/client-specification.svg?branch=master)](https://travis-ci.org/Unleash/client-specification)
+![Build](https://github.com/Unleash/client-specification/workflows/Build/badge.svg)
 
 # Unleash Client Specifications
 Implementing a Unleash client for a specific platfrom can be a challenge in it's own. And we want the clients to follow specific platform and language conventions, but at the same time we want the clients to adhere to the unleash contract, and give predictable results across platforms. 
