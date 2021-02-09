@@ -184,8 +184,8 @@
             "context": {
                 "organization": "147"
             },
-            "toggleName": "Feature.flexibleRollout.0",
-            "expectedResult": false
+            "toggleName": "Feature.flexibleRollout.customStickiness.42",
+            "expectedResult": true
         }
     ]
 }
