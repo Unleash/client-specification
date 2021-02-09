@@ -82,6 +82,22 @@
                         "constraints": []
                     }
                 ]
+            },
+            {
+                "name": "Feature.flexibleRollout.customStickiness.42",
+                "description": "Should be enabled",
+                "enabled": true,
+                "strategies": [
+                    {
+                        "name": "flexibleRollout",
+                        "parameters": {
+                            "rollout": "42",
+                            "stickiness": "organization",
+                            "groupId": "Feature.flexibleRollout.customStickiness.42"
+                        },
+                        "constraints": []
+                    }
+                ]
             }
         ]
     },
@@ -155,10 +171,18 @@
             "expectedResult": true
         },
         {
-            "description": "Feature.flexibleRollout.0 should be disbaled for rollout=0",
+            "description": "Feature.flexibleRollout.0 should be disabled for rollout=0",
             "context": {
                 "sessionId": "147",
                 "userId": "12"
+            },
+            "toggleName": "Feature.flexibleRollout.0",
+            "expectedResult": false
+        },
+        {
+            "description": "Feature.flexibleRollout.customStickiness.42 should be enabled for organization=147",
+            "context": {
+                "organization": "147"
             },
             "toggleName": "Feature.flexibleRollout.0",
             "expectedResult": false

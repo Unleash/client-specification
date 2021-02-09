@@ -7,6 +7,6 @@ const schema = Joi.object().keys({
     environment: Joi.string(),
     appName: Joi.string(),
     properties: Joi.object().pattern(/\w+/, Joi.string()),
-})
+}).unknown(true)
 
 module.exports = schema;
