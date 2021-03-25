@@ -89,7 +89,7 @@
             "expectedResult": false
         },
         {
-            "description": "Feature.flexible.rollout.custom.stickiness_50 should not enabled without customField=402",
+            "description": "Feature.flexible.rollout.custom.stickiness_50 should not enabled for customField=402",
             "context": {
                 "customField": "402"
             },
