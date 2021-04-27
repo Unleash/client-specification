@@ -147,6 +147,27 @@
                         }
                     }
                 ]
+            },
+            {
+                "name": "Feature.Variants.E",
+                "description": "Enabled",
+                "enabled": false,
+                "strategies": [
+                    {
+                        "name": "default",
+                        "parameters": {}
+                    }
+                ],
+                "variants": [
+                    {
+                        "name": "variant1",
+                        "weight": 1,
+                        "payload": {
+                            "type": "string",
+                            "value": "val1"
+                        }
+                    }
+                ]
             }
         ]
     },
@@ -338,6 +359,17 @@
                     "value": "val2"
                 },
                 "enabled": true
+            }
+        },
+        {
+            "description": "Feature.Variants.E should be disabled",
+            "context": {
+                "userId": "0"
+            },
+            "toggleName": "Feature.Variants.E",
+            "expectedResult": {
+                "name": "disabled",
+                "enabled": false
             }
         }
     ]
