@@ -78,7 +78,7 @@
     "tests": [
         {
           "description": "Feature.flexible.rollout.custom.stickiness_100 should be enabled without field defined for 100%",
-          "context": {"customField": "any_value"},
+          "context": { "properties": {"customField": "any_value"}},
           "toggleName": "Feature.flexible.rollout.custom.stickiness_100",
           "expectedResult": true
         },
@@ -91,7 +91,7 @@
         {
             "description": "Feature.flexible.rollout.custom.stickiness_50 should not enabled for customField=402",
             "context": {
-                "customField": "402"
+                "properties": {"customField": "402"}
             },
             "toggleName": "Feature.flexible.rollout.custom.stickiness_50",
             "expectedResult": false
@@ -99,7 +99,7 @@
         {
             "description": "Feature.flexible.rollout.custom.stickiness_50 should be enabled for customField=388",
             "context": {
-                "customField": "388"
+                "properties": {"customField": "388"}
             },
             "toggleName": "Feature.flexible.rollout.custom.stickiness_50",
             "expectedResult": true
@@ -107,7 +107,7 @@
         {
             "description": "Feature.flexible.rollout.custom.stickiness_50 should be enabled for customField=39",
             "context": {
-                "customField": "39"
+                "properties": {"customField": "39"}
             },
             "toggleName": "Feature.flexible.rollout.custom.stickiness_50",
             "expectedResult": true
@@ -117,7 +117,7 @@
         {
             "description": "Feature.flexible.rollout.custom.stickiness_100 and customField=528 yields blue",
             "context": {
-                "customField": "528"
+                "properties": {"customField": "528"}
             },
             "toggleName": "Feature.flexible.rollout.custom.stickiness_100",
             "expectedResult": {
@@ -132,7 +132,7 @@
         {
             "description": "Feature.flexible.rollout.custom.stickiness_100 and customField=16 yields blue",
             "context": {
-                "customField": "16"
+                "properties": {"customField": "16"}
             },
             "toggleName": "Feature.flexible.rollout.custom.stickiness_100",
             "expectedResult": {
@@ -147,7 +147,7 @@
         {
             "description": "Feature.flexible.rollout.custom.stickiness_100 and customField=198 yields red",
             "context": {
-                "customField": "198"
+                "properties": {"customField": "198"}
             },
             "toggleName": "Feature.flexible.rollout.custom.stickiness_100",
             "expectedResult": {
@@ -162,7 +162,7 @@
         {
             "description": "Feature.flexible.rollout.custom.stickiness_100 and customField=43 yields green",
             "context": {
-                "customField": "43"
+                "properties": {"customField": "43"}
             },
             "toggleName": "Feature.flexible.rollout.custom.stickiness_100",
             "expectedResult": {
@@ -177,7 +177,7 @@
         {
             "description": "Feature.flexible.rollout.custom.stickiness_100 and customField=112 yields yellow",
             "context": {
-                "customField": "112"
+                "properties": {"customField": "112"}
             },
             "toggleName": "Feature.flexible.rollout.custom.stickiness_100",
             "expectedResult": {

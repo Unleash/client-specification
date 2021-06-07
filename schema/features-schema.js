@@ -30,6 +30,7 @@ const schema = Joi.object().keys({
                         value: Joi.string().required().allow(""),
                     }).optional(),
                     weight: Joi.number().min(0).max(100000),
+                    stickiness: Joi.string().optional(),
                     overrides: Joi.array().items(
                         Joi
                             .object()
