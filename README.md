@@ -65,7 +65,7 @@ A Test Specifications will have the following shape:
 Fields description:
 
 - **name** - The name of the specification
-- **state** - The list of toggles comming from the unleash-server. Would be the same response as the client will see when requesting `http://unleash-apu/client/features`. The state will be used for all test cases in this specification.
+- **state** - The list of toggles coming from the unleash-server. Would be the same response as the client will see when requesting `http://unleash-api/client/features`. The state will be used for all test cases in this specification.
 - **tests** - The list of `isEnabled` tests cases to run.
   - **description** - Describes what this test case is testing. Suitable to output as the error message if the test case fails.
   - **context** - The [unleash context](https://github.com/Unleash/unleash/blob/main/docs/unleash-context.md) the client should setup.
