@@ -6,11 +6,11 @@ const testCases = require('./specifications/index.json');
 
 testCases.forEach(name => {
     const testCase = require(`./specifications/${name}`);
-    Joi.validate(testCase, testCaseSchema, err => {
-        if (err) {
-            console.error(`${name} ${chalk.red('is not valid')}. \n`, err);
-        } else {
-            console.log(`${name} ${chalk.green('is valid')}`);
-        }
-    });
+    const { error, value } = testCaseSchema.validate(testCase)
+
+    if (error) {
+        console.error(`${name} ${chalk.red('is not valid')}. \n`, error);
+    } else {
+        console.log(`${name} ${chalk.green('is valid')}`);
+    }
 });
