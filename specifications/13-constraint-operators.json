@@ -153,6 +153,160 @@
                         ]
                     }
                 ]
+            },
+            {
+                "name": "F5.numGT",
+                "description": "contains",
+                "enabled": true,
+                "strategies": [
+                    {
+                        "name": "default",
+                        "parameters": {},
+                        "constraints": [
+                            {
+                                "contextName": "someValue",
+                                "operator": "NUM_GT",
+                                "value": 12
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "F5.numGTE",
+                "description": "contains",
+                "enabled": true,
+                "strategies": [
+                    {
+                        "name": "default",
+                        "parameters": {},
+                        "constraints": [
+                            {
+                                "contextName": "someValue",
+                                "operator": "NUM_GTE",
+                                "value": 12
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "F5.numLT",
+                "description": "contains",
+                "enabled": true,
+                "strategies": [
+                    {
+                        "name": "default",
+                        "parameters": {},
+                        "constraints": [
+                            {
+                                "contextName": "someValue",
+                                "operator": "NUM_LT",
+                                "value": 12
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "F5.numLTE",
+                "description": "contains",
+                "enabled": true,
+                "strategies": [
+                    {
+                        "name": "default",
+                        "parameters": {},
+                        "constraints": [
+                            {
+                                "contextName": "someValue",
+                                "operator": "NUM_LTE",
+                                "value": 12
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "F6.number-range",
+                "description": "range of numbers",
+                "enabled": true,
+                "strategies": [
+                    {
+                        "name": "default",
+                        "parameters": {},
+                        "constraints": [
+                            {
+                                "contextName": "someValue",
+                                "operator": "NUM_GT",
+                                "value": 12
+                            },
+                            {
+                                "contextName": "someValue",
+                                "operator": "NUM_LT",
+                                "value": 16
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "F7.dateAfter",
+                "description": "dates",
+                "enabled": true,
+                "strategies": [
+                    {
+                        "name": "default",
+                        "parameters": {},
+                        "constraints": [
+                            {
+                                "contextName": "date",
+                                "operator": "DATE_AFTER",
+                                "value": "2022-01-29T13:00:00.000Z"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "F7.dateBefore",
+                "description": "dates",
+                "enabled": true,
+                "strategies": [
+                    {
+                        "name": "default",
+                        "parameters": {},
+                        "constraints": [
+                            {
+                                "contextName": "date",
+                                "operator": "DATE_BEFORE",
+                                "value": "2022-01-29T13:00:00.000Z"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "F7.data-range",
+                "description": "dates",
+                "enabled": true,
+                "strategies": [
+                    {
+                        "name": "default",
+                        "parameters": {},
+                        "constraints": [
+                            {
+                                "contextName": "date",
+                                "operator": "DATE_AFTER",
+                                "value": "2022-01-22T13:00:00.000Z"
+                            },
+                            {
+                                "contextName": "date",
+                                "operator": "DATE_BEFORE",
+                                "value": "2022-01-29T13:00:00.000Z"
+                            }
+                        ]
+                    }
+                ]
             }
         ]
     },
@@ -296,6 +450,167 @@
             },
             "toggleName":  "F5.numEq.inverted",
             "expectedResult": true
+        },
+        {
+            "description": "F5.numGT should be true",
+            "context": {
+                "properties": {
+                    "someValue": "13"
+                }
+            },
+            "toggleName":  "F5.numGT",
+            "expectedResult": true
+        },
+        {
+            "description": "F5.numGT should be false",
+            "context": {
+                "properties": {
+                    "someValue": "12"
+                }
+            },
+            "toggleName":  "F5.numGT",
+            "expectedResult": false
+        },
+        {
+            "description": "F5.numGTE should be true when equal",
+            "context": {
+                "properties": {
+                    "someValue": "12"
+                }
+            },
+            "toggleName":  "F5.numGTE",
+            "expectedResult": true
+        },
+        {
+            "description": "F5.numGTE should be true when larger",
+            "context": {
+                "properties": {
+                    "someValue": "13"
+                }
+            },
+            "toggleName":  "F5.numGTE",
+            "expectedResult": true
+        },
+        {
+            "description": "F5.numGTE should be false when lower",
+            "context": {
+                "properties": {
+                    "someValue": "11"
+                }
+            },
+            "toggleName":  "F5.numGTE",
+            "expectedResult": false
+        },
+        {
+            "description": "F5.numLTE should be false when higher",
+            "context": {
+                "properties": {
+                    "someValue": "13"
+                }
+            },
+            "toggleName":  "F5.numLTE",
+            "expectedResult": false
+        },
+        {
+            "description": "F5.numLTE should be true when equal",
+            "context": {
+                "properties": {
+                    "someValue": "12"
+                }
+            },
+            "toggleName":  "F5.numLTE",
+            "expectedResult": true
+        },
+        {
+            "description": "F5.numLTE should be true when lower",
+            "context": {
+                "properties": {
+                    "someValue": "0"
+                }
+            },
+            "toggleName":  "F5.numLTE",
+            "expectedResult": true
+        },
+        {
+            "description": "F5.numLT should be true when lower",
+            "context": {
+                "properties": {
+                    "someValue": "0"
+                }
+            },
+            "toggleName":  "F5.numLT",
+            "expectedResult": true
+        },
+        {
+            "description": "F5.numLT should be false when equal",
+            "context": {
+                "properties": {
+                    "someValue": "12"
+                }
+            },
+            "toggleName":  "F5.numLT",
+            "expectedResult": false
+        },
+        {
+            "description": "F6.number-range should be false when not in range",
+            "context": {
+                "properties": {
+                    "someValue": "11"
+                }
+            },
+            "toggleName":  "F6.number-range",
+            "expectedResult": false
+        },
+        {
+            "description": "F6.number-range should be true when in range",
+            "context": {
+                "properties": {
+                    "someValue": "14"
+                }
+            },
+            "toggleName":  "F6.number-range",
+            "expectedResult": true
+        },
+        {
+            "description": "F7.dateAfter should be enabled",
+            "context": {
+                "currentTime": "2022-01-30T13:00:00.000Z"
+            },
+            "toggleName":  "F7.dateAfter",
+            "expectedResult": true
+        },
+        {
+            "description": "F7.dateAfter should be disabled",
+            "context": {
+                "currentTime": "2022-01-28T13:00:00.000Z"
+            },
+            "toggleName":  "F7.dateAfter",
+            "expectedResult": false
+        },
+        {
+            "description": "F7.dateBefore should be enabled",
+            "context": {
+                "currentTime": "2022-01-28T13:00:00.000Z"
+            },
+            "toggleName":  "F7.dateBefore",
+            "expectedResult": true
+        },
+        {
+            "description": "F7.dateBefore should be disabled",
+            "context": {
+                "currentTime": "2022-01-30T13:00:00.000Z"
+            },
+            "toggleName":  "F7.dateBefore",
+            "expectedResult": false
+        },
+        {
+            "description": "F7.data-range should be enabled",
+            "context": {
+                "currentTime": "2022-01-25T13:00:00.000Z"
+            },
+            "toggleName":  "F7.data-range",
+            "expectedResult": true
         }
+        
     ]
 }
