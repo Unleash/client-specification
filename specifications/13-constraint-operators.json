@@ -54,7 +54,25 @@
                                 "contextName": "email",
                                 "operator": "STR_ENDS_WITH",
                                 "values": ["@some-email.com"]
-
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "F3.endsWith.ignoringCase",
+                "description": "endsWith",
+                "enabled": true,
+                "strategies": [
+                    {
+                        "name": "default",
+                        "parameters": {},
+                        "constraints": [
+                            {
+                                "contextName": "email",
+                                "operator": "STR_ENDS_WITH",
+                                "values": ["@some-email.com"],
+                                "caseInsensitive": true
                             }
                         ]
                     }
@@ -74,6 +92,63 @@
                                 "operator": "STR_CONTAINS",
                                 "values": ["email"]
 
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "F4.contains.inverted",
+                "description": "contains",
+                "enabled": true,
+                "strategies": [
+                    {
+                        "name": "default",
+                        "parameters": {},
+                        "constraints": [
+                            {
+                                "contextName": "email",
+                                "operator": "STR_CONTAINS",
+                                "values": ["email"],
+                                "inverted": true
+
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "F5.numEq",
+                "description": "contains",
+                "enabled": true,
+                "strategies": [
+                    {
+                        "name": "default",
+                        "parameters": {},
+                        "constraints": [
+                            {
+                                "contextName": "someValue",
+                                "operator": "NUM_EQ",
+                                "value": 12
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "F5.numEq.inverted",
+                "description": "contains",
+                "enabled": true,
+                "strategies": [
+                    {
+                        "name": "default",
+                        "parameters": {},
+                        "constraints": [
+                            {
+                                "contextName": "someValue",
+                                "operator": "NUM_EQ",
+                                "value": 12,
+                                "inverted": true
                             }
                         ]
                     }
@@ -133,6 +208,26 @@
             "expectedResult": true
         },
         {
+            "description": "F3.endsWith should be disabled when casing is incorrect",
+            "context": {
+                "properties": {
+                    "email": "@some-EMAIL.com"
+                }
+            },
+            "toggleName": "F3.endsWith",
+            "expectedResult": false
+        },
+        {
+            "description": "F3.endsWith.ignoringCase should be enabled",
+            "context": {
+                "properties": {
+                    "email": "@SOME-EMAIL.com"
+                }
+            },
+            "toggleName": "F3.endsWith.ignoringCase",
+            "expectedResult": true
+        },
+        {
             "description": "F3.endsWith should be disabled",
             "context": {
                 "properties": {
@@ -161,6 +256,46 @@
             },
             "toggleName": "F4.contains",
             "expectedResult": false
+        },
+        {
+            "description": "F4.contains.inverted should be enabled",
+            "context": {
+                "properties": {
+                    "email": "@another.com"
+                }
+            },
+            "toggleName": "F4.contains.inverted",
+            "expectedResult": true
+        },
+        {
+            "description": "F5.numEq",
+            "context": {
+                "properties": {
+                    "someValue": "12"
+                }
+            },
+            "toggleName":  "F5.numEq",
+            "expectedResult": true
+        },
+        {
+            "description": "F5.numEq.inverted should be false",
+            "context": {
+                "properties": {
+                    "someValue": "12"
+                }
+            },
+            "toggleName":  "F5.numEq.inverted",
+            "expectedResult": false
+        },
+        {
+            "description": "F5.numEq.inverted should be true",
+            "context": {
+                "properties": {
+                    "someValue": "13"
+                }
+            },
+            "toggleName":  "F5.numEq.inverted",
+            "expectedResult": true
         }
     ]
 }
