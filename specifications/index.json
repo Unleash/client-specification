@@ -10,5 +10,6 @@
   "09-strategy-constraints.json",
   "10-flexible-rollout-strategy.json",
   "11-strategy-constraints-edge-cases.json",
-  "12-custom-stickiness.json"
+  "12-custom-stickiness.json",
+  "13-constraint-operators.json"
 ]

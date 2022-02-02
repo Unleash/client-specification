@@ -1,0 +1,166 @@
+{
+    "name": "13-constraint-operators.json",
+    "state": {
+        "version": 1,
+        "features": [
+            {
+                "name": "F1.startsWith",
+                "description": "startsWith",
+                "enabled": true,
+                "strategies": [
+                    {
+                        "name": "default",
+                        "parameters": {},
+                        "constraints": [
+                            {
+                                "contextName": "customField",
+                                "operator": "STR_STARTS_WITH",
+                                "values": ["some-string"]
+
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "F2.startsWith.multiple",
+                "description": "endsWith",
+                "enabled": true,
+                "strategies": [
+                    {
+                        "name": "default",
+                        "parameters": {},
+                        "constraints": [
+                            {
+                                "contextName": "customField",
+                                "operator": "STR_STARTS_WITH",
+                                "values": ["e1", "e2"]
+
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "F3.endsWith",
+                "description": "endsWith",
+                "enabled": true,
+                "strategies": [
+                    {
+                        "name": "default",
+                        "parameters": {},
+                        "constraints": [
+                            {
+                                "contextName": "email",
+                                "operator": "STR_ENDS_WITH",
+                                "values": ["@some-email.com"]
+
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "F4.contains",
+                "description": "contains",
+                "enabled": true,
+                "strategies": [
+                    {
+                        "name": "default",
+                        "parameters": {},
+                        "constraints": [
+                            {
+                                "contextName": "email",
+                                "operator": "STR_CONTAINS",
+                                "values": ["email"]
+
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "tests": [
+        {
+          "description": "F1.startsWith should be enabled",
+          "context": {
+              "properties": {
+                  "customField": "some-string-is-cool"
+              }
+          },
+          "toggleName": "F1.startsWith",
+          "expectedResult": true
+        },
+        {
+            "description": "F1.startsWith should be disabled",
+            "context": {
+                "properties": {
+                    "customField": "some2-is-cool-string"
+                }
+            },
+            "toggleName": "F1.startsWith",
+            "expectedResult": false
+        },
+        {
+            "description": "F2.startsWith.multiple should be enabled",
+            "context": {
+                "properties": {
+                    "customField": "e2 cool"
+                }
+            },
+            "toggleName": "F2.startsWith.multiple",
+            "expectedResult": true
+        },
+        {
+            "description": "F2.startsWith.multiple should be disabled",
+            "context": {
+                "properties": {
+                    "customField": "cool e1"
+                }
+            },
+            "toggleName": "F2.startsWith.multiple",
+            "expectedResult": false
+        },
+        {
+            "description": "F3.endsWith should be enabled",
+            "context": {
+                "properties": {
+                    "email": "@some-email.com"
+                }
+            },
+            "toggleName": "F3.endsWith",
+            "expectedResult": true
+        },
+        {
+            "description": "F3.endsWith should be disabled",
+            "context": {
+                "properties": {
+                    "email": "@another-email.com"
+                }
+            },
+            "toggleName": "F3.endsWith",
+            "expectedResult": false
+        },
+        {
+            "description": "F4.contains should be enabled",
+            "context": {
+                "properties": {
+                    "email": "@some-email.com"
+                }
+            },
+            "toggleName": "F4.contains",
+            "expectedResult": true
+        },
+        {
+            "description": "F4.contains should be disabled",
+            "context": {
+                "properties": {
+                    "email": "@another.com"
+                }
+            },
+            "toggleName": "F4.contains",
+            "expectedResult": false
+        }
+    ]
+}
