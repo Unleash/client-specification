@@ -259,7 +259,7 @@
                         "parameters": {},
                         "constraints": [
                             {
-                                "contextName": "date",
+                                "contextName": "currentTime",
                                 "operator": "DATE_AFTER",
                                 "value": "2022-01-29T13:00:00.000Z"
                             }
@@ -277,7 +277,7 @@
                         "parameters": {},
                         "constraints": [
                             {
-                                "contextName": "date",
+                                "contextName": "currentTime",
                                 "operator": "DATE_BEFORE",
                                 "value": "2022-01-29T13:00:00.000Z"
                             }
@@ -295,14 +295,68 @@
                         "parameters": {},
                         "constraints": [
                             {
-                                "contextName": "date",
+                                "contextName": "currentTime",
                                 "operator": "DATE_AFTER",
                                 "value": "2022-01-22T13:00:00.000Z"
                             },
                             {
-                                "contextName": "date",
+                                "contextName": "currentTime",
                                 "operator": "DATE_BEFORE",
                                 "value": "2022-01-29T13:00:00.000Z"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "F8.semverEQ",
+                "description": "semver",
+                "enabled": true,
+                "strategies": [
+                    {
+                        "name": "default",
+                        "parameters": {},
+                        "constraints": [
+                            {
+                                "contextName": "version",
+                                "operator": "SEMVER_EQ",
+                                "value": "1.2.2"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "F8.semverGT",
+                "description": "semver",
+                "enabled": true,
+                "strategies": [
+                    {
+                        "name": "default",
+                        "parameters": {},
+                        "constraints": [
+                            {
+                                "contextName": "version",
+                                "operator": "SEMVER_GT",
+                                "value": "1.2.2"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "F8.semverLT",
+                "description": "semver",
+                "enabled": true,
+                "strategies": [
+                    {
+                        "name": "default",
+                        "parameters": {},
+                        "constraints": [
+                            {
+                                "contextName": "version",
+                                "operator": "SEMVER_LT",
+                                "value": "1.2.2"
                             }
                         ]
                     }
@@ -610,7 +664,66 @@
             },
             "toggleName":  "F7.data-range",
             "expectedResult": true
+        },
+        {
+            "description": "F8.semverEQ should be enabled",
+            "context": {
+                "properties": {
+                    "version": "1.2.2"
+                }
+            },
+            "toggleName":  "F8.semverEQ",
+            "expectedResult": true
+        },
+        {
+            "description": "F8.semverEQ should be disabled",
+            "context": {
+                "properties": {
+                    "version": "1.2.0"
+                }
+            },
+            "toggleName":  "F8.semverEQ",
+            "expectedResult": false
+        },
+        {
+            "description": "F8.semverGT should be enabled",
+            "context": {
+                "properties": {
+                    "version": "1.2.3"
+                }
+            },
+            "toggleName":  "F8.semverGT",
+            "expectedResult": true
+        },
+        {
+            "description": "F8.semverGT should be disabled",
+            "context": {
+                "properties": {
+                    "version": "1.2.0"
+                }
+            },
+            "toggleName":  "F8.semverGT",
+            "expectedResult": false
+        },
+        {
+            "description": "F8.semverLT should be enabled",
+            "context": {
+                "properties": {
+                    "version": "1.2.1"
+                }
+            },
+            "toggleName":  "F8.semverLT",
+            "expectedResult": true
+        },
+        {
+            "description": "F8.semverLT should be disabled",
+            "context": {
+                "properties": {
+                    "version": "1.2.3"
+                }
+            },
+            "toggleName":  "F8.semverLT",
+            "expectedResult": false
         }
-        
     ]
 }
