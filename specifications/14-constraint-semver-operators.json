@@ -76,6 +76,24 @@
                 ]
             },
             {
+                "name": "F8.semverAlphaLT",
+                "description": "semver",
+                "enabled": true,
+                "strategies": [
+                    {
+                        "name": "default",
+                        "parameters": {},
+                        "constraints": [
+                            {
+                                "contextName": "version",
+                                "operator": "SEMVER_LT",
+                                "value": "2.0.0-alpha.1"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
                 "name": "F8.semverAlphaVersioning",
                 "description": "semver",
                 "enabled": true,
@@ -220,6 +238,16 @@
                 }
             },
             "toggleName": "F8.semverAlphaLT",
+            "expectedResult": false
+        },
+        {
+            "description": "F8.semverAlphaLT is greater than old beta",
+            "context": {
+                "properties": {
+                    "version": "1.9.1-beta.1"
+                }
+            },
+            "toggleName": "F8.semverAlphaLT",
             "expectedResult": true
         },
         {
@@ -263,34 +291,34 @@
             "expectedResult": true
         }, 
         {
-            "description": "F8.releaseCandidate - rc is greater than alpha",
+            "description": "F8.releaseCandidate - alpha is not greater than rc",
             "context": {
                 "properties": {
                     "version": "2.0.0-alpha.1"
                 }
             },
             "toggleName": "F8.releaseCandidate",
-            "expectedResult": true
+            "expectedResult": false
         }, 
         {
-            "description": "F8.releaseCandidate - rc is greater than beta",
+            "description": "F8.releaseCandidate - beta is not greater tha rc",
             "context": {
                 "properties": {
                     "version": "2.0.0-beta.1"
                 }
             },
             "toggleName": "F8.releaseCandidate",
-            "expectedResult": true
+            "expectedResult": false
         }, 
         {
-            "description": "F8.releaseCandidate - rc is less than release",
+            "description": "F8.releaseCandidate - release is greater than rc",
             "context": {
                 "properties": {
                     "version": "2.0.0"
                 }
             },
             "toggleName": "F8.releaseCandidate",
-            "expectedResult": false
+            "expectedResult": true
         }
     ]
 }
