@@ -20,7 +20,7 @@ const schema = Joi.object().keys({
                             values: Joi.array().items(Joi.string()),
                             caseInsensitive: Joi.bool().optional(),
                             inverted: Joi.bool().optional(),
-                            value: Joi.alternatives().try(Joi.string(), Joi.number()).optional()
+                            value: Joi.string().optional()
                         }).optional()
                     ),
                 })

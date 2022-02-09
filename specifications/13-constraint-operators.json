@@ -129,7 +129,7 @@
                             {
                                 "contextName": "someValue",
                                 "operator": "NUM_EQ",
-                                "value": 12
+                                "value": "12"
                             }
                         ]
                     }
@@ -147,7 +147,7 @@
                             {
                                 "contextName": "someValue",
                                 "operator": "NUM_EQ",
-                                "value": 12,
+                                "value": "12",
                                 "inverted": true
                             }
                         ]
@@ -166,7 +166,7 @@
                             {
                                 "contextName": "someValue",
                                 "operator": "NUM_GT",
-                                "value": 12
+                                "value": "12"
                             }
                         ]
                     }
@@ -184,7 +184,7 @@
                             {
                                 "contextName": "someValue",
                                 "operator": "NUM_GTE",
-                                "value": 12
+                                "value": "12"
                             }
                         ]
                     }
@@ -202,7 +202,7 @@
                             {
                                 "contextName": "someValue",
                                 "operator": "NUM_LT",
-                                "value": 12
+                                "value": "12"
                             }
                         ]
                     }
@@ -220,7 +220,7 @@
                             {
                                 "contextName": "someValue",
                                 "operator": "NUM_LTE",
-                                "value": 12
+                                "value": "12"
                             }
                         ]
                     }
@@ -238,12 +238,12 @@
                             {
                                 "contextName": "someValue",
                                 "operator": "NUM_GT",
-                                "value": 12
+                                "value": "12"
                             },
                             {
                                 "contextName": "someValue",
                                 "operator": "NUM_LT",
-                                "value": 16
+                                "value": "16"
                             }
                         ]
                     }
