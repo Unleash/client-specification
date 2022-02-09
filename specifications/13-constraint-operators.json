@@ -136,6 +136,24 @@
                 ]
             },
             {
+                "name": "F5.numEq.float",
+                "description": "contains",
+                "enabled": true,
+                "strategies": [
+                    {
+                        "name": "default",
+                        "parameters": {},
+                        "constraints": [
+                            {
+                                "contextName": "someValue",
+                                "operator": "NUM_EQ",
+                                "value": "12.0"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
                 "name": "F5.numEq.inverted",
                 "description": "contains",
                 "enabled": true,
@@ -286,7 +304,7 @@
                 ]
             },
             {
-                "name": "F7.data-range",
+                "name": "F7.date-range",
                 "description": "dates",
                 "enabled": true,
                 "strategies": [
@@ -307,61 +325,8 @@
                         ]
                     }
                 ]
-            },
-            {
-                "name": "F8.semverEQ",
-                "description": "semver",
-                "enabled": true,
-                "strategies": [
-                    {
-                        "name": "default",
-                        "parameters": {},
-                        "constraints": [
-                            {
-                                "contextName": "version",
-                                "operator": "SEMVER_EQ",
-                                "value": "1.2.2"
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "name": "F8.semverGT",
-                "description": "semver",
-                "enabled": true,
-                "strategies": [
-                    {
-                        "name": "default",
-                        "parameters": {},
-                        "constraints": [
-                            {
-                                "contextName": "version",
-                                "operator": "SEMVER_GT",
-                                "value": "1.2.2"
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "name": "F8.semverLT",
-                "description": "semver",
-                "enabled": true,
-                "strategies": [
-                    {
-                        "name": "default",
-                        "parameters": {},
-                        "constraints": [
-                            {
-                                "contextName": "version",
-                                "operator": "SEMVER_LT",
-                                "value": "1.2.2"
-                            }
-                        ]
-                    }
-                ]
             }
+
         ]
     },
     "tests": [
@@ -486,6 +451,16 @@
             "expectedResult": true
         },
         {
+            "description": "F5.numEq works for floats",
+            "context": {
+                "properties": {
+                    "someValue": "12.0"
+                }
+            },
+            "toggleName":  "F5.numEq",
+            "expectedResult": true
+        },
+        {
             "description": "F5.numEq.inverted should be false",
             "context": {
                 "properties": {
@@ -494,6 +469,26 @@
             },
             "toggleName":  "F5.numEq.inverted",
             "expectedResult": false
+        },
+        {
+            "description": "F5.numEq.float works for floats",
+            "context": {
+                "properties": {
+                    "someValue": "12.0"
+                }
+            },
+            "toggleName":  "F5.numEq.float",
+            "expectedResult": true
+        },
+        {
+            "description": "F5.numEq.float works for integers",
+            "context": {
+                "properties": {
+                    "someValue": "12"
+                }
+            },
+            "toggleName":  "F5.numEq.float",
+            "expectedResult": true
         },
         {
             "description": "F5.numEq.inverted should be true",
@@ -605,6 +600,7 @@
             "toggleName":  "F5.numLT",
             "expectedResult": false
         },
+        
         {
             "description": "F6.number-range should be false when not in range",
             "context": {
@@ -642,6 +638,14 @@
             "expectedResult": false
         },
         {
+            "description": "F7.dateAfter is exclusive of date parameter",
+            "context": {
+                "currentTime": "2022-01-29T13:00:00.000Z"
+            },
+            "toggleName":  "F7.dateAfter",
+            "expectedResult": false
+        },
+        {
             "description": "F7.dateBefore should be enabled",
             "context": {
                 "currentTime": "2022-01-28T13:00:00.000Z"
@@ -658,72 +662,24 @@
             "expectedResult": false
         },
         {
-            "description": "F7.data-range should be enabled",
+            "description": "F7.dateBefore is exclusive of date parameter",
+            "context": {
+                "currentTime": "2022-01-29T13:00:00.000Z"
+            },
+            "toggleName":  "F7.dateBefore",
+            "expectedResult": false
+        },
+
+        {
+            "description": "F7.date-range should be enabled",
             "context": {
                 "currentTime": "2022-01-25T13:00:00.000Z"
             },
-            "toggleName":  "F7.data-range",
+            "toggleName":  "F7.date-range",
             "expectedResult": true
-        },
-        {
-            "description": "F8.semverEQ should be enabled",
-            "context": {
-                "properties": {
-                    "version": "1.2.2"
-                }
-            },
-            "toggleName":  "F8.semverEQ",
-            "expectedResult": true
-        },
-        {
-            "description": "F8.semverEQ should be disabled",
-            "context": {
-                "properties": {
-                    "version": "1.2.0"
-                }
-            },
-            "toggleName":  "F8.semverEQ",
-            "expectedResult": false
-        },
-        {
-            "description": "F8.semverGT should be enabled",
-            "context": {
-                "properties": {
-                    "version": "1.2.3"
-                }
-            },
-            "toggleName":  "F8.semverGT",
-            "expectedResult": true
-        },
-        {
-            "description": "F8.semverGT should be disabled",
-            "context": {
-                "properties": {
-                    "version": "1.2.0"
-                }
-            },
-            "toggleName":  "F8.semverGT",
-            "expectedResult": false
-        },
-        {
-            "description": "F8.semverLT should be enabled",
-            "context": {
-                "properties": {
-                    "version": "1.2.1"
-                }
-            },
-            "toggleName":  "F8.semverLT",
-            "expectedResult": true
-        },
-        {
-            "description": "F8.semverLT should be disabled",
-            "context": {
-                "properties": {
-                    "version": "1.2.3"
-                }
-            },
-            "toggleName":  "F8.semverLT",
-            "expectedResult": false
         }
+       
+
+
     ]
 }
