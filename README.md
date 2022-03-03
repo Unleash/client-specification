@@ -21,7 +21,12 @@ There is an entry point for all the tests, which will include a list of all the 
   "06-remote-address-strategy.json",
   "07-multiple-strategies.json",
   "08-variants.json",
-  "09-strategy-constraints.json"
+  "09-strategy-constraints.json",
+  "10-flexible-rollout-strategy.json",
+  "11-strategy-constraints-edge-cases.json",
+  "12-custom-stickiness.json",
+  "13-constraint-operators.json",
+  "14-constraint-semver-operators.json"
 ]
 ```
 
