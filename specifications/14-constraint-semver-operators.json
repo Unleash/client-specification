@@ -146,6 +146,24 @@
                         ]
                     }
                 ]
+            },
+            {
+                "name": "F8.invalidSemverWithLeadingV",
+                "description": "semver",
+                "enabled": true,
+                "strategies": [
+                    {
+                        "name": "default",
+                        "parameters": {},
+                        "constraints": [
+                            {
+                                "contextName": "version",
+                                "operator": "SEMVER_EQ",
+                                "value": "v2.0.0"
+                            }
+                        ]
+                    }
+                ]
             }
         ]
     },
@@ -289,7 +307,7 @@
             },
             "toggleName": "F8.alphaUnnumbered",
             "expectedResult": true
-        }, 
+        },
         {
             "description": "F8.releaseCandidate - alpha is not greater than rc",
             "context": {
@@ -299,7 +317,7 @@
             },
             "toggleName": "F8.releaseCandidate",
             "expectedResult": false
-        }, 
+        },
         {
             "description": "F8.releaseCandidate - beta is not greater tha rc",
             "context": {
@@ -309,7 +327,7 @@
             },
             "toggleName": "F8.releaseCandidate",
             "expectedResult": false
-        }, 
+        },
         {
             "description": "F8.releaseCandidate - release is greater than rc",
             "context": {
@@ -319,6 +337,26 @@
             },
             "toggleName": "F8.releaseCandidate",
             "expectedResult": true
+        },
+        {
+            "description": "F8.invalidSemverWithLeadingV - invalid semver resolves to false",
+            "context": {
+                "properties": {
+                    "version": "v2.0.0"
+                }
+            },
+            "toggleName": "F8.invalidSemverWithLeadingV",
+            "expectedResult": false
+        },
+        {
+            "description": "F8.invalidSemverWithLeadingV - broken semver resolves to false",
+            "context": {
+                "properties": {
+                    "version": "not a semver"
+                }
+            },
+            "toggleName": "F8.invalidSemverWithLeadingV",
+            "expectedResult": false
         }
     ]
 }

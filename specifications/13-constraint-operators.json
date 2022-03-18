@@ -325,6 +325,47 @@
                         ]
                     }
                 ]
+            },
+            {
+                "name": "F7.date-with-timezone",
+                "description": "dates",
+                "enabled": true,
+                "strategies": [
+                    {
+                        "name": "default",
+                        "parameters": {},
+                        "constraints": [
+                            {
+                                "contextName": "currentTime",
+                                "operator": "DATE_AFTER",
+                                "value": "2022-01-22T13:00:00.000+02:00"
+                            },
+                            {
+                                "contextName": "currentTime",
+                                "operator": "DATE_BEFORE",
+                                "value": "2022-01-22T14:00:00.000+02:00"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "F7.invalid-operator",
+                "description": "invalid",
+                "enabled": true,
+                "strategies": [
+                    {
+                        "name": "default",
+                        "parameters": {},
+                        "constraints": [
+                            {
+                                "contextName": "customField",
+                                "operator": "NOT_A_VALID_OPERATOR",
+                                "value": "2022-01-22T13:00:00.000Z"
+                            }
+                        ]
+                    }
+                ]
             }
 
         ]
@@ -600,7 +641,6 @@
             "toggleName":  "F5.numLT",
             "expectedResult": false
         },
-        
         {
             "description": "F6.number-range should be false when not in range",
             "context": {
@@ -669,7 +709,6 @@
             "toggleName":  "F7.dateBefore",
             "expectedResult": false
         },
-
         {
             "description": "F7.date-range should be enabled",
             "context": {
@@ -677,9 +716,24 @@
             },
             "toggleName":  "F7.date-range",
             "expectedResult": true
+        },
+        {
+            "description": "F7.date-with-timezone should respect timezone",
+            "context": {
+                "currentTime": "2022-01-22T11:30:00.000Z"
+            },
+            "toggleName": "F7.date-with-timezone",
+            "expectedResult": true
+        },
+        {
+            "description": "F7.invalid-operator should always return false",
+            "context": {
+                "properties": {
+                    "someValue": "12"
+                }
+            },
+            "toggleName":  "F7.invalid-operator",
+            "expectedResult": false
         }
-       
-
-
     ]
 }
