@@ -1,0 +1,134 @@
+{
+  "name": "14-constraint-semver-operators",
+  "state": {
+    "version": 2,
+    "features": [
+      {
+        "name": "F9.globalSegmentOn",
+        "description": "With global segment referencing constraint in on state",
+        "enabled": true,
+        "strategies": [
+          {
+            "name": "default",
+            "parameters": {},
+            "segments": [1]
+          }
+        ]
+      },
+      {
+        "name": "F9.globalSegmentOff",
+        "description": "With global segment referencing constraint in off state",
+        "enabled": true,
+        "strategies": [
+          {
+            "name": "default",
+            "parameters": {},
+            "segments": [2]
+          }
+        ]
+      },
+      {
+        "name": "F9.globalSegmentAndConstraint",
+        "description": "With global segment and constraint both on",
+        "enabled": true,
+        "strategies": [
+          {
+            "name": "default",
+            "parameters": {},
+            "constraints": [
+              {
+                "contextName": "version",
+                "operator": "SEMVER_EQ",
+                "value": "1.2.2"
+              }
+            ],
+            "segments": [1]
+          }
+        ]
+      },
+      {
+        "name": "F9.withMissingSegment",
+        "description": "With global segment that doesn't exist",
+        "enabled": true,
+        "strategies": [
+          {
+            "name": "default",
+            "parameters": {},
+            "constraints": [
+              {
+                "contextName": "version",
+                "operator": "SEMVER_EQ",
+                "value": "1.2.2"
+              }
+            ],
+            "segments": [3]
+          }
+        ]
+      }
+    ],
+    "segments": [
+      {
+        "id": 1,
+        "constraints": [
+          {
+            "contextName": "version",
+            "operator": "SEMVER_EQ",
+            "value": "1.2.2"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "constraints": [
+          {
+            "contextName": "version",
+            "operator": "SEMVER_EQ",
+            "value": "3.1.4"
+          }
+        ]
+      }
+    ]
+  },
+  "tests": [
+    {
+      "description": "F9.globalSegmentOn should be enabled",
+      "context": {
+        "properties": {
+          "version": "1.2.2"
+        }
+      },
+      "toggleName": "F9.globalSegmentOn",
+      "expectedResult": true
+    },
+    {
+      "description": "F9.globalSegmentOff should be disabled",
+      "context": {
+        "properties": {
+          "version": "3.2.2"
+        }
+      },
+      "toggleName": "F9.globalSegmentOff",
+      "expectedResult": false
+    },
+    {
+      "description": "F9.globalSegmentAndConstraint should be enabled",
+      "context": {
+        "properties": {
+          "version": "1.2.2"
+        }
+      },
+      "toggleName": "F9.globalSegmentAndConstraint",
+      "expectedResult": true
+    },
+    {
+      "description": "F9.withMissingSegment should force evaluation to false",
+      "context": {
+        "properties": {
+          "version": "1.2.2"
+        }
+      },
+      "toggleName": "F9.withMissingSegment",
+      "expectedResult": false
+    }
+  ]
+}
