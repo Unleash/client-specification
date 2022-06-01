@@ -64,6 +64,30 @@
             "segments": [3]
           }
         ]
+      },
+      {
+        "name": "F9.withSeveralConstraintsAndSegments",
+        "description": "With several segments and constraints",
+        "enabled": true,
+        "strategies": [
+          {
+            "name": "default",
+            "parameters": {},
+            "constraints": [
+              {
+                "contextName": "customNumber",
+                "operator": "NUM_LT",
+                "value": "10"
+              },
+              {
+                "contextName": "version",
+                "operator": "SEMVER_LT",
+                "value": "3.2.2"
+              }
+            ],
+            "segments": [1, 4, 5]
+          }
+        ]
       }
     ],
     "segments": [
@@ -84,6 +108,36 @@
             "contextName": "version",
             "operator": "SEMVER_EQ",
             "value": "3.1.4"
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "constraints": [
+          {
+            "contextName": "version",
+            "operator": "SEMVER_EQ",
+            "value": "3.1.4"
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "constraints": [
+          {
+            "contextName": "customName",
+            "operator": "STR_CONTAINS",
+            "values": ["Pi"]
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "constraints": [
+          {
+            "contextName": "slicesLeft",
+            "operator": "NUM_LTE",
+            "value": "4"
           }
         ]
       }
@@ -129,6 +183,19 @@
       },
       "toggleName": "F9.withMissingSegment",
       "expectedResult": false
+    },
+    {
+      "description": "F9.withSeveralConstraintsAndSegments should be enabled",
+      "context": {
+        "properties": {
+          "version": "1.2.2",
+          "customNumber": "3.14",
+          "customName": "Pie",
+          "slicesLeft": "4"
+        }
+      },
+      "toggleName": "F9.withSeveralConstraintsAndSegments",
+      "expectedResult": true
     }
   ]
 }
