@@ -12,5 +12,6 @@
   "11-strategy-constraints-edge-cases.json",
   "12-custom-stickiness.json",
   "13-constraint-operators.json",
-  "14-constraint-semver-operators.json"
+  "14-constraint-semver-operators.json",
+  "15-global-constraints.json"
 ]
