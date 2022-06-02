@@ -10,6 +10,7 @@ testCases.forEach(name => {
 
     if (error) {
         console.error(`${name} ${chalk.red('is not valid')}. \n`, error);
+        process.exitCode(1);
     } else {
         console.log(`${name} ${chalk.green('is valid')}`);
     }
