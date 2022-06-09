@@ -27,6 +27,7 @@ There is an entry point for all the tests, which will include a list of all the 
   "12-custom-stickiness.json",
   "13-constraint-operators.json",
   "14-constraint-semver-operators.json"
+  "15-global-constraints.json"
 ]
 ```
 
