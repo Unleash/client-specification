@@ -7,7 +7,7 @@ const schema = Joi.object().keys({
     currentTime: Joi.string().optional(),
     environment: Joi.string().optional(),
     appName: Joi.string(),
-    properties: Joi.object().pattern(/\w+/, Joi.string()),
+    properties: Joi.object().pattern(/\w+/, Joi.string().allow(null)),
 })
 
 module.exports = schema;
