@@ -366,6 +366,42 @@
                         ]
                     }
                 ]
+            },
+            {
+                "name": "F8.missing-field.IN",
+                "description": "missing field",
+                "enabled": true,
+                "strategies": [
+                    {
+                        "name": "default",
+                        "parameters": {},
+                        "constraints": [
+                            {
+                                "contextName": "customFieldMissing",
+                                "operator": "IN",
+                                "values": ["s1"]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "F8.missing-field.NOT_IN",
+                "description": "missing field",
+                "enabled": true,
+                "strategies": [
+                    {
+                        "name": "default",
+                        "parameters": {},
+                        "constraints": [
+                            {
+                                "contextName": "customFieldMissing",
+                                "operator": "NOT_IN",
+                                "values": ["s1"]
+                            }
+                        ]
+                    }
+                ]
             }
 
         ]
@@ -734,6 +770,38 @@
             },
             "toggleName":  "F7.invalid-operator",
             "expectedResult": false
+        },
+        {
+            "description": "F8.missing-field.IN should return false",
+            "context": {},
+            "toggleName":  "F8.missing-field.IN",
+            "expectedResult": false
+        },
+        {
+            "description": "F8.missing-field.IN should return true when present",
+            "context": {
+                "properties": {
+                    "customFieldMissing": "s1"
+                }
+            },
+            "toggleName":  "F8.missing-field.IN",
+            "expectedResult": true
+        },
+        {
+            "description": "F8.missing-field.NOT_IN should return true",
+            "context": {},
+            "toggleName":  "F8.missing-field.NOT_IN",
+            "expectedResult": true
+        },
+        {
+            "description": "F8.missing-field.NOT_IN should return true when null",
+            "context": {
+                "properties": {
+                    "customFieldMissing": null
+                }
+            },
+            "toggleName":  "F8.missing-field.NOT_IN",
+            "expectedResult": true
         }
     ]
 }
