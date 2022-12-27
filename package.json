@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/Unleash/client-specification#readme",
   "devDependencies": {
-    "chalk": "4.1.2",
+    "chalk": "5.2.0",
     "joi": "17.7.0",
     "murmurhash3js": "3.0.1"
   }
