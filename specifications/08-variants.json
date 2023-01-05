@@ -168,6 +168,18 @@
                         }
                     }
                 ]
+            },
+            {
+                "name": "Feature.Variants.F",
+                "description": "Empty variants",
+                "enabled": true,
+                "strategies": [
+                    {
+                        "name": "default",
+                        "parameters": {}
+                    }
+                ],
+                "variants": []
             }
         ]
     },
@@ -367,6 +379,17 @@
                 "userId": "0"
             },
             "toggleName": "Feature.Variants.E",
+            "expectedResult": {
+                "name": "disabled",
+                "enabled": false
+            }
+        },
+        {
+            "description": "Feature.Variants.F should be disabled when variants are empty",
+            "context": {
+                "userId": "0"
+            },
+            "toggleName": "Feature.Variants.F",
             "expectedResult": {
                 "name": "disabled",
                 "enabled": false
