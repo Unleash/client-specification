@@ -53,7 +53,7 @@
                             {
                                 "contextName": "email",
                                 "operator": "STR_ENDS_WITH",
-                                "values": ["@some-email.com"]
+                                "values": ["some-email.com"]
                             }
                         ]
                     }
@@ -71,7 +71,7 @@
                             {
                                 "contextName": "email",
                                 "operator": "STR_ENDS_WITH",
-                                "values": ["@some-email.com"],
+                                "values": ["some-email.com"],
                                 "caseInsensitive": true
                             }
                         ]
