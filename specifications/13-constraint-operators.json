@@ -451,7 +451,7 @@
             "description": "F3.endsWith should be enabled",
             "context": {
                 "properties": {
-                    "email": "@some-email.com"
+                    "email": "test@some-email.com"
                 }
             },
             "toggleName": "F3.endsWith",
@@ -461,7 +461,7 @@
             "description": "F3.endsWith should be disabled when casing is incorrect",
             "context": {
                 "properties": {
-                    "email": "@some-EMAIL.com"
+                    "email": "test@some-EMAIL.com"
                 }
             },
             "toggleName": "F3.endsWith",
@@ -471,7 +471,7 @@
             "description": "F3.endsWith.ignoringCase should be enabled",
             "context": {
                 "properties": {
-                    "email": "@SOME-EMAIL.com"
+                    "email": "test@SOME-EMAIL.com"
                 }
             },
             "toggleName": "F3.endsWith.ignoringCase",
@@ -481,7 +481,7 @@
             "description": "F3.endsWith should be disabled",
             "context": {
                 "properties": {
-                    "email": "@another-email.com"
+                    "email": "test@another-email.com"
                 }
             },
             "toggleName": "F3.endsWith",
@@ -491,7 +491,7 @@
             "description": "F4.contains should be enabled",
             "context": {
                 "properties": {
-                    "email": "@some-email.com"
+                    "email": "test@some-email.com"
                 }
             },
             "toggleName": "F4.contains",
@@ -501,7 +501,7 @@
             "description": "F4.contains should be disabled",
             "context": {
                 "properties": {
-                    "email": "@another.com"
+                    "email": "test@another.com"
                 }
             },
             "toggleName": "F4.contains",
@@ -511,7 +511,7 @@
             "description": "F4.contains.inverted should be enabled",
             "context": {
                 "properties": {
-                    "email": "@another.com"
+                    "email": "test@another.com"
                 }
             },
             "toggleName": "F4.contains.inverted",
