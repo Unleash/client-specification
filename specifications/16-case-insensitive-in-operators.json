@@ -5,7 +5,7 @@
     "features": [
       {
         "name": "F9.globalSegmentAndConstraint_IN",
-        "description": "With global segment and constraint both on",
+        "description": "IN operator with case insensitive on",
         "enabled": true,
         "strategies": [
           {
@@ -18,17 +18,17 @@
                 "caseInsensitive": true,
                 "inverted": false,
                 "values": [
-                  "app"
+                  "app", "app2-ios-[v1]"
                 ]
               }
             ],
-            "segments": [1]
+            "segments": []
           }
         ]
       },
       {
         "name": "F9.globalSegmentAndConstraint_IN_inverted",
-        "description": "With global segment and constraint both on",
+        "description": "IN operator with case insensitive and inverted on",
         "enabled": true,
         "strategies": [
           {
@@ -41,17 +41,17 @@
                 "caseInsensitive": true,
                 "inverted": true,
                 "values": [
-                  "app"
+                  "app", "app2-ios-[v1]"
                 ]
               }
             ],
-            "segments": [2]
+            "segments": []
           }
         ]
       },
       {
         "name": "F9.globalSegmentAndConstraint_NOT_IN",
-        "description": "With global segment and constraint both on",
+        "description": "NOT_IN operator with case insensitive on",
         "enabled": true,
         "strategies": [
           {
@@ -64,17 +64,17 @@
                 "caseInsensitive": true,
                 "inverted": false,
                 "values": [
-                  "app"
+                  "app", "app2-ios-[v1]"
                 ]
               }
             ],
-            "segments": [3]
+            "segments": []
           }
         ]
       },
       {
         "name": "F9.globalSegmentAndConstraint_NOT_IN_inverted",
-        "description": "With global segment and constraint both on",
+        "description": "NOT_IN operator with case insensitive and inverted on",
         "enabled": true,
         "strategies": [
           {
@@ -87,73 +87,16 @@
                 "caseInsensitive": true,
                 "inverted": true,
                 "values": [
-                  "app"
+                  "app", "app2-ios-[v1]"
                 ]
               }
             ],
-            "segments": [4]
+            "segments": []
           }
         ]
       }
     ],
-    "segments": [
-      {
-        "id": 1,
-        "constraints": [
-          {
-            "contextName": "appName",
-            "operator": "IN",
-            "caseInsensitive": true,
-            "inverted": false,
-            "values": [
-              "app"
-            ]
-          }
-        ]
-      },
-      {
-        "id": 2,
-        "constraints": [
-          {
-            "contextName": "appName",
-            "operator": "IN",
-            "caseInsensitive": true,
-            "inverted": true,
-            "values": [
-              "app"
-            ]
-          }
-        ]
-      },
-      {
-        "id": 3,
-        "constraints": [
-          {
-            "contextName": "appName",
-            "operator": "NOT_IN",
-            "caseInsensitive": true,
-            "inverted": false,
-            "values": [
-              "app"
-            ]
-          }
-        ]
-      },
-      {
-        "id": 4,
-        "constraints": [
-          {
-            "contextName": "appName",
-            "operator": "NOT_IN",
-            "caseInsensitive": true,
-            "inverted": true,
-            "values": [
-              "app"
-            ]
-          }
-        ]
-      }
-    ]
+    "segments": []
   },
   "tests": [
     {
@@ -161,6 +104,16 @@
       "context": {
         "properties": {
           "appName": "App"
+        }
+      },
+      "toggleName": "F9.globalSegmentAndConstraint_IN",
+      "expectedResult": true
+    },
+    {
+      "description": "F9.globalSegmentAndConstraint_IN should be enabled with special characters",
+      "context": {
+        "properties": {
+          "appName": "App2-iOS-[v1]"
         }
       },
       "toggleName": "F9.globalSegmentAndConstraint_IN",
@@ -177,20 +130,30 @@
       "expectedResult": false
     },
     {
+      "description": "F9.globalSegmentAndConstraint_IN_inverted should handle special characters",
+      "context": {
+        "properties": {
+          "appName": "App2-iOS-[v1]"
+        }
+      },
+      "toggleName": "F9.globalSegmentAndConstraint_IN_inverted",
+      "expectedResult": false
+    },
+    {
       "description": "F9.globalSegmentAndConstraint_NOT_IN should be disabled",
       "context": {
         "properties": {
-          "appName": "App"
+          "appName": "APP"
         }
       },
       "toggleName": "F9.globalSegmentAndConstraint_NOT_IN",
-      "expectedResult": true
+      "expectedResult": false
     },
     {
-      "description": "F9.globalSegmentAndConstraint_NOT_IN_inverted should be enabled",
+      "description": "F9.globalSegmentAndConstraint_NOT_IN_inverted should be enabled and handle special characters",
       "context": {
         "properties": {
-          "appName": "App"
+          "appName": "APP2-IOS-[V1]"
         }
       },
       "toggleName": "F9.globalSegmentAndConstraint_NOT_IN_inverted",
