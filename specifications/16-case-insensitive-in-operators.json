@@ -4,7 +4,7 @@
     "version": 2,
     "features": [
       {
-        "name": "F9.globalSegmentAndConstraint_IN",
+        "name": "F9.caseInsensitiveIn",
         "description": "IN operator with case insensitive on",
         "enabled": true,
         "strategies": [
@@ -27,7 +27,7 @@
         ]
       },
       {
-        "name": "F9.globalSegmentAndConstraint_IN_inverted",
+        "name": "F9.caseInsensitiveInInverted",
         "description": "IN operator with case insensitive and inverted on",
         "enabled": true,
         "strategies": [
@@ -50,7 +50,7 @@
         ]
       },
       {
-        "name": "F9.globalSegmentAndConstraint_NOT_IN",
+        "name": "F9.caseInsensitiveNotIn",
         "description": "NOT_IN operator with case insensitive on",
         "enabled": true,
         "strategies": [
@@ -73,7 +73,7 @@
         ]
       },
       {
-        "name": "F9.globalSegmentAndConstraint_NOT_IN_inverted",
+        "name": "F9.caseInsensitiveNotInInverted",
         "description": "NOT_IN operator with case insensitive and inverted on",
         "enabled": true,
         "strategies": [
@@ -100,63 +100,63 @@
   },
   "tests": [
     {
-      "description": "F9.globalSegmentAndConstraint_IN should be enabled",
+      "description": "F9.caseInsensitiveIn should be enabled",
       "context": {
         "properties": {
           "appName": "App"
         }
       },
-      "toggleName": "F9.globalSegmentAndConstraint_IN",
+      "toggleName": "F9.caseInsensitiveIn",
       "expectedResult": true
     },
     {
-      "description": "F9.globalSegmentAndConstraint_IN should be enabled with special characters",
+      "description": "F9.caseInsensitiveIn should be enabled with special characters",
       "context": {
         "properties": {
           "appName": "App2-iOS-[v1]"
         }
       },
-      "toggleName": "F9.globalSegmentAndConstraint_IN",
+      "toggleName": "F9.caseInsensitiveIn",
       "expectedResult": true
     },
     {
-      "description": "F9.globalSegmentAndConstraint_IN_inverted should be disabled",
+      "description": "F9.caseInsensitiveInInverted should be disabled",
       "context": {
         "properties": {
           "appName": "App"
         }
       },
-      "toggleName": "F9.globalSegmentAndConstraint_IN_inverted",
+      "toggleName": "F9.caseInsensitiveInInverted",
       "expectedResult": false
     },
     {
-      "description": "F9.globalSegmentAndConstraint_IN_inverted should handle special characters",
+      "description": "F9.caseInsensitiveInInverted should handle special characters",
       "context": {
         "properties": {
           "appName": "App2-iOS-[v1]"
         }
       },
-      "toggleName": "F9.globalSegmentAndConstraint_IN_inverted",
+      "toggleName": "F9.caseInsensitiveInInverted",
       "expectedResult": false
     },
     {
-      "description": "F9.globalSegmentAndConstraint_NOT_IN should be disabled",
+      "description": "F9.caseInsensitiveNotIn should be disabled",
       "context": {
         "properties": {
           "appName": "APP"
         }
       },
-      "toggleName": "F9.globalSegmentAndConstraint_NOT_IN",
+      "toggleName": "F9.caseInsensitiveNotIn",
       "expectedResult": false
     },
     {
-      "description": "F9.globalSegmentAndConstraint_NOT_IN_inverted should be enabled and handle special characters",
+      "description": "F9.caseInsensitiveNotInInverted should be enabled and handle special characters",
       "context": {
         "properties": {
           "appName": "APP2-IOS-[V1]"
         }
       },
-      "toggleName": "F9.globalSegmentAndConstraint_NOT_IN_inverted",
+      "toggleName": "F9.caseInsensitiveNotInInverted",
       "expectedResult": true
     }
   ]
