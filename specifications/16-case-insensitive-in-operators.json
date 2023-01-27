@@ -1,0 +1,200 @@
+{
+  "name": "16-case-insensitive-in-operators",
+  "state": {
+    "version": 2,
+    "features": [
+      {
+        "name": "F9.globalSegmentAndConstraint_IN",
+        "description": "With global segment and constraint both on",
+        "enabled": true,
+        "strategies": [
+          {
+            "name": "default",
+            "parameters": {},
+            "constraints": [
+              {
+                "contextName": "appName",
+                "operator": "IN",
+                "caseInsensitive": true,
+                "inverted": false,
+                "values": [
+                  "app"
+                ]
+              }
+            ],
+            "segments": [1]
+          }
+        ]
+      },
+      {
+        "name": "F9.globalSegmentAndConstraint_IN_inverted",
+        "description": "With global segment and constraint both on",
+        "enabled": true,
+        "strategies": [
+          {
+            "name": "default",
+            "parameters": {},
+            "constraints": [
+              {
+                "contextName": "appName",
+                "operator": "IN",
+                "caseInsensitive": true,
+                "inverted": true,
+                "values": [
+                  "app"
+                ]
+              }
+            ],
+            "segments": [2]
+          }
+        ]
+      },
+      {
+        "name": "F9.globalSegmentAndConstraint_NOT_IN",
+        "description": "With global segment and constraint both on",
+        "enabled": true,
+        "strategies": [
+          {
+            "name": "default",
+            "parameters": {},
+            "constraints": [
+              {
+                "contextName": "appName",
+                "operator": "NOT_IN",
+                "caseInsensitive": true,
+                "inverted": false,
+                "values": [
+                  "app"
+                ]
+              }
+            ],
+            "segments": [3]
+          }
+        ]
+      },
+      {
+        "name": "F9.globalSegmentAndConstraint_NOT_IN_inverted",
+        "description": "With global segment and constraint both on",
+        "enabled": true,
+        "strategies": [
+          {
+            "name": "default",
+            "parameters": {},
+            "constraints": [
+              {
+                "contextName": "appName",
+                "operator": "NOT_IN",
+                "caseInsensitive": true,
+                "inverted": true,
+                "values": [
+                  "app"
+                ]
+              }
+            ],
+            "segments": [4]
+          }
+        ]
+      }
+    ],
+    "segments": [
+      {
+        "id": 1,
+        "constraints": [
+          {
+            "contextName": "appName",
+            "operator": "IN",
+            "caseInsensitive": true,
+            "inverted": false,
+            "values": [
+              "app"
+            ]
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "constraints": [
+          {
+            "contextName": "appName",
+            "operator": "IN",
+            "caseInsensitive": true,
+            "inverted": true,
+            "values": [
+              "app"
+            ]
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "constraints": [
+          {
+            "contextName": "appName",
+            "operator": "NOT_IN",
+            "caseInsensitive": true,
+            "inverted": false,
+            "values": [
+              "app"
+            ]
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "constraints": [
+          {
+            "contextName": "appName",
+            "operator": "NOT_IN",
+            "caseInsensitive": true,
+            "inverted": true,
+            "values": [
+              "app"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "tests": [
+    {
+      "description": "F9.globalSegmentAndConstraint_IN should be enabled",
+      "context": {
+        "properties": {
+          "appName": "App"
+        }
+      },
+      "toggleName": "F9.globalSegmentAndConstraint_IN",
+      "expectedResult": true
+    },
+    {
+      "description": "F9.globalSegmentAndConstraint_IN_inverted should be disabled",
+      "context": {
+        "properties": {
+          "appName": "App"
+        }
+      },
+      "toggleName": "F9.globalSegmentAndConstraint_IN_inverted",
+      "expectedResult": false
+    },
+    {
+      "description": "F9.globalSegmentAndConstraint_NOT_IN should be disabled",
+      "context": {
+        "properties": {
+          "appName": "App"
+        }
+      },
+      "toggleName": "F9.globalSegmentAndConstraint_NOT_IN",
+      "expectedResult": true
+    },
+    {
+      "description": "F9.globalSegmentAndConstraint_NOT_IN_inverted should be enabled",
+      "context": {
+        "properties": {
+          "appName": "App"
+        }
+      },
+      "toggleName": "F9.globalSegmentAndConstraint_NOT_IN_inverted",
+      "expectedResult": true
+    }
+  ]
+}
