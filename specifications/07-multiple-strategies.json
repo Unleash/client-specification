@@ -18,7 +18,9 @@
             "name": "default",
             "parameters": {}
           }
-        ]
+        ],
+        "impressionData": false,
+        "stale": false
       },
       {
         "name": "Feature.multiStrategies.B",
@@ -37,7 +39,9 @@
               "userIds": "123"
             }
           }
-        ]
+        ],
+        "impressionData": false,
+        "stale": false
       },
       {
         "name": "Feature.multiStrategies.C",
@@ -62,7 +66,9 @@
               "percentage": "0"
             }
           }
-        ]
+        ],
+        "impressionData": false,
+        "stale": false
       }
     ]
   },

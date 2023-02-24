@@ -24,7 +24,9 @@
             ],
             "segments": []
           }
-        ]
+        ],
+        "impressionData": false,
+        "stale": false
       },
       {
         "name": "F9.caseInsensitiveInInverted",
@@ -47,7 +49,9 @@
             ],
             "segments": []
           }
-        ]
+        ],
+        "impressionData": false,
+        "stale": false
       },
       {
         "name": "F9.caseInsensitiveNotIn",
@@ -70,7 +74,9 @@
             ],
             "segments": []
           }
-        ]
+        ],
+        "impressionData": false,
+        "stale": false
       },
       {
         "name": "F9.caseInsensitiveNotInInverted",
@@ -93,7 +99,9 @@
             ],
             "segments": []
           }
-        ]
+        ],
+        "impressionData": false,
+        "stale": false
       }
     ],
     "segments": []

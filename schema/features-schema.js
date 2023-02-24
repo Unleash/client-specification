@@ -45,7 +45,9 @@ const schema = Joi.object().keys({
                             .optional()
                     ),
                 })
-            )
+            ),
+            impressionData: Joi.boolean().optional(),
+            stale: Joi.boolean().optional()
         })
     ),
     segments: Joi.array().items(

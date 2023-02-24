@@ -14,7 +14,9 @@
               "percentage": "100"
             }
           }
-        ]
+        ],
+        "impressionData": false,
+        "stale": false
       },
       {
         "name": "Feature.B5",
@@ -27,7 +29,9 @@
               "percentage": "0"
             }
           }
-        ]
+        ],
+        "impressionData": false,
+        "stale": false
       },
       {
         "name": "Feature.C5",
@@ -42,7 +46,9 @@
           {
             "name": "default"
           }
-        ]
+        ],
+        "impressionData": false,
+        "stale": false
       },
       {
         "name": "Feature.D5",
@@ -55,7 +61,9 @@
               "percentage": "100"
             }
           }
-        ]
+        ],
+        "impressionData": false,
+        "stale": false
       }
     ]
   },

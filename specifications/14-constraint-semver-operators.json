@@ -19,7 +19,9 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "impressionData": false,
+                "stale": false
             },
             {
                 "name": "F8.semverGT",
@@ -37,7 +39,9 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "impressionData": false,
+                "stale": false
             },
             {
                 "name": "F8.semverLT",
@@ -55,7 +59,9 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "impressionData": false,
+                "stale": false
             },
             {
                 "name": "F8.semverAlphaGT",
@@ -73,7 +79,9 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "impressionData": false,
+                "stale": false
             },
             {
                 "name": "F8.semverAlphaLT",
@@ -91,7 +99,9 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "impressionData": false,
+                "stale": false
             },
             {
                 "name": "F8.semverAlphaVersioning",
@@ -109,7 +119,9 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "impressionData": false,
+                "stale": false
             },
             {
                 "name": "F8.alphaUnnumbered",
@@ -127,7 +139,9 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "impressionData": false,
+                "stale": false
             },
             {
                 "name": "F8.releaseCandidate",
@@ -145,7 +159,9 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "impressionData": false,
+                "stale": false
             },
             {
                 "name": "F8.invalidSemverWithLeadingV",
@@ -163,7 +179,9 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "impressionData": false,
+                "stale": false
             }
         ]
     },

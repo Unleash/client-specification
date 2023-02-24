@@ -14,7 +14,9 @@
               "userIds": "123"
             }
           }
-        ]
+        ],
+        "impressionData": false,
+        "stale": false
       },
       {
         "name": "Feature.B2",
@@ -27,7 +29,9 @@
               "userIds": "123"
             }
           }
-        ]
+        ],
+        "impressionData": false,
+        "stale": false
       },
       {
         "name": "Feature.C2",
@@ -42,7 +46,9 @@
           {
             "name": "default"
           }
-        ]
+        ],
+        "impressionData": false,
+        "stale": false
       },
       {
         "name": "Feature.D2",
@@ -54,7 +60,9 @@
               "userIds": "123, 222, 88"
             }
           }
-        ]
+        ],
+        "impressionData": false,
+        "stale": false
       }
     ]
   },

@@ -9,7 +9,9 @@
                 "enabled": true,
                 "strategies": [{
                     "name": "default"
-                }]
+                }],
+                "impressionData": false,
+                "stale": false
             },
             {
                 "name": "Feature.B",
@@ -17,12 +19,16 @@
                 "enabled": false,
                 "strategies": [{
                     "name": "default"
-                }]
+                }],
+                "impressionData": false,
+                "stale": false
             },
             {
                 "name": "Feature.C",
                 "enabled": true,
-                "strategies": []
+                "strategies": [],
+                "impressionData": false,
+                "stale": false
             }
         ]
     },

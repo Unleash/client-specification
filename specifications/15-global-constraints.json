@@ -13,7 +13,9 @@
             "parameters": {},
             "segments": [1]
           }
-        ]
+        ],
+        "impressionData": false,
+        "stale": false
       },
       {
         "name": "F9.globalSegmentOff",
@@ -25,7 +27,9 @@
             "parameters": {},
             "segments": [2]
           }
-        ]
+        ],
+        "impressionData": false,
+        "stale": false
       },
       {
         "name": "F9.globalSegmentAndConstraint",
@@ -44,7 +48,9 @@
             ],
             "segments": [1]
           }
-        ]
+        ],
+        "impressionData": false,
+        "stale": false
       },
       {
         "name": "F9.withMissingSegment",
@@ -63,7 +69,9 @@
             ],
             "segments": [404]
           }
-        ]
+        ],
+        "impressionData": false,
+        "stale": false
       },
       {
         "name": "F9.withSeveralConstraintsAndSegments",
@@ -87,7 +95,9 @@
             ],
             "segments": [1, 4, 5]
           }
-        ]
+        ],
+        "impressionData": false,
+        "stale": false
       }
     ],
     "segments": [

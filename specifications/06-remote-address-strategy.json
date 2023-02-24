@@ -14,7 +14,9 @@
               "IPs": "127.0.0.1"
             }
           }
-        ]
+        ],
+        "impressionData": false,
+        "stale": false
       },
       {
         "name": "Feature.remoteAddress.B",
@@ -27,7 +29,9 @@
               "IPs": "192.168.0.1, 192.168.0.2, 192.168.0.3"
             }
           }
-        ]
+        ],
+        "impressionData": false,
+        "stale": false
       }
       ,
       {
@@ -41,7 +45,9 @@
               "IPs": "192.168.0.1, 192.invalid, 192.168.0.2, 192.168.0.3"
             }
           }
-        ]
+        ],
+        "impressionData": false,
+        "stale": false
       }
     ]
   },

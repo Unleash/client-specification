@@ -55,7 +55,9 @@
                             "value": "val1"
                         }
                     }
-                ]
+                ],
+                "impressionData": false,
+                "stale": false
             },
             {
                 "name": "Feature.flexible.rollout.custom.stickiness_50",
@@ -71,7 +73,9 @@
                         },
                         "constraints": []
                     }
-                ]
+                ],
+                "impressionData": false,
+                "stale": false
             }
         ]
     },

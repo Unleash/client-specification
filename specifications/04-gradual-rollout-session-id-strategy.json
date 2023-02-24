@@ -15,7 +15,9 @@
               "groupId": "AB12A"
             }
           }
-        ]
+        ],
+        "impressionData": false,
+        "stale": false
       },
       {
         "name": "Feature.B4",
@@ -29,7 +31,9 @@
               "groupId": "AB12A"
             }
           }
-        ]
+        ],
+        "impressionData": false,
+        "stale": false
       },
       {
         "name": "Feature.C4",
@@ -42,7 +46,9 @@
               "groupId": "AB12A"
             }
           }
-        ]
+        ],
+        "impressionData": false,
+        "stale": false
       },
       {
         "name": "Feature.D4",
@@ -58,7 +64,9 @@
           {
             "name": "default"
           }
-        ]
+        ],
+        "impressionData": false,
+        "stale": false
       }
     ]
   },

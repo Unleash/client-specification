@@ -20,7 +20,9 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "impressionData": false,
+                "stale": false
             },
             {
                 "name": "Feature.constraints.list",
@@ -39,7 +41,9 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "impressionData": false,
+                "stale": false
             },
             {
                 "name": "Feature.constraints.multi",
@@ -70,7 +74,9 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "impressionData": false,
+                "stale": false
             },
             {
                 "name": "Feature.constraints.userWithId",
@@ -91,7 +97,9 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "impressionData": false,
+                "stale": false
             },
             {
                 "name": "Feature.constraints.custom",
@@ -116,7 +124,9 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "impressionData": false,
+                "stale": false
             },
             {
                 "name": "Feature.constraints.dual",
@@ -141,7 +151,9 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "impressionData": false,
+                "stale": false
             },
             {
                 "name": "Feature.constraints.empty",
@@ -160,7 +172,9 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "impressionData": false,
+                "stale": false
             },
             {
                 "name": "Feature.constraints.empty-not-in",
@@ -179,7 +193,9 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "impressionData": false,
+                "stale": false
             }
         ]
     },

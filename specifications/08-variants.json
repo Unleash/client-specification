@@ -22,7 +22,9 @@
                             "value": "val1"
                         }
                     }
-                ]
+                ],
+                "impressionData": false,
+                "stale": false
             },
             {
                 "name": "Feature.Variants.B",
@@ -46,7 +48,9 @@
                             "value": "val2"
                         }
                     }
-                ]
+                ],
+                "impressionData": false,
+                "stale": false
             },
             {
                 "name": "Feature.Variants.C",
@@ -78,7 +82,9 @@
                             "value": "val3"
                         }
                     }
-                ]
+                ],
+                "impressionData": false,
+                "stale": false
             },
             {
                 "name": "Feature.Variants.D",
@@ -110,7 +116,9 @@
                             "value": "val3"
                         }
                     }
-                ]
+                ],
+                "impressionData": false,
+                "stale": false
             },
             {
                 "name": "Feature.Variants.override.D",
@@ -146,7 +154,9 @@
                             "value": "val3"
                         }
                     }
-                ]
+                ],
+                "impressionData": false,
+                "stale": false
             },
             {
                 "name": "Feature.Variants.E",
@@ -167,7 +177,9 @@
                             "value": "val1"
                         }
                     }
-                ]
+                ],
+                "impressionData": false,
+                "stale": false
             },
             {
                 "name": "Feature.Variants.F",
@@ -179,7 +191,9 @@
                         "parameters": {}
                     }
                 ],
-                "variants": []
+                "variants": [],
+                "impressionData": false,
+                "stale": false
             }
         ]
     },

@@ -20,7 +20,9 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "impressionData": false,
+                "stale": false
             },
             {
                 "name": "Feature.constraints.no_values_NOT_IN",
@@ -39,7 +41,9 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "impressionData": false,
+                "stale": false
             },
             {
                 "name": "Feature.constraints.empty",
@@ -51,7 +55,9 @@
                         "parameters": {},
                         "constraints": []
                     }
-                ]
+                ],
+                "impressionData": false,
+                "stale": false
             }
         ]
     },
