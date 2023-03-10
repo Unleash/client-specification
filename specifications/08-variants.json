@@ -16,7 +16,7 @@
                 "variants": [
                     {
                         "name": "variant1",
-                        "weight": 1,
+                        "weight": 10,
                         "payload": {
                             "type": "string",
                             "value": "val1"
@@ -32,7 +32,7 @@
                 "variants": [
                     {
                         "name": "variant1",
-                        "weight": 1,
+                        "weight": 10,
                         "payload": {
                             "type": "string",
                             "value": "val1"
@@ -40,7 +40,7 @@
                     },
                     {
                         "name": "variant2",
-                        "weight": 1,
+                        "weight": 10,
                         "payload": {
                             "type": "string",
                             "value": "val2"
@@ -56,7 +56,7 @@
                 "variants": [
                     {
                         "name": "variant1",
-                        "weight": 33,
+                        "weight": 333,
                         "payload": {
                             "type": "string",
                             "value": "val1"
@@ -64,7 +64,7 @@
                     },
                     {
                         "name": "variant2",
-                        "weight": 33,
+                        "weight": 333,
                         "payload": {
                             "type": "string",
                             "value": "val2"
@@ -72,7 +72,7 @@
                     },
                     {
                         "name": "variant3",
-                        "weight": 33,
+                        "weight": 334,
                         "payload": {
                             "type": "string",
                             "value": "val3"
@@ -88,7 +88,7 @@
                 "variants": [
                     {
                         "name": "variant1",
-                        "weight": 1,
+                        "weight": 10,
                         "payload": {
                             "type": "string",
                             "value": "val1"
@@ -96,7 +96,7 @@
                     },
                     {
                         "name": "variant2",
-                        "weight": 49,
+                        "weight": 490,
                         "payload": {
                             "type": "string",
                             "value": "val2"
@@ -104,7 +104,7 @@
                     },
                     {
                         "name": "variant3",
-                        "weight": 50,
+                        "weight": 500,
                         "payload": {
                             "type": "string",
                             "value": "val3"
@@ -120,7 +120,7 @@
                 "variants": [
                     {
                         "name": "variant1",
-                        "weight": 33,
+                        "weight": 333,
                         "payload": {
                             "type": "string",
                             "value": "val1"
@@ -132,7 +132,7 @@
                     },
                     {
                         "name": "variant2",
-                        "weight": 33,
+                        "weight": 333,
                         "payload": {
                             "type": "string",
                             "value": "val2"
@@ -140,7 +140,7 @@
                     },
                     {
                         "name": "variant3",
-                        "weight": 34,
+                        "weight": 334,
                         "payload": {
                             "type": "string",
                             "value": "val3"

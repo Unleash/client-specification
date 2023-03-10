@@ -21,7 +21,7 @@
                 "variants": [
                     {
                         "name": "blue",
-                        "weight": 25,
+                        "weight": 250,
                         "stickiness": "customField",
                         "payload": {
                             "type": "string",
@@ -30,7 +30,7 @@
                     },
                     {
                         "name": "red",
-                        "weight": 25,
+                        "weight": 250,
                         "stickiness": "customField",
                         "payload": {
                             "type": "string",
@@ -39,7 +39,7 @@
                     },
                     {
                         "name": "green",
-                        "weight": 25,
+                        "weight": 250,
                         "stickiness": "customField",
                         "payload": {
                             "type": "string",
@@ -48,7 +48,7 @@
                     },
                     {
                         "name": "yellow",
-                        "weight": 25,
+                        "weight": 250,
                         "stickiness": "customField",
                         "payload": {
                             "type": "string",
