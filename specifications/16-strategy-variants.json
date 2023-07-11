@@ -1,0 +1,118 @@
+{
+  "name": "16-strategy-variants",
+  "state": {
+    "version": 1,
+    "features": [
+      {
+        "name": "Feature.strategy.variant.with.constraint",
+        "description": "Strategy variant based on constraint",
+        "enabled": true,
+        "strategies": [
+          {
+            "name": "flexibleRollout",
+            "parameters": {
+              "rollout": "100",
+              "stickiness": "default",
+              "groupId": "a",
+              "variant": {
+                "name": "variantName",
+                "payload": { "type": "string", "value": "variantValue" }
+              }
+            },
+            "constraints": [
+              {
+                "contextName": "environment",
+                "operator": "IN",
+                "values": ["dev"]
+
+              }
+            ]
+          }
+        ],
+        "variants": []
+      },
+      {
+        "name": "Feature.strategy.variant.overrides.feature.variant",
+        "description": "Strategy variant with feature variants",
+        "enabled": true,
+        "strategies": [
+          {
+            "name": "flexibleRollout",
+            "parameters": {
+              "rollout": "100",
+              "stickiness": "default",
+              "groupId": "a",
+              "variant": {
+                "name": "variantName",
+                "payload": { "type": "string", "value": "variantValue" }
+              }
+            },
+            "constraints": [
+              {
+                "contextName": "environment",
+                "operator": "IN",
+                "values": ["dev"]
+
+              }
+            ]
+          }
+        ],
+        "variants": [
+          {
+            "name": "featureVariant",
+            "weight": 1,
+            "payload": {
+              "type": "string",
+              "value": "willBeIgnored"
+            }
+          }
+        ]
+
+      }
+
+    ]
+  },
+  "variantTests": [
+    {
+      "description": "Feature.strategy.variant should return variant on enabled toggle",
+      "context": {
+        "environment": "dev"
+      },
+      "toggleName": "Feature.strategy.variant.with.constraint",
+      "expectedResult": {
+        "name": "variantName",
+        "payload": {
+          "type": "string",
+          "value": "variantValue"
+        },
+        "enabled": true
+      }
+    },
+    {
+      "description": "Feature.strategy.variant should return disabled variant on disabled toggle",
+      "context": {
+        "environment": "not-dev"
+      },
+      "toggleName": "Feature.strategy.variant.with.constraint",
+      "expectedResult": {
+        "name": "disabled",
+        "enabled": false
+      }
+    },
+    {
+      "description": "Feature.strategy.variant.overrides.feature.variant should override feature variant",
+      "context": {
+        "environment": "dev"
+      },
+      "toggleName": "Feature.strategy.variant.overrides.feature.variant",
+      "expectedResult": {
+        "name": "variantName",
+        "payload": {
+          "type": "string",
+          "value": "variantValue"
+        },
+        "enabled": true
+      }
+    }
+  ]
+}
