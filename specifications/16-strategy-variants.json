@@ -10,20 +10,20 @@
         "strategies": [
           {
             "name": "flexibleRollout",
+            "variants": [
+              {
+                "name": "variantName",
+                "weight": 1,
+                "payload": {
+                  "type": "string",
+                  "value": "variantValue"
+                }
+              }
+            ],
             "parameters": {
               "rollout": "100",
               "stickiness": "default",
-              "groupId": "a",
-              "variants": [
-                {
-                  "name": "variantName",
-                  "weight": 1,
-                  "payload": {
-                    "type": "string",
-                    "value": "variantValue"
-                  }
-                }
-              ]
+              "groupId": "a"
             },
             "constraints": [
               {
@@ -48,18 +48,18 @@
             "parameters": {
               "rollout": "100",
               "stickiness": "default",
-              "groupId": "a",
-              "variants": [
-                {
-                  "name": "variantName",
-                  "weight": 1,
-                  "payload": {
-                    "type": "string",
-                    "value": "variantValue"
-                  }
-                }
-              ]
+              "groupId": "a"
             },
+            "variants": [
+              {
+                "name": "variantName",
+                "weight": 1,
+                "payload": {
+                  "type": "string",
+                  "value": "variantValue"
+                }
+              }
+            ],
             "constraints": [
               {
                 "contextName": "environment",
@@ -92,26 +92,26 @@
             "parameters": {
               "rollout": "100",
               "stickiness": "default",
-              "groupId": "a",
-              "variants": [
-                {
-                  "name": "variantNameA",
-                  "weight": 1,
-                  "payload": {
-                    "type": "string",
-                    "value": "variantValueA"
-                  }
-                },
-                {
-                  "name": "variantNameB",
-                  "weight": 1,
-                  "payload": {
-                    "type": "string",
-                    "value": "variantValueB"
-                  }
-                }
-              ]
+              "groupId": "a"
             },
+            "variants": [
+              {
+                "name": "variantNameA",
+                "weight": 1,
+                "payload": {
+                  "type": "string",
+                  "value": "variantValueA"
+                }
+              },
+              {
+                "name": "variantNameB",
+                "weight": 1,
+                "payload": {
+                  "type": "string",
+                  "value": "variantValueB"
+                }
+              }
+            ],
             "constraints": []
           }
         ],
@@ -124,11 +124,11 @@
         "strategies": [
           {
             "name": "flexibleRollout",
+            "variants": [],
             "parameters": {
               "rollout": "100",
               "stickiness": "default",
-              "groupId": "a",
-              "variants": []
+              "groupId": "a"
             },
             "constraints": []
           }
@@ -139,14 +139,14 @@
         "name": "Feature.strategy.variant.fallback",
         "description": "Strategy variants fall back to feature variants",
         "enabled": true,
+        "variants": [],
         "strategies": [
           {
             "name": "flexibleRollout",
             "parameters": {
               "rollout": "100",
               "stickiness": "default",
-              "groupId": "a",
-              "variants": []
+              "groupId": "a"
             }
           }
         ],
