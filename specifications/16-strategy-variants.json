@@ -139,7 +139,6 @@
         "name": "Feature.strategy.variant.fallback",
         "description": "Strategy variants fall back to feature variants",
         "enabled": true,
-        "variants": [],
         "strategies": [
           {
             "name": "flexibleRollout",
