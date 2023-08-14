@@ -25,3 +25,4 @@ build/Release
 # typescript lives in src, output in lib
 lib/
 .vscode
+.idea

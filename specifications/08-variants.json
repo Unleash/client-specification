@@ -168,6 +168,31 @@
                         }
                     }
                 ]
+            },
+            {
+                "name": "Feature.Variants.G",
+                "description": "0% gradual rollout, but has variants",
+                "enabled": true,
+                "strategies": [
+                    {
+                        "name": "flexibleRollout",
+                        "parameters": {
+                            "rollout": "0",
+                            "stickiness": "default",
+                            "groupId": "feature-variant-g"
+                        }
+                    }
+                ],
+                "variants": [
+                    {
+                        "name": "variant1",
+                        "weight": 1,
+                        "payload": {
+                            "type": "string",
+                            "value": "val1"
+                        }
+                    }
+                ]
             }
         ]
     },
@@ -367,6 +392,17 @@
                 "userId": "0"
             },
             "toggleName": "Feature.Variants.E",
+            "expectedResult": {
+                "name": "disabled",
+                "enabled": false
+            }
+        },
+        {
+            "description": "Feature.Variants.G should be disabled when gradual rollout is 0%, but has variants",
+            "context": {
+                "userId": "0"
+            },
+            "toggleName": "Feature.Variants.G",
             "expectedResult": {
                 "name": "disabled",
                 "enabled": false
