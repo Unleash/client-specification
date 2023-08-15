@@ -421,7 +421,7 @@
             }
         },
         {
-            "description": "Feature.Variants.G should be disabled when gradual rollout is 0%, but has variants",
+            "description": "Feature.Variants.G should be disabled when feature is calculated as false, but has variants",
             "context": {
                 "userId": "0"
             },
