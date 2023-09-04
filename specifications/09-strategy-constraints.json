@@ -191,9 +191,9 @@
                         "parameters": {},
                         "constraints": [
                             {
-                                "contextName": "environment",
+                                "contextName": "userId",
                                 "operator": "IN",
-                                "values": ["dev"]
+                                "values": ["123"]
 
                             }
                         ]
@@ -203,9 +203,9 @@
                         "parameters": {},
                         "constraints": [
                             {
-                                "contextName": "environment",
+                                "contextName": "userId",
                                 "operator": "IN",
-                                "values": ["prod"]
+                                "values": ["456"]
 
                             }
                         ]
@@ -358,7 +358,7 @@
         {
             "description": "Constraint should work with the latter strategy",
             "context": {
-                "environment": "prod"
+                "userId": "456"
             },
             "toggleName": "Feature.constraints.multiple.strategies",
             "expectedResult": true
