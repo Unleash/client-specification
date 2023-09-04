@@ -180,6 +180,37 @@
                         ]
                     }
                 ]
+            },
+            {
+                "name": "Feature.constraints.multiple.strategies",
+                "description": "Feature constraints has multiple strategies",
+                "enabled": true,
+                "strategies": [
+                    {
+                        "name": "default",
+                        "parameters": {},
+                        "constraints": [
+                            {
+                                "contextName": "userId",
+                                "operator": "IN",
+                                "values": ["123"]
+
+                            }
+                        ]
+                    },
+                    {
+                        "name": "default",
+                        "parameters": {},
+                        "constraints": [
+                            {
+                                "contextName": "userId",
+                                "operator": "IN",
+                                "values": ["456"]
+
+                            }
+                        ]
+                    }
+                ]
             }
         ]
     },
@@ -323,6 +354,14 @@
             },
             "toggleName": "Feature.constraints.userWithId",
             "expectedResult": false
+        },
+        {
+            "description": "Constraint should work with the latter strategy",
+            "context": {
+                "userId": "456"
+            },
+            "toggleName": "Feature.constraints.multiple.strategies",
+            "expectedResult": true
         }
     ]
 }
