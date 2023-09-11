@@ -208,7 +208,7 @@
             },
             {
                 "name": "Feature.Variants.H",
-                "description": "variant with payload number",
+                "description": "variant with numeric payload",
                 "enabled": true,
                 "strategies": [
                     {
@@ -453,7 +453,7 @@
             }
         },
         {
-            "description": "Feature.Variants.H should return variant1 with a number in the payload",
+            "description": "Feature.Variants.H should return variant1 with numeric type payload",
             "context": {
                 "userId": "0"
             },
