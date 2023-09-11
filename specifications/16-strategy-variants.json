@@ -159,8 +159,42 @@
             }
           }
         ]
+      },
+      {
+        "name": "Feature.strategy.numeric.variants",
+        "description": "Strategy variants with numeric payload",
+        "enabled": true,
+        "strategies": [
+          {
+            "name": "flexibleRollout",
+            "parameters": {
+              "rollout": "100",
+              "stickiness": "default",
+              "groupId": "a"
+            },
+            "variants": [
+              {
+                "name": "variantNameA",
+                "weight": 1,
+                "payload": {
+                  "type": "number",
+                  "value": "1.2"
+                }
+              },
+              {
+                "name": "variantNameB",
+                "weight": 1,
+                "payload": {
+                  "type": "number",
+                  "value": "1"
+                }
+              }
+            ],
+            "constraints": []
+          }
+        ],
+        "variants": []
       }
-
     ]
   },
   "variantTests": [
@@ -253,6 +287,21 @@
         "payload": {
           "type": "string",
           "value": "fallbackValue"
+        },
+        "enabled": true
+      }
+    },
+    {
+      "description": "Feature.strategy.numeric.variants should choose second variant",
+      "context": {
+        "userId": "0"
+      },
+      "toggleName": "Feature.strategy.numeric.variants",
+      "expectedResult": {
+        "name": "variantNameB",
+        "payload": {
+          "type": "number",
+          "value": "1"
         },
         "enabled": true
       }
