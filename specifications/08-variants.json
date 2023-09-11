@@ -208,7 +208,7 @@
             },
             {
                 "name": "Feature.Variants.H",
-                "description": "variant with payload number",
+                "description": "variant with numeric payload",
                 "enabled": true,
                 "strategies": [
                     {
