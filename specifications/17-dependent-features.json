@@ -29,11 +29,116 @@
             "parameters": {
               "rollout": "100",
               "stickiness": "default",
-              "groupId": "parent.with.variant"
+              "groupId": "parent"
             },
             "variants": [
               {
                 "name": "parent.variant",
+                "weight": 1,
+                "payload": {
+                  "type": "string",
+                  "value": "variantValue"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "parent.with.constraint",
+        "description": "Parent feature with constraint",
+        "enabled": true,
+        "strategies": [
+          {
+            "name": "flexibleRollout",
+            "parameters": {
+              "rollout": "100",
+              "stickiness": "default",
+              "groupId": "parent"
+            },
+            "constraints": [
+              {
+                "contextName": "environment",
+                "operator": "IN",
+                "values": ["prod"]
+
+              }
+            ],
+            "variants": [
+              {
+                "name": "parent.variant",
+                "weight": 1,
+                "payload": {
+                  "type": "string",
+                  "value": "variantValue"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "child.with.matching.constraint",
+        "description": "Child with parent matching constraint",
+        "enabled": true,
+        "dependencies": [{
+          "feature": "parent.with.constraint"
+        }],
+        "strategies": [
+          {
+            "name": "flexibleRollout",
+            "parameters": {
+              "rollout": "100",
+              "stickiness": "default",
+              "groupId": "parent"
+            },
+            "constraints": [
+              {
+                "contextName": "environment",
+                "operator": "IN",
+                "values": ["prod"]
+
+              }
+            ],
+            "variants": [
+              {
+                "name": "child.variant",
+                "weight": 1,
+                "payload": {
+                  "type": "string",
+                  "value": "variantValue"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "child.with.non.matching.constraint",
+        "description": "Child with parent not matching constraint",
+        "enabled": true,
+        "dependencies": [{
+          "feature": "parent.with.constraint"
+        }],
+        "strategies": [
+          {
+            "name": "flexibleRollout",
+            "parameters": {
+              "rollout": "100",
+              "stickiness": "default",
+              "groupId": "parent"
+            },
+            "constraints": [
+              {
+                "contextName": "environment",
+                "operator": "IN",
+                "values": ["dev"]
+
+              }
+            ],
+            "variants": [
+              {
+                "name": "child.variant",
                 "weight": 1,
                 "payload": {
                   "type": "string",
@@ -57,7 +162,7 @@
             "parameters": {
               "rollout": "100",
               "stickiness": "default",
-              "groupId": "parent.with.variant"
+              "groupId": "parent"
             },
             "variants": [
               {
@@ -85,7 +190,7 @@
             "parameters": {
               "rollout": "100",
               "stickiness": "default",
-              "groupId": "parent.with.variant"
+              "groupId": "parent"
             },
             "variants": [
               {
@@ -113,7 +218,7 @@
             "parameters": {
               "rollout": "100",
               "stickiness": "default",
-              "groupId": "parent.with.variant"
+              "groupId": "parent"
             },
             "variants": [
               {
@@ -568,6 +673,22 @@
       "context": {},
       "toggleName": "child.with.transitive.dependency",
       "expectedResult": false
+    },
+    {
+      "description": "Child with matching constraint",
+      "context": {
+        "environment": "prod"
+      },
+      "toggleName": "child.with.matching.constraint",
+      "expectedResult": true
+    },
+    {
+      "description": "Child with non matching constraint",
+      "context": {
+        "environment": "dev"
+      },
+      "toggleName": "child.with.non.matching.constraint",
+      "expectedResult": false
     }
   ],
   "variantTests": [
@@ -724,6 +845,32 @@
       "description": "Variant: Child with transitive dependency",
       "context": {},
       "toggleName": "child.with.transitive.dependency",
+      "expectedResult": {
+        "name": "disabled",
+        "enabled": false
+      }
+    },
+    {
+      "description": "Variant: Child with matching constraint",
+      "context": {
+        "environment": "prod"
+      },
+      "toggleName": "child.with.matching.constraint",
+      "expectedResult": {
+        "name": "child.variant",
+        "payload": {
+          "type": "string",
+          "value": "variantValue"
+        },
+        "enabled": true
+      }
+    },
+    {
+      "description": "Variant: Child with non matching constraint",
+      "context": {
+        "environment": "dev"
+      },
+      "toggleName": "child.with.non.matching.constraint",
       "expectedResult": {
         "name": "disabled",
         "enabled": false
