@@ -338,6 +338,33 @@
         }]
       },
       {
+        "name": "parent.default.variant.child.enabled",
+        "description": "Parent enabled with no explicit variant, child enabled",
+        "enabled": true,
+        "dependencies": [{
+          "feature": "parent.enabled",
+          "variants": ["disabled"]
+        }],
+        "strategies": [{
+          "name": "flexibleRollout",
+          "parameters": {
+            "rollout": "100",
+            "stickiness": "default",
+            "groupId": "groupId"
+          },
+          "variants": [
+            {
+              "name": "child.variant",
+              "weight": 1,
+              "payload": {
+                "type": "string",
+                "value": "variantValue"
+              }
+            }
+          ]
+        }]
+      },
+      {
         "name": "parent.disabled.satisfied.child.enabled",
         "description": "Parent disabled expectation satisfied, child enabled",
         "enabled": true,
@@ -586,96 +613,96 @@
   },
   "tests": [
     {
-      "description": "Child and parent enabled",
+      "description": "Child is enabled when parent is enabled and child itself is enabled",
       "context": {},
       "toggleName": "parent.enabled.child.enabled",
       "expectedResult": true
     },{
-      "description": "Child disabled",
+      "description": "Child is disabled when parent is enabled but child itself is disabled",
       "context": {},
       "toggleName": "parent.enabled.child.disabled",
       "expectedResult": false
     },
     {
-      "description": "Parent disabled",
+      "description": "Child is disabled when parent is disabled and ahd child itself is enabled",
       "context": {},
       "toggleName": "parent.disabled.child.enabled",
       "expectedResult": false
     },
     {
-      "description": "Child and parent disabled",
+      "description": "Child is disabled when parent is disabled and child itself is disabled",
       "context": {},
       "toggleName": "parent.disabled.child.disabled",
       "expectedResult": false
     },
     {
-      "description": "Parent dependency expects disabled",
+      "description": "Child is enabled when parent is expected to be disabled and actually is disabled",
       "context": {},
       "toggleName": "parent.disabled.satisfied.child.enabled",
       "expectedResult": true
     },
     {
-      "description": "Parent dependency disabled expectation not satisfied",
+      "description": "Child is disabled when parent is expected to be disabled and actually is enabled",
       "context": {},
       "toggleName": "parent.disabled.not.satisfied.child.enabled",
       "expectedResult": false
     },
     {
-      "description": "Parent dependency with variant",
+      "description": "Child is enabled when parent matches a single variant",
       "context": {},
       "toggleName": "parent.single.variant.child.enabled",
       "expectedResult": true
     },
     {
-      "description": "Parent dependency with one of variants satisfied",
+      "description": "Child is enabled when parent matches one of multiple variants",
       "context": {},
       "toggleName": "parent.multiple.variants.child.enabled",
       "expectedResult": true
     },
     {
-      "description": "Parent dependency with empty variants",
+      "description": "Child is enabled when parent is enabled and variants dependency is empty",
       "context": {},
       "toggleName": "parent.empty.variants.child.enabled",
       "expectedResult": true
     },
     {
-      "description": "Parent dependency with non matching variant",
+      "description": "Child is disabled when parent is enabled but the explicit variant does not match",
       "context": {},
       "toggleName": "parent.non.matching.variant.child.enabled",
       "expectedResult": false
     },
     {
-      "description": "Multiple parent dependencies satisfied",
+      "description": "Child is enabled when multiple parents are enabled",
       "context": {},
       "toggleName": "multiple.parents.satisfied.child.enabled",
       "expectedResult": true
     },
     {
-      "description": "Multiple parents not satisfied",
+      "description": "Child is disabled if at least one parent is disabled",
       "context": {},
       "toggleName": "multiple.parents.not.satisfied.child.enabled",
       "expectedResult": false
     },
     {
-      "description": "Parent does not exist",
+      "description": "Child is disabled when parent does not exist",
       "context": {},
       "toggleName": "parents.not.exist.child.enabled",
       "expectedResult": false
     },
     {
-      "description": "Child parent cycle",
+      "description": "Child is disabled when cyclic dependency to parent exists",
       "context": {},
       "toggleName": "child.with.cycle",
       "expectedResult": false
     },
     {
-      "description": "Child with transitive dependency",
+      "description": "Child is disabled when transitive dependency exists",
       "context": {},
       "toggleName": "child.with.transitive.dependency",
       "expectedResult": false
     },
     {
-      "description": "Child with matching constraint",
+      "description": "Child is enabled with parent enabled by passing child context",
       "context": {
         "environment": "prod"
       },
@@ -683,17 +710,23 @@
       "expectedResult": true
     },
     {
-      "description": "Child with non matching constraint",
+      "description": "Child is disabled with parent disabled by passing child context",
       "context": {
         "environment": "dev"
       },
       "toggleName": "child.with.non.matching.constraint",
       "expectedResult": false
+    },
+    {
+      "description": "Child is enabled with parent default variant satisfied",
+      "context": {},
+      "toggleName": "parent.default.variant.child.enabled",
+      "expectedResult": true
     }
   ],
   "variantTests": [
     {
-      "description": "Variant: Child and parent enabled",
+      "description": "Child returns variant when parent is enabled and child itself is enabled",
       "context": {},
       "toggleName": "parent.enabled.child.enabled",
       "expectedResult": {
@@ -705,7 +738,7 @@
         "enabled": true
       }
     },{
-      "description": "Variant: Child disabled",
+      "description": "Child returns disabled variant when parent is enabled but child itself is disabled",
       "context": {},
       "toggleName": "parent.enabled.child.disabled",
       "expectedResult": {
@@ -714,7 +747,7 @@
       }
     },
     {
-      "description": "Variant: Parent disabled",
+      "description": "Child returns disabled variant when parent is disabled and ahd child itself is enabled",
       "context": {},
       "toggleName": "parent.disabled.child.enabled",
       "expectedResult": {
@@ -723,7 +756,7 @@
       }
     },
     {
-      "description": "Variant: Child and parent disabled",
+      "description": "Child returns disabled variant when parent is disabled and child itself is disabled",
       "context": {},
       "toggleName": "parent.disabled.child.disabled",
       "expectedResult": {
@@ -732,7 +765,7 @@
       }
     },
     {
-      "description": "Variant: Parent dependency expects disabled",
+      "description": "Child returns variant when parent is expected to be disabled and actually is disabled",
       "context": {},
       "toggleName": "parent.disabled.satisfied.child.enabled",
       "expectedResult": {
@@ -745,7 +778,7 @@
       }
     },
     {
-      "description": "Variant: Parent dependency disabled expectation not satisfied",
+      "description": "Child return disabled variant when parent is expected to be disabled and actually is enabled",
       "context": {},
       "toggleName": "parent.disabled.not.satisfied.child.enabled",
       "expectedResult": {
@@ -754,7 +787,7 @@
       }
     },
     {
-      "description": "Variant: Parent dependency with variant",
+      "description": "Child returns variant when parent matches a single variant",
       "context": {},
       "toggleName": "parent.single.variant.child.enabled",
       "expectedResult": {
@@ -767,7 +800,7 @@
       }
     },
     {
-      "description": "Variant: Parent dependency with one of variants satisfied",
+      "description": "Child returns variant when parent matches one of multiple variants",
       "context": {},
       "toggleName": "parent.multiple.variants.child.enabled",
       "expectedResult": {
@@ -780,7 +813,7 @@
       }
     },
     {
-      "description": "Variant: Parent dependency with empty variants",
+      "description": "Child return variant when parent is enabled and variants dependency is empty",
       "context": {},
       "toggleName": "parent.empty.variants.child.enabled",
       "expectedResult": {
@@ -793,7 +826,7 @@
       }
     },
     {
-      "description": "Variant: Parent dependency with non matching variant",
+      "description": "Child returns disabled variant when parent is enabled but the explicit variant does not match",
       "context": {},
       "toggleName": "parent.non.matching.variant.child.enabled",
       "expectedResult": {
@@ -802,7 +835,7 @@
       }
     },
     {
-      "description": "Variant: Multiple parent dependencies satisfied",
+      "description": "Child return variant when multiple parents are enabled",
       "context": {},
       "toggleName": "multiple.parents.satisfied.child.enabled",
       "expectedResult": {
@@ -815,7 +848,7 @@
       }
     },
     {
-      "description": "Variant: Multiple parents not satisfied",
+      "description": "Child returns disabled variant if at least one parent is disabled",
       "context": {},
       "toggleName": "multiple.parents.not.satisfied.child.enabled",
       "expectedResult": {
@@ -824,7 +857,7 @@
       }
     },
     {
-      "description": "Variant: Parent does not exist",
+      "description": "Child returns disabled variant when parent does not exist",
       "context": {},
       "toggleName": "parents.not.exist.child.enabled",
       "expectedResult": {
@@ -833,7 +866,7 @@
       }
     },
     {
-      "description": "Variant: Child parent cycle",
+      "description": "Child returns disabled variant when cyclic dependency to parent exists",
       "context": {},
       "toggleName": "child.with.cycle",
       "expectedResult": {
@@ -842,7 +875,7 @@
       }
     },
     {
-      "description": "Variant: Child with transitive dependency",
+      "description": "Child returns disabled variant when transitive dependency exists",
       "context": {},
       "toggleName": "child.with.transitive.dependency",
       "expectedResult": {
@@ -851,7 +884,7 @@
       }
     },
     {
-      "description": "Variant: Child with matching constraint",
+      "description": "Child returns variant with parent enabled by passing child context",
       "context": {
         "environment": "prod"
       },
@@ -866,7 +899,7 @@
       }
     },
     {
-      "description": "Variant: Child with non matching constraint",
+      "description": "Child returns disabled variant with parent disabled by passing child context",
       "context": {
         "environment": "dev"
       },
@@ -874,6 +907,19 @@
       "expectedResult": {
         "name": "disabled",
         "enabled": false
+      }
+    },
+    {
+      "description": "Child returns variant with parent default variant satisfied",
+      "context": {},
+      "toggleName": "parent.default.variant.child.enabled",
+      "expectedResult": {
+        "name": "child.variant",
+        "payload": {
+          "type": "string",
+          "value": "variantValue"
+        },
+        "enabled": true
       }
     }
   ]
