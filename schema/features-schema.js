@@ -9,6 +9,13 @@ const schema = Joi.object().keys({
             name: Joi.string().required(),
             description: Joi.string().optional(),
             enabled: Joi.boolean().required(),
+            dependencies: Joi.array().optional().items(
+                Joi.object().keys({
+                    feature: Joi.string().required(),
+                    enabled: Joi.bool().optional(),
+                    variants: Joi.array().items(Joi.string()).optional()
+                })
+            ),
             strategies: Joi.array().items(
                 Joi.object().keys({
                     name: Joi.string().required(),
