@@ -337,7 +337,6 @@
       "toggleName": "Feature.strategy.no.strategy.variants",
       "expectedResult": {
         "name": "variantNameA",
-        "weight": 1,
         "payload": {
           "type": "number",
           "value": "1"
