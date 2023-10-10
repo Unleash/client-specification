@@ -29,9 +29,7 @@
               {
                 "contextName": "environment",
                 "operator": "IN",
-                "values": [
-                  "dev"
-                ]
+                "values": ["dev"]
               }
             ]
           }
@@ -64,9 +62,7 @@
               {
                 "contextName": "environment",
                 "operator": "IN",
-                "values": [
-                  "dev"
-                ]
+                "values": ["dev"]
               }
             ]
           }
@@ -194,6 +190,33 @@
           }
         ],
         "variants": []
+      },
+      {
+        "name": "Feature.strategy.no.strategy.variants",
+        "description": "Toggle with no strategy variants",
+        "enabled": true,
+        "strategies": [
+          {
+            "name": "flexibleRollout",
+            "parameters": {
+              "rollout": "100",
+              "stickiness": "default",
+              "groupId": "a"
+            },
+            "variants": [],
+            "constraints": []
+          }
+        ],
+        "variants": [
+          {
+            "name": "variantNameA",
+            "weight": 1,
+            "payload": {
+              "type": "number",
+              "value": "1"
+            }
+          }
+        ]
       }
     ]
   },
@@ -299,6 +322,21 @@
       "toggleName": "Feature.strategy.numeric.variants",
       "expectedResult": {
         "name": "variantNameB",
+        "payload": {
+          "type": "number",
+          "value": "1"
+        },
+        "enabled": true
+      }
+    },
+    {
+      "description": "Feature.strategy.no.strategy.variants should fall back to base variants",
+      "context": {
+        "userId": "0"
+      },
+      "toggleName": "Feature.strategy.no.strategy.variants",
+      "expectedResult": {
+        "name": "variantNameA",
         "payload": {
           "type": "number",
           "value": "1"
