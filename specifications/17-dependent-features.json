@@ -614,7 +614,7 @@
         "description": "The parent is disabled. The child expects the parent's variant to be \"disabled\".",
         "enabled": true,
         "dependencies": [{
-          "feature": "parent.disabled"
+          "feature": "parent.disabled",
           "variants": ["disabled"]
         }],
         "strategies": [{
