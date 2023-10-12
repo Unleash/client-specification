@@ -608,6 +608,24 @@
             }
           ]
         }]
+      },
+      {
+        "name": "parent.disabled.child.expects.disabled.variant",
+        "description": "The parent is disabled. The child expects the parent's variant to be \"disabled\".",
+        "enabled": true,
+        "dependencies": [{
+          "feature": "parent.disabled"
+          "variants": ["disabled"]
+        }],
+        "strategies": [{
+          "name": "flexibleRollout",
+          "parameters": {
+            "rollout": "100",
+            "stickiness": "default",
+            "groupId": "groupId"
+          },
+          "variants": []
+        }]
       }
     ]
   },
@@ -723,9 +741,14 @@
       "context": {},
       "toggleName": "parent.default.variant.child.enabled",
       "expectedResult": true
+    },
+    {
+      "description": "Child is disabled if the parent is disabled, even if the child's expected variant is the disabled variant",
+      "context": {},
+      "toggleName": "parent.disabled.child.expects.disabled.variant",
+      "expectedResult": false
     }
-  ]
-,
+  ],
   "variantTests": [
     {
       "description": "Child yields its variant when both parent and child are enabled.",
@@ -927,8 +950,3 @@
     }
   ]
 }
-
-
-
-
-
