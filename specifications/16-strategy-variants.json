@@ -265,7 +265,7 @@
     {
       "description": "Feature.strategy.multiple.variants should choose first variant",
       "context": {
-        "userId": "4"
+        "userId": "5"
       },
       "toggleName": "Feature.strategy.multiple.variants",
       "expectedResult": {
