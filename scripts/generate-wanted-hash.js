@@ -2,8 +2,8 @@
 
 const murmurHash3 = require('murmurhash3js');
 
-function getTarget (name, id, total) {
-    return (murmurHash3.x86.hash32(`${name}:${id}`) % total) + 1;
+function getTarget (name, id, total, seed = 0) {
+    return (murmurHash3.x86.hash32(`${name}:${id}`, seed) % total) + 1;
 }
 
 
@@ -33,13 +33,14 @@ findTarget(toggleName, 100, 80);
 findTarget(toggleName, 100, 100);
 */
 
-const [bin, file, name, total, wanted] = process.argv;
+const [bin, file, name, total, wanted, seed] = process.argv;
 if (!name || !total || !wanted) {
     console.error(`Usage:
-    $ node scripts/generate-wanted-hash.js toggleName 100 25
+    $ node scripts/generate-wanted-hash.js toggleName 100 25 0
 
     100 = total number
     25 = wanted allocation
+    0 = seed
     
     `);
     return;

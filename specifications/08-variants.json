@@ -261,7 +261,7 @@
             },
             "toggleName": "Feature.Variants.B",
             "expectedResult": {
-                "name": "variant1",
+                "name": "variant2",
                 "payload": {
                     "type": "string",
                     "value": "val1"
@@ -276,7 +276,7 @@
             },
             "toggleName": "Feature.Variants.B",
             "expectedResult": {
-                "name": "variant2",
+                "name": "variant1",
                 "payload": {
                     "type": "string",
                     "value": "val2"

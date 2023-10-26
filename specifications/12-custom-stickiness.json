@@ -121,7 +121,7 @@
             },
             "toggleName": "Feature.flexible.rollout.custom.stickiness_100",
             "expectedResult": {
-                "name": "blue",
+                "name": "green",
                 "payload": {
                     "type": "string",
                     "value": "val1"
@@ -136,7 +136,7 @@
             },
             "toggleName": "Feature.flexible.rollout.custom.stickiness_100",
             "expectedResult": {
-                "name": "blue",
+                "name": "red",
                 "payload": {
                     "type": "string",
                     "value": "val1"
@@ -151,7 +151,7 @@
             },
             "toggleName": "Feature.flexible.rollout.custom.stickiness_100",
             "expectedResult": {
-                "name": "red",
+                "name": "yellow",
                 "payload": {
                     "type": "string",
                     "value": "val1"
@@ -181,7 +181,7 @@
             },
             "toggleName": "Feature.flexible.rollout.custom.stickiness_100",
             "expectedResult": {
-                "name": "yellow",
+                "name": "red",
                 "payload": {
                     "type": "string",
                     "value": "val1"
