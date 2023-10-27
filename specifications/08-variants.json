@@ -264,7 +264,7 @@
                 "name": "variant2",
                 "payload": {
                     "type": "string",
-                    "value": "val1"
+                    "value": "val2"
                 },
                 "enabled": true
             }
@@ -279,7 +279,7 @@
                 "name": "variant1",
                 "payload": {
                     "type": "string",
-                    "value": "val2"
+                    "value": "val1"
                 },
                 "enabled": true
             }
