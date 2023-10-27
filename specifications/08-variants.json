@@ -255,13 +255,13 @@
             }
         },
         {
-            "description": "Feature.Variants.B should be enabled for user 2",
+            "description": "Feature.Variants.B should give variant2 for user 2",
             "context": {
                 "userId": "2"
             },
             "toggleName": "Feature.Variants.B",
             "expectedResult": {
-                "name": "variant1",
+                "name": "variant2",
                 "payload": {
                     "type": "string",
                     "value": "val1"
@@ -270,13 +270,13 @@
             }
         },
         {
-            "description": "Feature.Variants.B should be enabled for user 0",
+            "description": "Feature.Variants.B should give variant 1 for user 0",
             "context": {
                 "userId": "0"
             },
             "toggleName": "Feature.Variants.B",
             "expectedResult": {
-                "name": "variant2",
+                "name": "variant1",
                 "payload": {
                     "type": "string",
                     "value": "val2"
@@ -287,7 +287,7 @@
         {
             "description": "Feature.Variants.C should return variant1",
             "context": {
-                "userId": "315"
+                "userId": "232"
             },
             "toggleName": "Feature.Variants.C",
             "expectedResult": {
@@ -302,7 +302,7 @@
         {
             "description": "Feature.Variants.C should return variant2",
             "context": {
-                "userId": "320"
+                "userId": "607"
             },
             "toggleName": "Feature.Variants.C",
             "expectedResult": {
@@ -317,7 +317,7 @@
         {
             "description": "Feature.Variants.C should return variant3",
             "context": {
-                "userId": "729"
+                "userId": "656"
             },
             "toggleName": "Feature.Variants.C",
             "expectedResult": {
@@ -332,7 +332,7 @@
         {
             "description": "Feature.Variants.D should return variant1",
             "context": {
-                "userId": "367"
+                "userId": "712"
             },
             "toggleName": "Feature.Variants.D",
             "expectedResult": {
@@ -347,7 +347,7 @@
         {
             "description": "Feature.Variants.D should return variant2",
             "context": {
-                "userId": "31"
+                "userId": "525"
             },
             "toggleName": "Feature.Variants.D",
             "expectedResult": {
@@ -362,7 +362,7 @@
         {
             "description": "Feature.Variants.D should return variant3",
             "context": {
-                "userId": "19"
+                "userId": "537"
             },
             "toggleName": "Feature.Variants.D",
             "expectedResult": {
@@ -405,9 +405,9 @@
             }
         },
         {
-            "description": "Feature.Variants.override.D should return variant2 for user 82",
+            "description": "Feature.Variants.override.D should return variant2 for user 388",
             "context": {
-                "userId": "82"
+                "userId": "388"
             },
             "toggleName": "Feature.Variants.override.D",
             "expectedResult": {
