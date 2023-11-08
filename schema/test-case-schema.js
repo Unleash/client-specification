@@ -24,7 +24,8 @@ const schema = Joi.object().keys({
                     type: Joi.string().required(),
                     value: Joi.string().required().allow(""),
                 }).optional(),
-                enabled: Joi.boolean().required()
+                enabled: Joi.boolean().required(),
+                feature_enabled: Joi.boolean().required()
             }),
         })
     )
