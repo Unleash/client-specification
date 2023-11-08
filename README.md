@@ -62,6 +62,7 @@ A Test Specifications will have the following shape:
                     "value": "value"
                 },
                 "enabled": true
+                "feature_enabled": true
             }
         }
     ]
