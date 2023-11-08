@@ -233,7 +233,8 @@
           "type": "string",
           "value": "variantValue"
         },
-        "enabled": true
+        "enabled": true,
+        "feature_enabled": true
       }
     },
     {
@@ -244,7 +245,8 @@
       "toggleName": "Feature.strategy.variant.with.constraint",
       "expectedResult": {
         "name": "disabled",
-        "enabled": false
+        "enabled": false,
+        "feature_enabled": false
       }
     },
     {
@@ -259,7 +261,8 @@
           "type": "string",
           "value": "variantValue"
         },
-        "enabled": true
+        "enabled": true,
+        "feature_enabled": true
       }
     },
     {
@@ -274,7 +277,8 @@
           "type": "string",
           "value": "variantValueA"
         },
-        "enabled": true
+        "enabled": true,
+        "feature_enabled": true
       }
     },
     {
@@ -289,7 +293,8 @@
           "type": "string",
           "value": "variantValueB"
         },
-        "enabled": true
+        "enabled": true,
+        "feature_enabled": true
       }
     },
     {
@@ -298,7 +303,8 @@
       "toggleName": "Feature.strategy.empty.variants",
       "expectedResult": {
         "name": "disabled",
-        "enabled": false
+        "enabled": false,
+        "feature_enabled": true
       }
     },
     {
@@ -311,7 +317,8 @@
           "type": "string",
           "value": "fallbackValue"
         },
-        "enabled": true
+        "enabled": true,
+        "feature_enabled": true
       }
     },
     {
@@ -326,7 +333,8 @@
           "type": "number",
           "value": "1"
         },
-        "enabled": true
+        "enabled": true,
+        "feature_enabled": true
       }
     },
     {
@@ -341,7 +349,8 @@
           "type": "number",
           "value": "1"
         },
-        "enabled": true
+        "enabled": true,
+        "feature_enabled": true
       }
     }
   ]

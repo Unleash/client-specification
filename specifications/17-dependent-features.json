@@ -760,7 +760,8 @@
           "type": "string",
           "value": "variantValue"
         },
-        "enabled": true
+        "enabled": true,
+        "feature_enabled": true
       }
     },
     {
@@ -769,7 +770,8 @@
       "toggleName": "parent.enabled.child.disabled",
       "expectedResult": {
         "name": "disabled",
-        "enabled": false
+        "enabled": false,
+        "feature_enabled": false
       }
     },
     {
@@ -778,7 +780,8 @@
       "toggleName": "parent.disabled.child.enabled",
       "expectedResult": {
         "name": "disabled",
-        "enabled": false
+        "enabled": false,
+        "feature_enabled": false
       }
     },
     {
@@ -787,7 +790,8 @@
       "toggleName": "parent.disabled.child.disabled",
       "expectedResult": {
         "name": "disabled",
-        "enabled": false
+        "enabled": false,
+        "feature_enabled": false
       }
     },
     {
@@ -800,7 +804,8 @@
           "type": "string",
           "value": "variantValue"
         },
-        "enabled": true
+        "enabled": true,
+        "feature_enabled": true
       }
     },
     {
@@ -809,7 +814,8 @@
       "toggleName": "parent.disabled.not.satisfied.child.enabled",
       "expectedResult": {
         "name": "disabled",
-        "enabled": false
+        "enabled": false,
+        "feature_enabled": false
       }
     },
     {
@@ -822,7 +828,8 @@
           "type": "string",
           "value": "variantValue"
         },
-        "enabled": true
+        "enabled": true,
+        "feature_enabled": true
       }
     },
     {
@@ -835,7 +842,8 @@
           "type": "string",
           "value": "variantValue"
         },
-        "enabled": true
+        "enabled": true,
+        "feature_enabled": true
       }
     },
     {
@@ -848,7 +856,8 @@
           "type": "string",
           "value": "variantValue"
         },
-        "enabled": true
+        "enabled": true,
+        "feature_enabled": true
       }
     },
     {
@@ -857,7 +866,8 @@
       "toggleName": "parent.non.matching.variant.child.enabled",
       "expectedResult": {
         "name": "disabled",
-        "enabled": false
+        "enabled": false,
+        "feature_enabled": false
       }
     },
     {
@@ -870,7 +880,8 @@
           "type": "string",
           "value": "variantValue"
         },
-        "enabled": true
+        "enabled": true,
+        "feature_enabled": true
       }
     },
     {
@@ -879,7 +890,8 @@
       "toggleName": "multiple.parents.not.satisfied.child.enabled",
       "expectedResult": {
         "name": "disabled",
-        "enabled": false
+        "enabled": false,
+        "feature_enabled": false
       }
     },
     {
@@ -888,7 +900,8 @@
       "toggleName": "parents.not.exist.child.enabled",
       "expectedResult": {
         "name": "disabled",
-        "enabled": false
+        "enabled": false,
+        "feature_enabled": false
       }
     },
     {
@@ -897,7 +910,8 @@
       "toggleName": "child.with.cycle",
       "expectedResult": {
         "name": "disabled",
-        "enabled": false
+        "enabled": false,
+        "feature_enabled": false
       }
     },
     {
@@ -906,7 +920,8 @@
       "toggleName": "child.with.transitive.dependency",
       "expectedResult": {
         "name": "disabled",
-        "enabled": false
+        "enabled": false,
+        "feature_enabled": false
       }
     },
     {
@@ -921,7 +936,8 @@
           "type": "string",
           "value": "variantValue"
         },
-        "enabled": true
+        "enabled": true,
+        "feature_enabled": true
       }
     },
     {
@@ -932,7 +948,8 @@
       "toggleName": "child.with.non.matching.constraint",
       "expectedResult": {
         "name": "disabled",
-        "enabled": false
+        "enabled": false,
+        "feature_enabled": false
       }
     },
     {
@@ -945,7 +962,8 @@
           "type": "string",
           "value": "variantValue"
         },
-        "enabled": true
+        "enabled": true,
+        "feature_enabled": true
       }
     }
   ]
