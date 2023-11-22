@@ -234,6 +234,33 @@
         ]
       },
       {
+        "name": "parent.explicitly.enabled.child.enabled",
+        "description": "Parent explicitly enabled, child enabled",
+        "enabled": true,
+        "dependencies": [{
+          "feature": "parent.enabled",
+          "enabled": true
+        }],
+        "strategies": [{
+          "name": "flexibleRollout",
+          "parameters": {
+            "rollout": "100",
+            "stickiness": "default",
+            "groupId": "groupId"
+          },
+          "variants": [
+            {
+              "name": "child.variant",
+              "weight": 1,
+              "payload": {
+                "type": "string",
+                "value": "variantValue"
+              }
+            }
+          ]
+        }]
+      },
+      {
         "name": "parent.enabled.child.enabled",
         "description": "Parent enabled, child enabled",
         "enabled": true,
@@ -637,6 +664,12 @@
       "expectedResult": true
     },
     {
+      "description": "Both explicitly enabled parent and child must be enabled for the child to be enabled.",
+      "context": {},
+      "toggleName": "parent.explicitly.enabled.child.enabled",
+      "expectedResult": true
+    },
+    {
       "description": "If parent is enabled but child is not, the child remains disabled.",
       "context": {},
       "toggleName": "parent.enabled.child.disabled",
@@ -754,6 +787,20 @@
       "description": "Child yields its variant when both parent and child are enabled.",
       "context": {},
       "toggleName": "parent.enabled.child.enabled",
+      "expectedResult": {
+        "name": "child.variant",
+        "payload": {
+          "type": "string",
+          "value": "variantValue"
+        },
+        "enabled": true,
+        "feature_enabled": true
+      }
+    },
+    {
+      "description": "Child yields its variant when both explicitly enabled parent and child are enabled.",
+      "context": {},
+      "toggleName": "parent.explicitly.enabled.child.enabled",
       "expectedResult": {
         "name": "child.variant",
         "payload": {
