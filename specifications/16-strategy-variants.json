@@ -217,6 +217,58 @@
             }
           }
         ]
+      },
+      {
+        "name": "Feature.with.strategy.no.strategy.variants.and.with.strategy.has.strategy.variants",
+        "description": "Toggle with a strategy that doesn't have strategy variants and strategy that has a variant",
+        "enabled": true,
+        "strategies": [
+          {
+            "name": "flexibleRollout",
+            "parameters": {
+              "rollout": "100",
+              "stickiness": "default",
+              "groupId": "a"
+            },
+            "variants": [],
+            "constraints": [
+              {
+                "contextName": "environment",
+                "operator": "IN",
+                "values": ["dev"]
+              }
+            ]
+          },
+          {
+            "name": "flexibleRollout",
+            "parameters": {
+              "rollout": "100",
+              "stickiness": "default",
+              "groupId": "a"
+            },
+            "variants": [
+              {
+                "name": "variantNameB",
+                "weight": 1,
+                "payload": {
+                  "type": "number",
+                  "value": "2"
+                }
+              }
+            ],
+            "constraints": []
+          }
+        ],
+        "variants": [
+          {
+            "name": "variantNameA",
+            "weight": 1,
+            "payload": {
+              "type": "number",
+              "value": "1"
+            }
+          }
+        ]
       }
     ]
   },
@@ -348,6 +400,22 @@
         "payload": {
           "type": "number",
           "value": "1"
+        },
+        "enabled": true,
+        "feature_enabled": true
+      }
+    },
+    {
+      "description": "Feature.with.strategy.no.strategy.variants.and.with.strategy.has.strategy.variants should yield variant from strategy that has variants",
+      "context": {
+        "userId": "0"
+      },
+      "toggleName": "Feature.with.strategy.no.strategy.variants.and.with.strategy.has.strategy.variants",
+      "expectedResult": {
+        "name": "variantNameB",
+        "payload": {
+          "type": "number",
+          "value": "2"
         },
         "enabled": true,
         "feature_enabled": true
