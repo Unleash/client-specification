@@ -402,8 +402,45 @@
                         ]
                     }
                 ]
+            },
+            {
+                "name": "F9.inverted.IN",
+                "description": "inverted IN",
+                "enabled": true,
+                "strategies": [
+                    {
+                        "name": "default",
+                        "parameters": {},
+                        "constraints": [
+                            {
+                                "contextName": "someValue",
+                                "operator": "IN",
+                                "values": ["s1","s2"],
+                                "inverted": true
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "F10.inverted.NOT_IN",
+                "description": "inverted NOT_IN",
+                "enabled": true,
+                "strategies": [
+                    {
+                        "name": "default",
+                        "parameters": {},
+                        "constraints": [
+                            {
+                                "contextName": "someValue",
+                                "operator": "NOT_IN",
+                                "values": ["s1","s2"],
+                                "inverted": true
+                            }
+                        ]
+                    }
+                ]
             }
-
         ]
     },
     "tests": [
@@ -801,6 +838,26 @@
                 }
             },
             "toggleName":  "F8.missing-field.NOT_IN",
+            "expectedResult": true
+        },
+        {
+            "description": "F9.inverted.IN should return false when present but inverted",
+            "context": {
+                "properties": {
+                    "someValue": "s1"
+                }
+            },
+            "toggleName":  "F9.inverted.IN",
+            "expectedResult": false
+        },
+        {
+            "description": "F10.inverted.NOT_IN should return true when present but inverted",
+            "context": {
+                "properties": {
+                    "someValue": "s1"
+                }
+            },
+            "toggleName":  "F10.inverted.NOT_IN",
             "expectedResult": true
         }
     ]
