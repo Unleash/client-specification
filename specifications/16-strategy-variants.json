@@ -217,6 +217,41 @@
             }
           }
         ]
+      },
+      {
+        "name": "Feature.strategy.variants.stickiness",
+        "description": "Strategy variants with stickiness inherited from the strategy",
+        "enabled": true,
+        "strategies": [
+          {
+            "name": "flexibleRollout",
+            "parameters": {
+              "rollout": "100",
+              "stickiness": "clientId",
+              "groupId": "a"
+            },
+            "variants": [
+              {
+                "name": "variantNameA",
+                "weight": 1,
+                "payload": {
+                  "type": "string",
+                  "value": "variantValueA"
+                }
+              },
+              {
+                "name": "variantNameB",
+                "weight": 1,
+                "payload": {
+                  "type": "string",
+                  "value": "variantValueB"
+                }
+              }
+            ],
+            "constraints": []
+          }
+        ],
+        "variants": []
       }
     ]
   },
@@ -348,6 +383,42 @@
         "payload": {
           "type": "number",
           "value": "1"
+        },
+        "enabled": true,
+        "feature_enabled": true
+      }
+    },
+    {
+      "description": "Feature.strategy.variants.stickiness should inherit stickiness from the strategy - first variant",
+      "context": {
+        "properties": {
+          "clientId": "1"
+        }
+      },
+      "toggleName": "Feature.strategy.variants.stickiness",
+      "expectedResult": {
+        "name": "variantNameA",
+        "payload": {
+          "type": "string",
+          "value": "variantValueA"
+        },
+        "enabled": true,
+        "feature_enabled": true
+      }
+    },
+    {
+      "description": "Feature.strategy.variants.stickiness should inherit stickiness from the strategy - second variant",
+      "context": {
+        "properties": {
+          "clientId": "2"
+        }
+      },
+      "toggleName": "Feature.strategy.variants.stickiness",
+      "expectedResult": {
+        "name": "variantNameB",
+        "payload": {
+          "type": "string",
+          "value": "variantValueB"
         },
         "enabled": true,
         "feature_enabled": true
