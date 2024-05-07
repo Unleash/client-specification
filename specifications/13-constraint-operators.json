@@ -24,7 +24,7 @@
             },
             {
                 "name": "F2.startsWith.multiple",
-                "description": "endsWith",
+                "description": "starts with",
                 "enabled": true,
                 "strategies": [
                     {
@@ -36,6 +36,25 @@
                                 "operator": "STR_STARTS_WITH",
                                 "values": ["e1", "e2"]
 
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "F2.startsWith.caseInsensitve",
+                "description": "starts with case insensitive",
+                "enabled": true,
+                "strategies": [
+                    {
+                        "name": "default",
+                        "parameters": {},
+                        "constraints": [
+                            {
+                                "contextName": "customField",
+                                "operator": "STR_STARTS_WITH",
+                                "values": ["TEST"],
+                                "caseInsensitive": true
                             }
                         ]
                     }
@@ -483,6 +502,26 @@
             },
             "toggleName": "F2.startsWith.multiple",
             "expectedResult": false
+        },
+        {
+            "description": "F2.startsWith.caseInsensitve should be enabled",
+            "context": {
+                "properties": {
+                    "customField": "test@example.com"
+                }
+            },
+            "toggleName": "F2.startsWith.caseInsensitve",
+            "expectedResult": true
+        },
+        {
+            "description": "F2.startsWith.caseInsensitve should be enabled",
+            "context": {
+                "properties": {
+                    "customField": "TEsT@example.com"
+                }
+            },
+            "toggleName": "F2.startsWith.caseInsensitve",
+            "expectedResult": true
         },
         {
             "description": "F3.endsWith should be enabled",
