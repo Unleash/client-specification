@@ -1,6 +1,6 @@
 {
   "name": "@unleash/client-specification",
-  "version": "5.1.4",
+  "version": "5.1.5",
   "description": "A collection of test specifications to guide client implementations in various languages",
   "scripts": {
     "test": "node index",
