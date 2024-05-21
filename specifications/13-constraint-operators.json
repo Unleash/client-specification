@@ -514,7 +514,7 @@
             "expectedResult": true
         },
         {
-            "description": "F2.startsWith.caseInsensitve should be enabled",
+            "description": "F2.startsWith.caseInsensitve should handle various cases when enabled",
             "context": {
                 "properties": {
                     "customField": "TEsT@example.com"
