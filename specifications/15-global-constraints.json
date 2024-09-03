@@ -13,6 +13,44 @@
             "parameters": {},
             "segments": [1]
           }
+        ],
+        "variants": [
+            {
+                "name": "blue",
+                "weight": 25,
+                "stickiness": "customField",
+                "payload": {
+                    "type": "string",
+                    "value": "val1"
+                }
+            },
+            {
+                "name": "red",
+                "weight": 25,
+                "stickiness": "customField",
+                "payload": {
+                    "type": "string",
+                    "value": "val1"
+                }
+            },
+            {
+                "name": "green",
+                "weight": 25,
+                "stickiness": "customField",
+                "payload": {
+                    "type": "string",
+                    "value": "val1"
+                }
+            },
+            {
+                "name": "yellow",
+                "weight": 25,
+                "stickiness": "customField",
+                "payload": {
+                    "type": "string",
+                    "value": "val1"
+                }
+            }
         ]
       },
       {
@@ -196,6 +234,27 @@
       },
       "toggleName": "F9.withSeveralConstraintsAndSegments",
       "expectedResult": true
+    }
+  ],
+  "variantTests": [
+    {
+        "description": "F9.globalSegmentOn and customField=616 yields green",
+        "context": {
+          "properties": {
+            "version": "1.2.2",
+            "customField": "616"
+          }
+        },
+        "toggleName": "F9.globalSegmentOn",
+        "expectedResult": {
+            "name": "green",
+            "payload": {
+                "type": "string",
+                "value": "val1"
+            },
+            "enabled": true,
+            "feature_enabled": true
+        }
     }
   ]
 }
