@@ -83,3 +83,8 @@ Fields description:
   - **context** - The [unleash context](https://docs.getunleash.io/user_guide/unleash_context) the client should setup.
   - **toggleName** - The toggle name to send in to the `isEnabled` call in this test case.
   - **expectedResult** - The expected result of the `getVariant` call with the given `toggleName`.
+
+## Releasing
+From main:
+1. Run `yarn version` and write the version number.
+2. Push `git push origin main --tags`
