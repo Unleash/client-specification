@@ -594,6 +594,12 @@
             "expectedResult": true
         },
         {
+            "description": "F4.contains.inverted with no matching context property should be enabled",
+            "context": {},
+            "toggleName": "F4.contains.inverted",
+            "expectedResult": true
+        },
+        {
             "description": "F5.numEq",
             "context": {
                 "properties": {
@@ -650,6 +656,12 @@
                     "someValue": "13"
                 }
             },
+            "toggleName":  "F5.numEq.inverted",
+            "expectedResult": true
+        },
+        {
+            "description": "F5.numEq.inverted with no matching context property should be true",
+            "context": {},
             "toggleName":  "F5.numEq.inverted",
             "expectedResult": true
         },
