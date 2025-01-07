@@ -15,5 +15,6 @@
   "14-constraint-semver-operators.json",
   "15-global-constraints.json",
   "16-strategy-variants.json",
-  "17-dependent-features.json"
+  "17-dependent-features.json",
+  "18-utf8-flag-names.json"
 ]
