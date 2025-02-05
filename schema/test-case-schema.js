@@ -1,10 +1,11 @@
 const Joi = require('joi');
 const featuresSchema = require('./features-schema.js');
+const deltasSchema = require('./deltas-schema.js');
 const contextSchema = require('./context-schema.js');
 
 const schema = Joi.object().keys({
     name: Joi.string(),
-    state: featuresSchema,
+    state: Joi.alternatives().try(featuresSchema, deltasSchema).required(),
     tests: Joi.array().items(
         Joi.object().keys({
             description: Joi.string().required(),

@@ -16,5 +16,7 @@
   "15-global-constraints.json",
   "16-strategy-variants.json",
   "17-dependent-features.json",
-  "18-utf8-flag-names.json"
+  "18-utf8-flag-names.json",
+  "19-delta-api-hydration.json",
+  "20-delta-api-events.json"
 ]
