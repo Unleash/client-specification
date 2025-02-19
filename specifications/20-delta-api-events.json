@@ -43,7 +43,8 @@
             {
                 "eventId": 3,
                 "type": "feature-removed",
-                "featureName": "delta.api.events.updated.2"
+                "featureName": "delta.api.events.updated.2",
+                "project" : "default"
             },
             {
             "eventId": 4,

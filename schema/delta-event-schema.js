@@ -18,6 +18,7 @@ const deltaEventSchema = Joi.alternatives().try(
         eventId: Joi.number().required(),
         type: Joi.string().valid("feature-removed").required(),
         featureName: Joi.string().required(),
+        project: Joi.string().required(),
     }),
     Joi.object({
         eventId: Joi.number().required(),
