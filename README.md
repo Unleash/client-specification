@@ -88,4 +88,5 @@ Fields description:
 From main:
 1. Run `yarn version` and write the version number.
 2. Run `git checkout -b <branch_name>` and make PR
-3. After PR gets approved and merged, the version will bump up
+3. Wait for PR to get approved and merged
+4. Push `git push origin main --tags`
