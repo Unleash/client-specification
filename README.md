@@ -87,4 +87,6 @@ Fields description:
 ## Releasing
 From main:
 1. Run `yarn version` and write the version number.
-2. Push `git push origin main --tags`
+2. Run `git checkout -b <branch_name>` and make PR
+3. Wait for PR to get approved and merged
+4. Push `git push origin main --tags`
