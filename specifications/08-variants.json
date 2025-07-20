@@ -190,6 +190,85 @@
                         }
                     }
                 ]
+            },
+            {
+                "name": "Feature.Variants.E",
+                "description": "Enabled",
+                "enabled": false,
+                "strategies": [
+                    {
+                        "name": "default",
+                        "parameters": {}
+                    }
+                ],
+                "variants": [
+                    {
+                        "name": "variant1",
+                        "weight": 1,
+                        "payload": {
+                            "type": "string",
+                            "value": "val1"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "Feature.Variants.F",
+                "description": "Empty variants",
+                "enabled": true,
+                "strategies": [
+                    {
+                        "name": "default",
+                        "parameters": {}
+                    }
+                ],
+                "variants": []
+            },
+            {
+                "name": "Feature.Variants.G",
+                "description": "0% gradual rollout, but has variants",
+                "enabled": true,
+                "strategies": [
+                    {
+                        "name": "flexibleRollout",
+                        "parameters": {
+                            "rollout": "0",
+                            "stickiness": "default",
+                            "groupId": "feature-variant-g"
+                        }
+                    }
+                ],
+                "variants": [
+                    {
+                        "name": "variant1",
+                        "weight": 1,
+                        "payload": {
+                            "type": "string",
+                            "value": "val1"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "Feature.Variants.H",
+                "description": "variant with numeric payload",
+                "enabled": true,
+                "strategies": [
+                    {
+                        "name": "default",
+                        "parameters": {}
+                    }
+                ],
+                "variants": [
+                    {
+                        "name": "variant1",
+                        "weight": 1,
+                        "payload": {
+                            "type": "number",
+                            "value": "1.2"
+                        }
+                    }
+                ]
             }
         ]
     },
