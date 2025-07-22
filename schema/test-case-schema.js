@@ -1,10 +1,11 @@
 const Joi = require('joi');
 const featuresSchema = require('./features-schema.js');
+const deltasSchema = require('./deltas-schema.js');
 const contextSchema = require('./context-schema.js');
 
 const schema = Joi.object().keys({
     name: Joi.string(),
-    state: featuresSchema,
+    state: Joi.alternatives().try(featuresSchema, deltasSchema).required(),
     tests: Joi.array().items(
         Joi.object().keys({
             description: Joi.string().required(),
@@ -24,7 +25,8 @@ const schema = Joi.object().keys({
                     type: Joi.string().required(),
                     value: Joi.string().required().allow(""),
                 }).optional(),
-                enabled: Joi.boolean().required()
+                enabled: Joi.boolean().required(),
+                feature_enabled: Joi.boolean().required()
             }),
         })
     )
