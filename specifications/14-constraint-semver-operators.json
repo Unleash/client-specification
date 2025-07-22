@@ -1,7 +1,7 @@
 {
     "name": "14-constraint-semver-operators",
     "state": {
-        "version": 1,
+        "version": 2,
         "features": [
             {
                 "name": "F8.semverEQ",
@@ -175,7 +175,7 @@
                     "version": "1.2.2"
                 }
             },
-            "toggleName": "F8.semverEQ",
+            "toggleName":  "F8.semverEQ",
             "expectedResult": true
         },
         {
@@ -185,7 +185,7 @@
                     "version": "1.2.0"
                 }
             },
-            "toggleName": "F8.semverEQ",
+            "toggleName":  "F8.semverEQ",
             "expectedResult": false
         },
         {
@@ -195,7 +195,7 @@
                     "version": "1.2.3"
                 }
             },
-            "toggleName": "F8.semverGT",
+            "toggleName":  "F8.semverGT",
             "expectedResult": true
         },
         {
@@ -205,7 +205,7 @@
                     "version": "1.2.0"
                 }
             },
-            "toggleName": "F8.semverGT",
+            "toggleName":  "F8.semverGT",
             "expectedResult": false
         },
         {
@@ -215,7 +215,7 @@
                     "version": "1.2.1"
                 }
             },
-            "toggleName": "F8.semverLT",
+            "toggleName":  "F8.semverLT",
             "expectedResult": true
         },
         {
@@ -225,7 +225,7 @@
                     "version": "1.2.3"
                 }
             },
-            "toggleName": "F8.semverLT",
+            "toggleName":  "F8.semverLT",
             "expectedResult": false
         },
         {
