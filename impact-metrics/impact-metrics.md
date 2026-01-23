@@ -234,7 +234,7 @@ Send metrics at the same interval as regular SDK metrics (default: 60 seconds).
 
 1. On successful transmission (HTTP 2xx): Reset/clear collected metrics
 2. On failure (HTTP 4xx/5xx): Call `restore()` to preserve metrics for next attempt
-3. Implement exponential backoff for repeated failures
+3. Use exponential backoff for repeated failures from your regular metrics
 
 ## JSON Serialization
 
