@@ -11,21 +11,21 @@ and provide data points for safeguards.
 
 This spec covers different implementation layers. Read the sections relevant to your work:
 
-| Section | Yggdrasil core | SDK using Yggdrasil | SDK without Yggdrasil |
-|---------|----------------|--------------------|-----------------------|
-| Public API | | ✓ | ✓ |
-| Metric Types | ✓ | | ✓ |
-| Automatic Labels | | ✓ | ✓ |
-| Registry Interface | ✓ | | ✓ |
-| Transmission | | ✓ | ✓ |
-| JSON Serialization | ✓ | | ✓ |
+| Section                 | Yggdrasil core | SDK using Yggdrasil | SDK without Yggdrasil |
+|-------------------------|----------------|--------------------|-----------------------|
+| Public API              | | ✓ | ✓ |
+| Metric Types            | ✓ | | ✓ |
+| Automatic Labels        | | ✓ | ✓ |
+| Metric Storage Behavior | ✓ | | ✓ |
+| Transmission            | | ✓ | ✓ |
+| JSON Serialization      | ✓ | | ✓ |
 
 Yggdrasil bindings just wrap FFI calls - see the method list in Registry Interface.
 
 ## Numeric Types
 
 Throughout this spec:
-- **float** means a 64-bit floating-point number 
+- **float** means an IEEE 754 binary64 floating-point number
 - **integer** means a 64-bit unsigned integer 
 
 Consistent types across SDKs, Edge, and Unleash are critical for correct metric collation across the FFI boundary.
