@@ -259,15 +259,15 @@ Impact metrics are included in the existing metrics payload:
 
 ### Error Handling
 
-**Transmission outcomes:**
+Impact metrics are transmitted as part of the existing metrics payload. This section only covers failure semantics specific to impact metrics — general retry and backoff behavior is out of scope.
 
-1. **HTTP 2xx** — Transmission succeeded. Clear collected metrics.
-2. **HTTP 413 (Payload Too Large)** — Drop the payload. Do NOT restore or retry, as the payload will remain too large and retrying would compound the problem by accumulating more data.
-3. **Other HTTP 4xx/5xx** — Restore collected metrics for the next attempt. Use the same exponential backoff as regular SDK metrics.
+**HTTP 413 (Payload Too Large):**
+
+Adding impact metrics increases payload size. If the server responds with 413, the SDK MUST drop the impact metrics payload. Do NOT restore or retry — the payload will remain too large, and restoring would compound the problem by accumulating more data on top of the next interval.
 
 **Fault isolation:**
 
-Failure to collect or serialize impact metrics MUST NOT prevent base toggle metrics from being sent. If impact metric collection raises an error, the SDK MUST still transmit the regular metrics payload without the `impactMetrics` field. Newer features must not degrade the reliability of mature features that share the same transport.
+Failure to collect or serialize impact metrics MUST NOT prevent base toggle metrics from being sent. If impact metric collection raises an error, the SDK MUST still transmit the regular metrics payload without the `impactMetrics` field.
 
 ## JSON Serialization
 
