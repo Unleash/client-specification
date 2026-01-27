@@ -163,15 +163,7 @@ Defining a metric that already exists MUST return the existing metric.
 
 ### Collection
 
-`collect()` MUST return a snapshot of all currently defined metrics and their accumulated values since the previous successful `collect()`. It MUST also reset the collected state so that subsequent metric operations accumulate into the next interval.
-
-**Atomicity:**
-
-`collect()` MUST behave as a single logical cut (harvest boundary):
-
-- Updates that happen before the cut MUST appear in the returned snapshot.
-- Updates that happen after the cut MUST NOT appear in the returned snapshot.
-- Updates racing with `collect()` MAY end up in either the returned snapshot or the next interval, but MUST NOT be double-counted.
+`collect()` MUST return a snapshot of all currently defined metrics and their accumulated values since the previous successful `collect()`. It MUST also reset the collected state so that subsequent metric operations accumulate into the next interval. Updates racing with `collect()` MUST NOT be double-counted.
 
 **Post-collection state:**
 
@@ -268,13 +260,6 @@ Adding impact metrics increases payload size. If the server responds with 413, t
 Failure to collect or serialize impact metrics MUST NOT prevent base toggle metrics from being sent. If impact metric collection raises an error, the SDK MUST still transmit the regular metrics payload without the `impactMetrics` field.
 
 ## JSON Serialization
-
-### Type Field
-
-The `type` field MUST be serialized as lowercase string:
-- `"counter"`
-- `"gauge"`
-- `"histogram"`
 
 ### Infinity Handling
 
