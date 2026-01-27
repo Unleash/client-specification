@@ -23,6 +23,14 @@ This spec covers different implementation layers. Read the sections relevant to 
 
 Yggdrasil bindings just wrap FFI calls - see the method list in Registry Interface.
 
+## Numeric Types
+
+Throughout this spec:
+- **float** means a 64-bit floating-point number (`double` in Java/C#, `f64` in Rust, `float` in Python).
+- **integer** means a integer (`long` in Java/C#, `i64` in Rust, `int` in Python).
+
+Consistent types across SDKs, Edge, and Unleash are critical for correct metric collation across the FFI boundary.
+
 ## Public API
 
 SDKs MUST expose the following interface. Naming conventions may vary by language (e.g., Python uses snake_case: `define_counter`, `increment_counter`):
@@ -32,15 +40,15 @@ SDKs MUST expose the following interface. Naming conventions may vary by languag
 ```
 defineCounter(name: string, help: string) -> void
 defineGauge(name: string, help: string) -> void
-defineHistogram(name: string, help: string, buckets?: double/float/f64[]) -> void
+defineHistogram(name: string, help: string, buckets?: float[]) -> void
 ```
 
 ### Recording Methods
 
 ```
-incrementCounter(name: string, value?: long/int/i64, flagContext?: MetricFlagContext) -> void
-updateGauge(name: string, value: double/float/f64, flagContext?: MetricFlagContext) -> void
-observeHistogram(name: string, value: double/float/f64, flagContext?: MetricFlagContext) -> void
+incrementCounter(name: string, value?: integer, flagContext?: MetricFlagContext) -> void
+updateGauge(name: string, value: float, flagContext?: MetricFlagContext) -> void
+observeHistogram(name: string, value: float, flagContext?: MetricFlagContext) -> void
 ```
 
 ### MetricFlagContext
@@ -70,12 +78,12 @@ A monotonically increasing value.
 
 | Property | Type | Description |
 |----------|------|-------------|
-| value | **long/int/i64** | Accumulated count. Must NOT be floating-point. |
+| value | **integer** | Accumulated count. Must NOT be floating-point. |
 | labels | map<string, string> | Optional dimensional labels |
 
 **Operations:**
-- `increment(value?: long/int/i64 = 1)` - Add to counter
-- `increment(value: long/int/i64, labels: map<string, string>)` - Add with labels
+- `increment(value?: integer = 1)` - Add to counter
+- `increment(value: integer, labels: map<string, string>)` - Add with labels
 
 ### Gauge
 
@@ -83,18 +91,18 @@ A value that can increase or decrease.
 
 | Property | Type | Description |
 |----------|------|-------------|
-| value | **double/float/f64** | Current value. Must NOT be integer. |
+| value | **float** | Current value. Must NOT be integer. |
 | labels | map<string, string> | Optional dimensional labels |
 
 **Operations:**
-- `set(value: double/float/f64)` - Set absolute value
-- `set(value: double/float/f64, labels: map<string, string>)` - Set with labels
-- `increment(value?: double/float/f64 = 1.0)` - Add to gauge
-- `increment(value: double/float/f64, labels: map<string, string>)` - Add with labels
-- `decrement(value?: double/float/f64 = 1.0)` - Subtract from gauge
-- `decrement(value: double/float/f64, labels: map<string, string>)` - Subtract with labels
+- `set(value: float)` - Set absolute value
+- `set(value: float, labels: map<string, string>)` - Set with labels
+- `increment(value?: float = 1.0)` - Add to gauge
+- `increment(value: float, labels: map<string, string>)` - Add with labels
+- `decrement(value?: float = 1.0)` - Subtract from gauge
+- `decrement(value: float, labels: map<string, string>)` - Subtract with labels
 
-> **IMPORTANT:** Gauge values MUST be double/float/f64, not integers. This is a common implementation error.
+> **IMPORTANT:** Gauge values MUST be float, not integers. This is a common implementation error.
 
 ### Histogram
 
@@ -102,24 +110,24 @@ Distribution of observed values across bucket boundaries.
 
 | Property | Type | Description |
 |----------|------|-------------|
-| count | **long/int/i64** | Total number of observations |
-| sum | **double/float/f64** | Sum of all observed values |
+| count | **integer** | Total number of observations |
+| sum | **float** | Sum of all observed values |
 | buckets | array | Cumulative bucket counts |
 
 **Bucket structure:**
 
 | Property | Type | Description |
 |----------|------|-------------|
-| le | double/float/f64 or "+Inf" | Upper boundary (less-than-or-equal) |
-| count | long/int/i64 | Cumulative count of observations ≤ le |
+| le | float or "+Inf" | Upper boundary (less-than-or-equal) |
+| count | integer | Cumulative count of observations ≤ le |
 
 **Default buckets:** `[0.005, 0.01, 0.025, 0.05, 0.1, 0.25, 0.5, 1.0, 2.5, 5.0, 10.0]`
 
 The `+Infinity` bucket MUST always be appended programmatically, regardless of custom bucket configuration.
 
 **Operations:**
-- `observe(value: double/float/f64)` - Record an observation
-- `observe(value: double/float/f64, labels: map<string, string>)` - Record with labels
+- `observe(value: float)` - Record an observation
+- `observe(value: float, labels: map<string, string>)` - Record with labels
 
 **Observation logic:**
 - Increment `count` by 1
@@ -272,7 +280,7 @@ For multi-threaded languages, metric operations MUST be thread-safe:
 
 ## Common Implementation Errors
 
-1. **Using integer type for gauge values** - Gauges MUST use double/float/f64
+1. **Using integer type for gauge values** - Gauges MUST use float
 2. **Not appending +Infinity bucket** - Histograms MUST always have +Inf as final bucket
 3. **Not clearing metrics after collection** - Counters and gauges must be cleared after collect()
 4. **Not restoring metrics on transmission failure** - Metrics would be lost
