@@ -286,7 +286,7 @@ The histogram bucket boundary `+Infinity` MUST be serialized as the string `"+In
 {"le": "+Inf", "count": 100}
 ```
 
-When deserializing, `"+Inf"` MUST be converted to the language's infinity value.
+When deserializing, `"+Inf"` MUST be mapped to a value that represents positive infinity in IEEE 754 binary64 semantics.
 
 ### Labels Serialization
 
