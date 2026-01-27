@@ -19,7 +19,6 @@ This spec covers different implementation layers. Read the sections relevant to 
 | Registry Interface | ✓ | | ✓ |
 | Transmission | | ✓ | ✓ |
 | JSON Serialization | ✓ | | ✓ |
-| Thread Safety | ✓ | | ✓ |
 
 Yggdrasil bindings just wrap FFI calls - see the method list in Registry Interface.
 
@@ -295,21 +294,6 @@ Labels are serialized as a JSON object:
 ```json
 {"appName": "my-app", "environment": "prod", "feature-x": "variant-a"}
 ```
-
-## Thread Safety
-
-For multi-threaded languages, metric operations MUST be thread-safe:
-- Use concurrent data structures (ConcurrentHashMap, DashMap, etc.)
-- Use atomic operations for counter increments
-- Avoid locks where possible for performance
-
-## Common Implementation Errors
-
-1. **Using integer type for gauge values** - Gauges MUST use float
-2. **Not appending +Infinity bucket** - Histograms MUST always have +Inf as final bucket
-3. **Not clearing metrics after collection** - Counters and gauges must be cleared after collect()
-4. **Not restoring metrics on transmission failure** - Metrics would be lost
-5. **Non-thread-safe registry** - Will cause race conditions in concurrent applications
 
 ## Example Public API
 
