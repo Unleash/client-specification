@@ -83,7 +83,7 @@ A monotonically increasing value.
 
 | Property | Type | Description |
 |----------|------|-------------|
-| value | **integer** | Accumulated count. Must NOT be floating-point. |
+| value | **integer** | Accumulated count |
 | labels | map<string, string> | Optional dimensional labels |
 
 **Operations:**
@@ -97,7 +97,7 @@ A value that can increase or decrease.
 
 | Property | Type | Description |
 |----------|------|-------------|
-| value | **float** | Current value. Must NOT be integer. |
+| value | **float** | Current value |
 | labels | map<string, string> | Optional dimensional labels |
 
 **Operations:**
