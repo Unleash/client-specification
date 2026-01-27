@@ -286,7 +286,7 @@ For multi-threaded languages, metric operations MUST be thread-safe:
 4. **Not restoring metrics on transmission failure** - Metrics would be lost
 5. **Non-thread-safe registry** - Will cause race conditions in concurrent applications
 
-## Example Usage
+## Example Public API
 
 ```javascript
 // Initialize
