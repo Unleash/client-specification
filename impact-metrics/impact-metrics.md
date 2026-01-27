@@ -33,22 +33,27 @@ Consistent types across SDKs, Edge, and Unleash are critical for correct metric 
 
 ## Public API
 
-SDKs MUST expose the following interface. Naming conventions may vary by language (e.g., Python uses snake_case: `define_counter`, `increment_counter`):
+SDKs MUST expose the following interface. Naming conventions may vary by language (e.g., Python uses snake_case: `define_counter`, `increment_counter`). Where multiple signatures are listed, languages without overloading should use separate function names.
 
 ### Definition Methods
 
 ```
 defineCounter(name: string, help: string) -> void
 defineGauge(name: string, help: string) -> void
-defineHistogram(name: string, help: string, buckets?: float[]) -> void
+defineHistogram(name: string, help: string) -> void
+defineHistogram(name: string, help: string, buckets: float[]) -> void
 ```
 
 ### Recording Methods
 
 ```
-incrementCounter(name: string, value?: integer, flagContext?: MetricFlagContext) -> void
-updateGauge(name: string, value: float, flagContext?: MetricFlagContext) -> void
-observeHistogram(name: string, value: float, flagContext?: MetricFlagContext) -> void
+incrementCounter(name: string) -> void
+incrementCounter(name: string, value: integer) -> void
+incrementCounter(name: string, value: integer, flagContext: MetricFlagContext) -> void
+updateGauge(name: string, value: float) -> void
+updateGauge(name: string, value: float, flagContext: MetricFlagContext) -> void
+observeHistogram(name: string, value: float) -> void
+observeHistogram(name: string, value: float, flagContext: MetricFlagContext) -> void
 ```
 
 ### MetricFlagContext
@@ -82,7 +87,8 @@ A monotonically increasing value.
 | labels | map<string, string> | Optional dimensional labels |
 
 **Operations:**
-- `increment(value?: integer = 1)` - Add to counter
+- `increment()` - Add 1 to counter
+- `increment(value: integer)` - Add to counter
 - `increment(value: integer, labels: map<string, string>)` - Add with labels
 
 ### Gauge
@@ -97,9 +103,11 @@ A value that can increase or decrease.
 **Operations:**
 - `set(value: float)` - Set absolute value
 - `set(value: float, labels: map<string, string>)` - Set with labels
-- `increment(value?: float = 1.0)` - Add to gauge
+- `increment()` - Add 1.0 to gauge
+- `increment(value: float)` - Add to gauge
 - `increment(value: float, labels: map<string, string>)` - Add with labels
-- `decrement(value?: float = 1.0)` - Subtract from gauge
+- `decrement()` - Subtract 1.0 from gauge
+- `decrement(value: float)` - Subtract from gauge
 - `decrement(value: float, labels: map<string, string>)` - Subtract with labels
 
 > **IMPORTANT:** Gauge values MUST be float, not integers. This is a common implementation error.
