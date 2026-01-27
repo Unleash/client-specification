@@ -257,10 +257,6 @@ Impact metrics are included in the existing metrics payload:
 }
 ```
 
-### Transmission Interval
-
-Send metrics at the same interval as regular SDK metrics (default: 60 seconds).
-
 ### Error Handling
 
 **Transmission outcomes:**
