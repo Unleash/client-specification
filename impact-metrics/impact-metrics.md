@@ -26,8 +26,8 @@ Yggdrasil bindings just wrap FFI calls - see the method list in Registry Interfa
 ## Numeric Types
 
 Throughout this spec:
-- **float** means a 64-bit floating-point number (`double` in Java/C#, `f64` in Rust, `float` in Python).
-- **integer** means a integer (`long` in Java/C#, `i64` in Rust, `int` in Python).
+- **float** means a 64-bit floating-point number 
+- **integer** means a 64-bit unsigned integer 
 
 Consistent types across SDKs, Edge, and Unleash are critical for correct metric collation across the FFI boundary.
 
