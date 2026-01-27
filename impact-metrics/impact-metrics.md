@@ -155,39 +155,48 @@ SDKs MUST automatically add these labels to all metrics:
 2. Otherwise, the environment MUST be extracted from the API key specified at startup.
 3. **Deprecated fallback:** If the SDK configuration specifies an explicit `environment` field, it MAY be used as a fallback when the API key does not provide an environment. 
 
-## Registry Interface
+## Metric Storage Behavior
 
-Internal registry for storing metrics. Must be thread-safe.
+The SDK MUST store defined metrics so they can be collected for transmission and restored on failure.
 
-**Yggdrasil FFI methods:** `define_counter`, `inc_counter`, `define_gauge`, `set_gauge`, `define_histogram`, `observe_histogram`, `collect_impact_metrics`, `restore_impact_metrics`
+### Defining metrics
 
-```
-// Registration (creates if not exists, returns existing if already defined)
-counter(options: MetricOptions) -> Counter
-gauge(options: MetricOptions) -> Gauge
-histogram(options: BucketMetricOptions) -> Histogram
+Defining a metric that already exists MUST return the existing metric.
 
-// Retrieval
-getCounter(name: string) -> Counter | undefined
-getGauge(name: string) -> Gauge | undefined
-getHistogram(name: string) -> Histogram | undefined
+### Collection
 
-// Collection
-collect() -> CollectedMetric[]
-restore(metrics: CollectedMetric[]) -> void
-```
+`collect()` MUST return a snapshot of all currently defined metrics and their accumulated values since the previous successful `collect()`. It MUST also reset the collected state so that subsequent metric operations accumulate into the next interval.
 
-### Collection Behavior
+**Atomicity:**
 
-- `collect()` returns all metrics and clears all values (counters, gauges, and histograms)
-- When empty after collection: counters and histograms return zero-value samples; gauges return empty samples array
-- If no metrics have been defined, `collect()` returns an empty array
+`collect()` MUST behave as a single logical cut (harvest boundary):
 
-### Restore Behavior
+- Updates that happen before the cut MUST appear in the returned snapshot.
+- Updates that happen after the cut MUST NOT appear in the returned snapshot.
+- Updates racing with `collect()` MAY end up in either the returned snapshot or the next interval, but MUST NOT be double-counted.
 
-- `restore()` repopulates metrics from a previous collection
-- Used for retry logic when metric transmission fails
-- Must reconstruct histogram bucket state correctly
+**Post-collection state:**
+
+After `collect()` completes, internal accumulated values MUST be reset as follows:
+
+- **Counters:** the label-set entry is removed. On the next collection with no intervening increments, the counter emits a single zero-value sample with empty labels.
+- **Histograms:** the label-set entry is removed. On the next collection with no intervening observations, the histogram emits a single zero-value sample with empty labels, default bucket boundaries, and all counts/sum at 0. Bucket boundaries are preserved at the metric level (not per label-set).
+- **Gauges:** behave as unset for each label-set (no sample emitted until updated again).
+
+**Empty collection:**
+
+- If no metrics have ever been defined, `collect()` MUST return an empty array.
+- If metrics are defined but no samples exist after reset:
+  - Counters and histograms MUST still be included with a single zero-value sample (empty labels).
+  - Gauges MUST return an empty samples array.
+
+### Restore
+
+- Restoring MUST repopulate metrics from a previous collection.
+- This is used for retry logic when metric transmission fails (see Error Handling).
+- Histogram bucket state MUST be correctly reconstructed, including all bucket boundaries and cumulative counts.
+
+> **Yggdrasil implementers:** The corresponding FFI methods are `define_counter`, `inc_counter`, `define_gauge`, `set_gauge`, `define_histogram`, `observe_histogram`, `collect_impact_metrics`, `restore_impact_metrics`.
 
 ## Transmission
 
@@ -254,9 +263,15 @@ Send metrics at the same interval as regular SDK metrics (default: 60 seconds).
 
 ### Error Handling
 
-1. On successful transmission (HTTP 2xx): Reset/clear collected metrics
-2. On failure (HTTP 4xx/5xx): Call `restore()` to preserve metrics for next attempt
-3. Use exponential backoff for repeated failures from your regular metrics
+**Transmission outcomes:**
+
+1. **HTTP 2xx** — Transmission succeeded. Clear collected metrics.
+2. **HTTP 413 (Payload Too Large)** — Drop the payload. Do NOT restore or retry, as the payload will remain too large and retrying would compound the problem by accumulating more data.
+3. **Other HTTP 4xx/5xx** — Restore collected metrics for the next attempt. Use the same exponential backoff as regular SDK metrics.
+
+**Fault isolation:**
+
+Failure to collect or serialize impact metrics MUST NOT prevent base toggle metrics from being sent. If impact metric collection raises an error, the SDK MUST still transmit the regular metrics payload without the `impactMetrics` field. Newer features must not degrade the reliability of mature features that share the same transport.
 
 ## JSON Serialization
 
