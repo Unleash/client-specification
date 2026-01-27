@@ -30,6 +30,8 @@ Throughout this spec:
 
 Consistent types across SDKs, Edge, and Unleash are critical for correct metric collation across the FFI boundary.
 
+**Invalid values:** `+Infinity`, `-Infinity`, and `NaN` MUST be silently dropped when passed as a value to any metric operation (counter increment, gauge set/increment/decrement, histogram observe). The operation MUST have no effect.
+
 ## Public API
 
 SDKs MUST expose the following interface. Naming conventions may vary by language (e.g., Python uses snake_case: `define_counter`, `increment_counter`). Where multiple signatures are listed, languages without overloading should use separate function names.
@@ -109,8 +111,6 @@ A value that can increase or decrease.
 - `decrement(value: float)` - Subtract from gauge
 - `decrement(value: float, labels: map<string, string>)` - Subtract with labels
 
-> **IMPORTANT:** Gauge values MUST be float, not integers. This is a common implementation error.
-
 ### Histogram
 
 Distribution of observed values across bucket boundaries.
@@ -140,7 +140,6 @@ The `+Infinity` bucket MUST always be appended programmatically, regardless of c
 - Increment `count` by 1
 - Add `value` to `sum`
 - For each bucket where `value <= le`, increment that bucket's count
-- Ignore NaN and infinite values
 
 ## Automatic Labels
 
