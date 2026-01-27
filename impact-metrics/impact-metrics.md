@@ -146,8 +146,14 @@ The `+Infinity` bucket MUST always be appended programmatically, regardless of c
 ## Automatic Labels
 
 SDKs MUST automatically add these labels to all metrics:
-- `appName` - From SDK configuration
-- `environment` - From SDK configuration or extracted from API key
+- `appName` - From SDK configuration.
+- `environment` - The effective environment used for fetching and evaluating toggles.
+
+**Resolving the `environment` label:**
+
+1. If the SDK uses a dynamic API key resolver, the environment MUST be resolved via that resolver at the time of metric construction.
+2. Otherwise, the environment MUST be extracted from the API key specified at startup.
+3. **Deprecated fallback:** If the SDK configuration specifies an explicit `environment` field, it MAY be used as a fallback when the API key does not provide an environment. 
 
 ## Registry Interface
 
