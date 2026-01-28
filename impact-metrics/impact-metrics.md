@@ -32,6 +32,8 @@ Consistent types across SDKs, Edge, and Unleash are critical for correct metric 
 
 **Invalid values:** `+Infinity`, `-Infinity`, and `NaN` MUST be silently dropped when passed as a value to any metric operation (counter increment, gauge set/increment/decrement, histogram observe). The operation MUST have no effect.
 
+**Overflow:** Accumulated counter values and histogram counts/sums may overflow in long-running processes. SDKs SHOULD use the language's idiomatic overflow behavior (e.g., wrapping arithmetic in Rust, precision loss in JavaScript). No special handling is required.
+
 ## Public API
 
 SDKs MUST expose the following interface. Naming conventions may vary by language (e.g., Python uses snake_case: `define_counter`, `increment_counter`). Where multiple signatures are listed, languages without overloading should use separate function names.
