@@ -50,31 +50,9 @@ defineHistogram(name: string, help: string, buckets: float[]) -> void
 ```
 incrementCounter(name: string) -> void
 incrementCounter(name: string, value: integer) -> void
-incrementCounter(name: string, value: integer, flagContext: MetricFlagContext) -> void
 updateGauge(name: string, value: float) -> void
-updateGauge(name: string, value: float, flagContext: MetricFlagContext) -> void
 observeHistogram(name: string, value: float) -> void
-observeHistogram(name: string, value: float, flagContext: MetricFlagContext) -> void
 ```
-
-### MetricFlagContext
-
-Optional context for correlating metrics with feature flag states.
-
-```json
-{
-  "flagNames": ["feature-a", "feature-b"],
-  "context": {
-    "userId": "user-123",
-    "sessionId": "session-456"
-  }
-}
-```
-
-When provided, the SDK resolves each flag and adds labels:
-- If flag has variant: `{"featureName": "variantName"}`
-- If flag enabled without variant: `{"featureName": "enabled"}`
-- If flag disabled: `{"featureName": "disabled"}`
 
 ## Metric Types
 
@@ -294,13 +272,6 @@ unleash.impactMetrics.defineHistogram('checkout_duration_seconds', 'Checkout flo
 unleash.impactMetrics.incrementCounter('purchases', 1);
 unleash.impactMetrics.updateGauge('active_users', 150.0);
 unleash.impactMetrics.observeHistogram('checkout_duration_seconds', 2.3);
-
-// With feature flag context
-unleash.impactMetrics.incrementCounter('purchases', 1, {
-  flagNames: ['new-checkout-flow'],
-  context: { userId: 'user-123' }
-});
-// Results in labels: {"appName": "my-app", "environment": "prod", "new-checkout-flow": "enabled"}
 ```
 
 
