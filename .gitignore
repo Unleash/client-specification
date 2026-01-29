@@ -26,3 +26,5 @@ build/Release
 lib/
 .vscode
 .idea
+
+CLAUDE.md
