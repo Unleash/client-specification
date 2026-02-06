@@ -100,6 +100,7 @@ Distribution of observed values across bucket boundaries.
 | count | **integer** | Total number of observations |
 | sum | **float** | Sum of all observed values |
 | buckets | array | Cumulative bucket counts |
+| labels | map<string, string> | Optional dimensional labels |
 
 **Bucket structure:**
 
@@ -271,5 +272,4 @@ unleash.impactMetrics.incrementCounter('purchases', 1);
 unleash.impactMetrics.updateGauge('active_users', 150.0);
 unleash.impactMetrics.observeHistogram('checkout_duration_seconds', 2.3);
 ```
-
 
