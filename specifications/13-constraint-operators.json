@@ -459,6 +459,24 @@
                         ]
                     }
                 ]
+            },
+            {
+                "name": "F11.regex_match",
+                "description": "regex match",
+                "enabled": true,
+                "strategies": [
+                    {
+                        "name": "default",
+                        "parameters": {},
+                        "constraints": [
+                            {
+                                "contextName": "userId",
+                                "operator": "REGEX",
+                                "value": "^[^@]+@[^@]+$"
+                            }
+                        ]
+                    }
+                ]
             }
         ]
     },
@@ -898,6 +916,16 @@
             },
             "toggleName":  "F10.inverted.NOT_IN",
             "expectedResult": true
+        },
+        {
+            "description": "F11.regex_match should be enabled when regex matches",
+            "context": {
+                "properties": {
+                    "userId": "test@example.com"
+                }
+            },
+            "toggleName":  "F11.regex_match",
+            "expectedResult": false
         }
     ]
 }
