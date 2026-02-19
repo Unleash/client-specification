@@ -221,6 +221,25 @@
                 ]
             },
             {
+                "name": "Inverted.constraint",
+                "description": "Inverted regex constraint (should enable when regex does NOT match)",
+                "enabled": true,
+                "strategies": [
+                    {
+                        "name": "default",
+                        "parameters": {},
+                        "constraints": [
+                            {
+                                "contextName": "userId",
+                                "operator": "REGEX",
+                                "value": "^abc$",
+                                "inverted": true
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
                 "name": "R10.inline_flag_m",
                 "description": "Inline (?m) multiline anchors",
                 "enabled": true,
@@ -580,6 +599,26 @@
             },
             "toggleName": "regex.case.sensitive",
             "expectedResult": true
+        },
+        {
+            "description": "Inverted constraint should enable when regex does not match",
+            "context": {
+                "properties": {
+                    "userId": "xyz"
+                }
+            },
+            "toggleName": "Inverted.constraint",
+            "expectedResult": true
+        },
+        {
+            "description": "Inverted constraint should disable when regex matches",
+            "context": {
+                "properties": {
+                    "userId": "abc"
+                }
+            },
+            "toggleName": "Inverted.constraint",
+            "expectedResult": false
         },
         {
             "description": "R10 (?m) matches line 'foo' inside multiline string",
