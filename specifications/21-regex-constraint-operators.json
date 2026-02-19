@@ -4,24 +4,6 @@
         "version": 1,
         "features": [
             {
-                "name": "email-match",
-                "description": "Basic email match",
-                "enabled": true,
-                "strategies": [
-                    {
-                        "name": "default",
-                        "parameters": {},
-                        "constraints": [
-                            {
-                                "contextName": "userId",
-                                "operator": "REGEX",
-                                "value": "^[^@]+@[^@]+$"
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
                 "name": "regex.case.sensitive",
                 "description": "Regex constraints are case sensitive by default",
                 "enabled": true,
@@ -320,7 +302,7 @@
                     "userId": "test@example.com"
                 }
             },
-            "toggleName": "email-match",
+            "toggleName": "R01.literal_and_anchors",
             "expectedResult": true
         },
         {
@@ -330,7 +312,7 @@
                     "userId": "not-an-email"
                 }
             },
-            "toggleName": "email-match",
+            "toggleName": "R01.literal_and_anchors",
             "expectedResult": false
         },
         {
@@ -350,13 +332,13 @@
                     "userId": null
                 }
             },
-            "toggleName": "email-match",
+            "toggleName": "R01.literal_and_anchors",
             "expectedResult": false
         },
         {
             "description": "Undefined value should result in toggle being disabled",
             "context": {},
-            "toggleName": "email-match",
+            "toggleName": "R01.literal_and_anchors",
             "expectedResult": false
         },
         {
