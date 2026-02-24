@@ -55,7 +55,7 @@ When initialized using the default initialization method:
 
 `ready` in this context means:
 The SDK has initialized and public API methods are callable.
-It does NOT guarantee that toggles have been fetched from Unleash, only that the SDK has made a best effort attempt to retrieve toggles.
+It does NOT guarantee that flags have been fetched from Unleash, only that the SDK has made a best effort attempt to retrieve flags.
 
 ### Validation Semantics
 
