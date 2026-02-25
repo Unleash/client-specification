@@ -58,6 +58,24 @@
                 ]
             },
             {
+                "name": "R01.literal_and_anchors.referencing.property",
+                "description": "Anchors ^ $ basic email-ish check",
+                "enabled": true,
+                "strategies": [
+                    {
+                        "name": "default",
+                        "parameters": {},
+                        "constraints": [
+                            {
+                                "contextName": "nested",
+                                "operator": "REGEX",
+                                "value": "^[^@]+@[^@]+$"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
                 "name": "R02.perl_digit_class",
                 "description": "\\d and quantifiers",
                 "enabled": true,
@@ -341,7 +359,9 @@
         {
             "description": "Null value should result in toggle being disabled",
             "context": {
-                "userId": null
+                "properties": {
+                    "nested": null
+                }
             },
             "toggleName": "R01.literal_and_anchors",
             "expectedResult": false
