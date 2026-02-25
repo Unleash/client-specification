@@ -363,7 +363,17 @@
                     "nested": null
                 }
             },
-            "toggleName": "R01.literal_and_anchors",
+            "toggleName": "R01.literal_and_anchors.referencing.property",
+            "expectedResult": false
+        },
+        {
+            "description": "Sanity check for 'Null value should result in toggle being disabled'",
+            "context": {
+                "properties": {
+                    "nested": null
+                }
+            },
+            "toggleName": "R01.literal_and_anchors.referencing.property",
             "expectedResult": false
         },
         {
