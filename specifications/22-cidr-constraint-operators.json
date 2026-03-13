@@ -74,6 +74,60 @@
                         ]
                     }
                 ]
+            },
+            {
+                "name": "CIDR.ipv6.exact.match",
+                "description": "Exact IPv6 match using IN_CIDR",
+                "enabled": true,
+                "strategies": [
+                    {
+                        "name": "default",
+                        "parameters": {},
+                        "constraints": [
+                            {
+                                "contextName": "remoteAddress",
+                                "operator": "IN_CIDR",
+                                "values": ["2001:db8::1"]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "CIDR.ipv6.range.match",
+                "description": "IPv6 CIDR range match using IN_CIDR",
+                "enabled": true,
+                "strategies": [
+                    {
+                        "name": "default",
+                        "parameters": {},
+                        "constraints": [
+                            {
+                                "contextName": "remoteAddress",
+                                "operator": "IN_CIDR",
+                                "values": ["2001:db8::/32"]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "CIDR.ipv6.mixed.values",
+                "description": "Invalid values should be ignored when valid IPv6 CIDR exists",
+                "enabled": true,
+                "strategies": [
+                    {
+                        "name": "default",
+                        "parameters": {},
+                        "constraints": [
+                            {
+                                "contextName": "remoteAddress",
+                                "operator": "IN_CIDR",
+                                "values": ["bad::cidr", "2001:db8::/32"]
+                            }
+                        ]
+                    }
+                ]
             }
         ]
     },
@@ -131,6 +185,46 @@
             "context": {},
             "toggleName": "CIDR.range.match",
             "expectedResult": false
+        },
+        {
+            "description": "Exact IPv6 match should be enabled",
+            "context": {
+                "remoteAddress": "2001:db8::1"
+            },
+            "toggleName": "CIDR.ipv6.exact.match",
+            "expectedResult": true
+        },
+        {
+            "description": "Exact IPv6 mismatch should be disabled",
+            "context": {
+                "remoteAddress": "2001:db8::2"
+            },
+            "toggleName": "CIDR.ipv6.exact.match",
+            "expectedResult": false
+        },
+        {
+            "description": "IPv6 CIDR range should enable matching IP",
+            "context": {
+                "remoteAddress": "2001:db8:0:1::42"
+            },
+            "toggleName": "CIDR.ipv6.range.match",
+            "expectedResult": true
+        },
+        {
+            "description": "IPv6 CIDR range should disable non-matching IP",
+            "context": {
+                "remoteAddress": "2001:db9::1"
+            },
+            "toggleName": "CIDR.ipv6.range.match",
+            "expectedResult": false
+        },
+        {
+            "description": "Valid IPv6 CIDR should match even when invalid entries exist",
+            "context": {
+                "remoteAddress": "2001:db8::abcd"
+            },
+            "toggleName": "CIDR.ipv6.mixed.values",
+            "expectedResult": true
         }
     ]
 }
