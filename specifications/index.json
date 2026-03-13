@@ -19,5 +19,6 @@
   "18-utf8-flag-names.json",
   "19-delta-api-hydration.json",
   "20-delta-api-events.json",
-  "21-regex-constraint-operators.json"
+  "21-regex-constraint-operators.json",
+  "22-cidr-constraint-operators.json"
 ]
