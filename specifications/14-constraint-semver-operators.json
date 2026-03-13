@@ -40,6 +40,24 @@
                 ]
             },
             {
+                "name": "F8.semverGTE",
+                "description": "semver",
+                "enabled": true,
+                "strategies": [
+                    {
+                        "name": "default",
+                        "parameters": {},
+                        "constraints": [
+                            {
+                                "contextName": "version",
+                                "operator": "SEMVER_GTE",
+                                "value": "1.2.2"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
                 "name": "F8.semverLT",
                 "description": "semver",
                 "enabled": true,
@@ -51,6 +69,24 @@
                             {
                                 "contextName": "version",
                                 "operator": "SEMVER_LT",
+                                "value": "1.2.2"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "F8.semverLTE",
+                "description": "semver",
+                "enabled": true,
+                "strategies": [
+                    {
+                        "name": "default",
+                        "parameters": {},
+                        "constraints": [
+                            {
+                                "contextName": "version",
+                                "operator": "SEMVER_LTE",
                                 "value": "1.2.2"
                             }
                         ]
@@ -209,6 +245,36 @@
             "expectedResult": false
         },
         {
+            "description": "F8.semverGTE should be enabled",
+            "context": {
+                "properties": {
+                    "version": "1.2.2"
+                }
+            },
+            "toggleName":  "F8.semverGTE",
+            "expectedResult": true
+        },
+        {
+            "description": "F8.semverGTE should be enabled for greater",
+            "context": {
+                "properties": {
+                    "version": "1.2.3"
+                }
+            },
+            "toggleName":  "F8.semverGTE",
+            "expectedResult": true
+        },
+        {
+            "description": "F8.semverGTE should be disabled",
+            "context": {
+                "properties": {
+                    "version": "1.2.1"
+                }
+            },
+            "toggleName":  "F8.semverGTE",
+            "expectedResult": false
+        },
+        {
             "description": "F8.semverLT should be enabled",
             "context": {
                 "properties": {
@@ -226,6 +292,36 @@
                 }
             },
             "toggleName":  "F8.semverLT",
+            "expectedResult": false
+        },
+        {
+            "description": "F8.semverLTE should be enabled",
+            "context": {
+                "properties": {
+                    "version": "1.2.2"
+                }
+            },
+            "toggleName":  "F8.semverLTE",
+            "expectedResult": true
+        },
+        {
+            "description": "F8.semverLTE should be enabled for less",
+            "context": {
+                "properties": {
+                    "version": "1.2.1"
+                }
+            },
+            "toggleName":  "F8.semverLTE",
+            "expectedResult": true
+        },
+        {
+            "description": "F8.semverLTE should be disabled",
+            "context": {
+                "properties": {
+                    "version": "1.2.3"
+                }
+            },
+            "toggleName":  "F8.semverLTE",
             "expectedResult": false
         },
         {

@@ -1,0 +1,136 @@
+{
+    "name": "22-cidr-constraint-operator",
+    "state": {
+        "version": 1,
+        "features": [
+            {
+                "name": "CIDR.exact.match",
+                "description": "Exact IP match using IN_CIDR",
+                "enabled": true,
+                "strategies": [
+                    {
+                        "name": "default",
+                        "parameters": {},
+                        "constraints": [
+                            {
+                                "contextName": "remoteAddress",
+                                "operator": "IN_CIDR",
+                                "values": ["127.0.0.1"]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "CIDR.range.match",
+                "description": "CIDR range match using IN_CIDR",
+                "enabled": true,
+                "strategies": [
+                    {
+                        "name": "default",
+                        "parameters": {},
+                        "constraints": [
+                            {
+                                "contextName": "remoteAddress",
+                                "operator": "IN_CIDR",
+                                "values": ["160.33.0.0/16"]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "CIDR.mixed.values",
+                "description": "Invalid values should be ignored when valid ones exist",
+                "enabled": true,
+                "strategies": [
+                    {
+                        "name": "default",
+                        "parameters": {},
+                        "constraints": [
+                            {
+                                "contextName": "remoteAddress",
+                                "operator": "IN_CIDR",
+                                "values": ["127.invalid", "192.168.1.0/24"]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "CIDR.invalid.only",
+                "description": "Only invalid values should not match anything",
+                "enabled": true,
+                "strategies": [
+                    {
+                        "name": "default",
+                        "parameters": {},
+                        "constraints": [
+                            {
+                                "contextName": "remoteAddress",
+                                "operator": "IN_CIDR",
+                                "values": ["127.invalid"]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "tests": [
+        {
+            "description": "Exact IP match should be enabled",
+            "context": {
+                "remoteAddress": "127.0.0.1"
+            },
+            "toggleName": "CIDR.exact.match",
+            "expectedResult": true
+        },
+        {
+            "description": "Exact IP mismatch should be disabled",
+            "context": {
+                "remoteAddress": "127.0.0.2"
+            },
+            "toggleName": "CIDR.exact.match",
+            "expectedResult": false
+        },
+        {
+            "description": "CIDR range should enable matching IP",
+            "context": {
+                "remoteAddress": "160.33.0.33"
+            },
+            "toggleName": "CIDR.range.match",
+            "expectedResult": true
+        },
+        {
+            "description": "CIDR range should disable non-matching IP",
+            "context": {
+                "remoteAddress": "160.34.0.1"
+            },
+            "toggleName": "CIDR.range.match",
+            "expectedResult": false
+        },
+        {
+            "description": "Valid CIDR should match even when invalid entries exist",
+            "context": {
+                "remoteAddress": "192.168.1.42"
+            },
+            "toggleName": "CIDR.mixed.values",
+            "expectedResult": true
+        },
+        {
+            "description": "Invalid-only values should not match",
+            "context": {
+                "remoteAddress": "127.0.0.1"
+            },
+            "toggleName": "CIDR.invalid.only",
+            "expectedResult": false
+        },
+        {
+            "description": "Missing remoteAddress should not match",
+            "context": {},
+            "toggleName": "CIDR.range.match",
+            "expectedResult": false
+        }
+    ]
+}
