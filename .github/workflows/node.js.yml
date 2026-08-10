@@ -13,6 +13,9 @@ on:
       - master
       - main
 
+permissions:
+  contents: read
+
 jobs:
   build:
 
@@ -25,6 +28,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+      with:
+        persist-credentials: false
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v4
       with:
