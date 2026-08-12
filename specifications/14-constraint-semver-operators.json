@@ -333,10 +333,30 @@
             "expectedResult": false
         },
         {
+            "description": "F8.semverEQ build metadata should be equal",
+            "context": {
+                "properties": {
+                    "version": "1.2.2+build"
+                }
+            },
+            "toggleName":  "F8.semverEQ",
+            "expectedResult": true
+        },
+        {
             "description": "F8.semverEQBuildMetadata should be enabled",
             "context": {
                 "properties": {
-                    "version": "1.2.2+build.1"
+                    "version": "1.2.2+notbuild"
+                }
+            },
+            "toggleName":  "F8.semverEQBuildMetadata",
+            "expectedResult": true
+        },
+        {
+            "description": "F8.semverEQBuildMetadata no metadata should be enabled",
+            "context": {
+                "properties": {
+                    "version": "1.2.2"
                 }
             },
             "toggleName":  "F8.semverEQBuildMetadata",
