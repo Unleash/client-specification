@@ -94,6 +94,96 @@
                 ]
             },
             {
+                "name": "F8.semverEQBuildMetadata",
+                "description": "semver",
+                "enabled": true,
+                "strategies": [
+                    {
+                        "name": "default",
+                        "parameters": {},
+                        "constraints": [
+                            {
+                                "contextName": "version",
+                                "operator": "SEMVER_EQ",
+                                "value": "1.2.2+build.1"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "F8.semverGTBuildMetadata",
+                "description": "semver",
+                "enabled": true,
+                "strategies": [
+                    {
+                        "name": "default",
+                        "parameters": {},
+                        "constraints": [
+                            {
+                                "contextName": "version",
+                                "operator": "SEMVER_GT",
+                                "value": "1.2.2+build.1"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "F8.semverGTEBuildMetadata",
+                "description": "semver",
+                "enabled": true,
+                "strategies": [
+                    {
+                        "name": "default",
+                        "parameters": {},
+                        "constraints": [
+                            {
+                                "contextName": "version",
+                                "operator": "SEMVER_GTE",
+                                "value": "1.2.2+build.1"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "F8.semverLTBuildMetadata",
+                "description": "semver",
+                "enabled": true,
+                "strategies": [
+                    {
+                        "name": "default",
+                        "parameters": {},
+                        "constraints": [
+                            {
+                                "contextName": "version",
+                                "operator": "SEMVER_LT",
+                                "value": "1.2.2+build.1"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "F8.semverLTEBuildMetadata",
+                "description": "semver",
+                "enabled": true,
+                "strategies": [
+                    {
+                        "name": "default",
+                        "parameters": {},
+                        "constraints": [
+                            {
+                                "contextName": "version",
+                                "operator": "SEMVER_LTE",
+                                "value": "1.2.2+build.1"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
                 "name": "F8.semverAlphaGT",
                 "description": "semver",
                 "enabled": true,
@@ -142,6 +232,24 @@
                                 "contextName": "version",
                                 "operator": "SEMVER_LT",
                                 "value": "2.0.0-alpha.3"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "F8.semverAlphaVersioningBuildMetadata",
+                "description": "semver",
+                "enabled": true,
+                "strategies": [
+                    {
+                        "name": "default",
+                        "parameters": {},
+                        "constraints": [
+                            {
+                                "contextName": "version",
+                                "operator": "SEMVER_LT",
+                                "value": "2.0.0-alpha.3+build.1"
                             }
                         ]
                     }
@@ -225,6 +333,26 @@
             "expectedResult": false
         },
         {
+            "description": "F8.semverEQBuildMetadata should be enabled",
+            "context": {
+                "properties": {
+                    "version": "1.2.2+build.1"
+                }
+            },
+            "toggleName":  "F8.semverEQBuildMetadata",
+            "expectedResult": true
+        },
+        {
+            "description": "F8.semverEQBuildMetadata should be disabled",
+            "context": {
+                "properties": {
+                    "version": "1.2.2+build.3"
+                }
+            },
+            "toggleName":  "F8.semverEQBuildMetadata",
+            "expectedResult": false
+        },
+        {
             "description": "F8.semverGT should be enabled",
             "context": {
                 "properties": {
@@ -242,6 +370,26 @@
                 }
             },
             "toggleName":  "F8.semverGT",
+            "expectedResult": false
+        },
+        {
+            "description": "F8.semverGTBuildMetadata should be enabled",
+            "context": {
+                "properties": {
+                    "version": "1.2.2+build.2"
+                }
+            },
+            "toggleName":  "F8.semverGTBuildMetadata",
+            "expectedResult": true
+        },
+        {
+            "description": "F8.semverGTBuildMetadata should be disabled",
+            "context": {
+                "properties": {
+                    "version": "1.2.2+build.0"
+                }
+            },
+            "toggleName":  "F8.semverGTBuildMetadata",
             "expectedResult": false
         },
         {
@@ -275,6 +423,36 @@
             "expectedResult": false
         },
         {
+            "description": "F8.semverGTEBuildMetadata should be enabled",
+            "context": {
+                "properties": {
+                    "version": "1.2.2+build.1"
+                }
+            },
+            "toggleName":  "F8.semverGTEBuildMetadata",
+            "expectedResult": true
+        },
+        {
+            "description": "F8.semverGTEBuildMetadata should be enabled for greater",
+            "context": {
+                "properties": {
+                    "version": "1.2.2+build.2"
+                }
+            },
+            "toggleName":  "F8.semverGTEBuildMetadata",
+            "expectedResult": true
+        },
+        {
+            "description": "F8.semverGTEBuildMetadata should be disabled",
+            "context": {
+                "properties": {
+                    "version": "1.2.2+build.0"
+                }
+            },
+            "toggleName":  "F8.semverGTEBuildMetadata",
+            "expectedResult": false
+        },
+        {
             "description": "F8.semverLT should be enabled",
             "context": {
                 "properties": {
@@ -292,6 +470,26 @@
                 }
             },
             "toggleName":  "F8.semverLT",
+            "expectedResult": false
+        },
+        {
+            "description": "F8.semverLTBuildMetadata should be enabled",
+            "context": {
+                "properties": {
+                    "version": "1.2.2+build.0"
+                }
+            },
+            "toggleName":  "F8.semverLTBuildMetadata",
+            "expectedResult": true
+        },
+        {
+            "description": "F8.semverLTBuildMetadata should be disabled",
+            "context": {
+                "properties": {
+                    "version": "1.2.2+build.2"
+                }
+            },
+            "toggleName":  "F8.semverLTBuildMetadata",
             "expectedResult": false
         },
         {
@@ -322,6 +520,36 @@
                 }
             },
             "toggleName":  "F8.semverLTE",
+            "expectedResult": false
+        },
+        {
+            "description": "F8.semverLTEBuildMetadata should be enabled",
+            "context": {
+                "properties": {
+                    "version": "1.2.2+build.1"
+                }
+            },
+            "toggleName":  "F8.semverLTEBuildMetadata",
+            "expectedResult": true
+        },
+        {
+            "description": "F8.semverLTEBuildMetadata should be enabled for less",
+            "context": {
+                "properties": {
+                    "version": "1.2.2+build.0"
+                }
+            },
+            "toggleName":  "F8.semverLTEBuildMetadata",
+            "expectedResult": true
+        },
+        {
+            "description": "F8.semverLTEBuildMetadata should be disabled",
+            "context": {
+                "properties": {
+                    "version": "1.2.2+build.2"
+                }
+            },
+            "toggleName":  "F8.semverLTEBuildMetadata",
             "expectedResult": false
         },
         {
@@ -392,6 +620,26 @@
                 }
             },
             "toggleName": "F8.semverAlphaVersioning",
+            "expectedResult": false
+        },
+        {
+            "description": "F8.semverAlphaVersioningBuildMetadata build.0 is less than build.1",
+            "context": {
+                "properties": {
+                    "version": "2.0.0-alpha.3+build.0"
+                }
+            },
+            "toggleName": "F8.semverAlphaVersioningBuildMetadata",
+            "expectedResult": true
+        },
+        {
+            "description": "F8.semverAlphaVersioningBuildMetadata build.2 is greater than build.1",
+            "context": {
+                "properties": {
+                    "version": "2.0.0-alpha.3+build.2"
+                }
+            },
+            "toggleName": "F8.semverAlphaVersioningBuildMetadata",
             "expectedResult": false
         },
         {
