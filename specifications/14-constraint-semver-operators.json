@@ -597,7 +597,7 @@
             "expectedResult": true
         },
         {
-            "description": "F8.semverPreReleaseMetadataEQ should be enabled for metadata.1",
+            "description": "F8.semverPreReleaseMetadataEQ should be enabled if only metadata differs and contains a dot",
             "context": {
                 "properties": {
                     "version": "1.2.2-alpha.1+metadata.1"
