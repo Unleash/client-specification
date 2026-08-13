@@ -577,7 +577,7 @@
             "expectedResult": true
         },
         {
-            "description": "F8.semverMetadataEQ should be enabled for metadata",
+            "description": "F8.semverMetadataEQ should be enabled if metadata matches",
             "context": {
                 "properties": {
                     "version": "1.2.2+metadata"
