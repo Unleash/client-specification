@@ -327,7 +327,7 @@
             "expectedResult": false
         },
         {
-            "description": "F8.semverGT should not be enabled for metadata",
+            "description": "F8.semverGT should be disabled if only metadata differs",
             "context": {
                 "properties": {
                     "version": "1.2.2+metadata"
