@@ -334,7 +334,7 @@
                 }
             },
             "toggleName":  "F8.semverGT",
-            "expectedResult": true
+            "expectedResult": false
         },
         {
             "description": "F8.semverGTE should be enabled",
