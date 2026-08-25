@@ -200,6 +200,78 @@
                         ]
                     }
                 ]
+            },
+            {
+                "name": "F8.semverMetadataEQ",
+                "description": "semver",
+                "enabled": true,
+                "strategies": [
+                    {
+                        "name": "default",
+                        "parameters": {},
+                        "constraints": [
+                            {
+                                "contextName": "version",
+                                "operator": "SEMVER_EQ",
+                                "value": "1.2.2+metadata"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "F8.semverPreReleaseMetadataEQ",
+                "description": "semver",
+                "enabled": true,
+                "strategies": [
+                    {
+                        "name": "default",
+                        "parameters": {},
+                        "constraints": [
+                            {
+                                "contextName": "version",
+                                "operator": "SEMVER_EQ",
+                                "value": "1.2.2-alpha.1+metadata"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "F8.semverPreReleaseMetadataLT",
+                "description": "semver",
+                "enabled": true,
+                "strategies": [
+                    {
+                        "name": "default",
+                        "parameters": {},
+                        "constraints": [
+                            {
+                                "contextName": "version",
+                                "operator": "SEMVER_LT",
+                                "value": "1.2.2-alpha.1+metadata"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "F8.semverPreReleaseMetadataGT",
+                "description": "semver",
+                "enabled": true,
+                "strategies": [
+                    {
+                        "name": "default",
+                        "parameters": {},
+                        "constraints": [
+                            {
+                                "contextName": "version",
+                                "operator": "SEMVER_GT",
+                                "value": "1.2.2-alpha.1+metadata.1"
+                            }
+                        ]
+                    }
+                ]
             }
         ]
     },
@@ -209,6 +281,16 @@
             "context": {
                 "properties": {
                     "version": "1.2.2"
+                }
+            },
+            "toggleName":  "F8.semverEQ",
+            "expectedResult": true
+        },
+        {
+            "description": "F8.semverEQ should be enabled for metadata",
+            "context": {
+                "properties": {
+                    "version": "1.2.2+metadata"
                 }
             },
             "toggleName":  "F8.semverEQ",
@@ -239,6 +321,16 @@
             "context": {
                 "properties": {
                     "version": "1.2.0"
+                }
+            },
+            "toggleName":  "F8.semverGT",
+            "expectedResult": false
+        },
+        {
+            "description": "F8.semverGT should be disabled if only metadata differs",
+            "context": {
+                "properties": {
+                    "version": "1.2.2+metadata"
                 }
             },
             "toggleName":  "F8.semverGT",
@@ -289,6 +381,16 @@
             "context": {
                 "properties": {
                     "version": "1.2.3"
+                }
+            },
+            "toggleName":  "F8.semverLT",
+            "expectedResult": false
+        },
+        {
+            "description": "F8.semverLT should be disabled if only metadata differs",
+            "context": {
+                "properties": {
+                    "version": "1.2.2+metadata"
                 }
             },
             "toggleName":  "F8.semverLT",
@@ -452,6 +554,86 @@
                 }
             },
             "toggleName": "F8.invalidSemverWithLeadingV",
+            "expectedResult": false
+        },
+        {
+            "description": "F8.semverMetadataEQ should be enabled if only metadata differs",
+            "context": {
+                "properties": {
+                    "version": "1.2.2"
+                }
+            },
+            "toggleName":  "F8.semverMetadataEQ",
+            "expectedResult": true
+        },
+        {
+            "description": "F8.semverMetadataEQ should be enabled if only metadata differs and contains a dot",
+            "context": {
+                "properties": {
+                    "version": "1.2.2+metadata.1"
+                }
+            },
+            "toggleName":  "F8.semverMetadataEQ",
+            "expectedResult": true
+        },
+        {
+            "description": "F8.semverMetadataEQ should be enabled if metadata matches",
+            "context": {
+                "properties": {
+                    "version": "1.2.2+metadata"
+                }
+            },
+            "toggleName":  "F8.semverMetadataEQ",
+            "expectedResult": true
+        },
+        {
+            "description": "F8.semverPreReleaseMetadataEQ should be enabled if only metadata differs",
+            "context": {
+                "properties": {
+                    "version": "1.2.2-alpha.1"
+                }
+            },
+            "toggleName":  "F8.semverPreReleaseMetadataEQ",
+            "expectedResult": true
+        },
+        {
+            "description": "F8.semverPreReleaseMetadataEQ should be enabled if only metadata differs and contains a dot",
+            "context": {
+                "properties": {
+                    "version": "1.2.2-alpha.1+metadata.1"
+                }
+            },
+            "toggleName":  "F8.semverPreReleaseMetadataEQ",
+            "expectedResult": true
+        },
+        {
+            "description": "F8.semverPreReleaseMetadataEQ should be enabled if only metadata differs",
+            "context": {
+                "properties": {
+                    "version": "1.2.2-alpha.1+metadata"
+                }
+            },
+            "toggleName":  "F8.semverPreReleaseMetadataEQ",
+            "expectedResult": true
+        },
+        {
+            "description": "F8.semverPreReleaseMetadataLT should be disabled as both are equal after discarding metadata",
+            "context": {
+                "properties": {
+                    "version": "1.2.2-alpha.1"
+                }
+            },
+            "toggleName":  "F8.semverPreReleaseMetadataLT",
+            "expectedResult": false
+        },
+        {
+            "description": "F8.semverPreReleaseMetadataGT should be disabled for higher metadata cause metadata is ignored and both are equal",
+            "context": {
+                "properties": {
+                    "version": "1.2.2-alpha.1+metadata.2"
+                }
+            },
+            "toggleName":  "F8.semverPreReleaseMetadataGT",
             "expectedResult": false
         }
     ]
