@@ -1,5 +1,6 @@
 const Joi = require('joi');
-const chalk = require('chalk');
+const { Chalk } = require('chalk');
+const chalk = new Chalk();
 
 const testCaseSchema = require('./schema/test-case-schema');
 const testCases = require('./specifications/index.json');
