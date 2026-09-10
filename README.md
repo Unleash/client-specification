@@ -1,5 +1,3 @@
-![Build](https://github.com/Unleash/client-specification/workflows/Build/badge.svg)
-
 # Unleash Client Specifications
 Implementing a Unleash client for a specific platform can be a challenge in it's own. And we want the clients to follow specific platform and language conventions, but at the same time we want the clients to adhere to the unleash contract, and give predictable results across platforms.
 
@@ -26,8 +24,15 @@ There is an entry point for all the tests, which will include a list of all the 
   "11-strategy-constraints-edge-cases.json",
   "12-custom-stickiness.json",
   "13-constraint-operators.json",
-  "14-constraint-semver-operators.json"
-  "15-global-constraints.json"
+  "14-constraint-semver-operators.json",
+  "15-global-constraints.json",
+  "16-strategy-variants.json",
+  "17-dependent-features.json",
+  "18-utf8-flag-names.json",
+  "19-delta-api-hydration.json",
+  "20-delta-api-events.json",
+  "21-regex-constraint-operators.json",
+  "22-cidr-constraint-operators.json"
 ]
 ```
 
