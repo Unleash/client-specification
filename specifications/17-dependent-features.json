@@ -653,6 +653,60 @@
           },
           "variants": []
         }]
+      },
+      {
+        "name": "parent.with.constraint.child.expects.disabled",
+        "description": "The parent is enabled and has a constraint. The child expects the parent to be disabled.",
+        "enabled": true,
+        "dependencies": [{
+          "feature": "parent.with.constraint",
+          "enabled": false
+        }],
+        "strategies": [{
+          "name": "flexibleRollout",
+          "parameters": {
+            "rollout": "100",
+            "stickiness": "default",
+            "groupId": "groupId"
+          },
+          "variants": [
+            {
+              "name": "child.variant",
+              "weight": 1,
+              "payload": {
+                "type": "string",
+                "value": "variantValue"
+              }
+            }
+          ]
+        }]
+      },
+      {
+        "name": "parent.with.constraint.child.expects.disabled.variant",
+        "description": "The parent is enabled and has a constraint. The child expects the parent's variant to be \"disabled\".",
+        "enabled": true,
+        "dependencies": [{
+          "feature": "parent.with.constraint",
+          "variants": ["disabled"]
+        }],
+        "strategies": [{
+          "name": "flexibleRollout",
+          "parameters": {
+            "rollout": "100",
+            "stickiness": "default",
+            "groupId": "groupId"
+          },
+          "variants": [
+            {
+              "name": "child.variant",
+              "weight": 1,
+              "payload": {
+                "type": "string",
+                "value": "variantValue"
+              }
+            }
+          ]
+        }]
       }
     ]
   },
@@ -779,6 +833,22 @@
       "description": "Child is disabled if the parent is disabled, even if the child's expected variant is the disabled variant",
       "context": {},
       "toggleName": "parent.disabled.child.expects.disabled.variant",
+      "expectedResult": false
+    },
+    {
+      "description": "Child is enabled if the parent is expected to be disabled and the parent's constraint does not match.",
+      "context": {
+        "environment": "dev"
+      },
+      "toggleName": "parent.with.constraint.child.expects.disabled",
+      "expectedResult": true
+    },
+    {
+      "description": "Child is disabled when it requires the parent's variant to be \"disabled\" and the parent is off because its constraint does not match.",
+      "context": {
+        "environment": "dev"
+      },
+      "toggleName": "parent.with.constraint.child.expects.disabled.variant",
       "expectedResult": false
     }
   ],
@@ -1011,6 +1081,34 @@
         },
         "enabled": true,
         "feature_enabled": true
+      }
+    },
+    {
+      "description": "Child yields its variant when the parent is expected to be disabled and the parent's constraint does not match.",
+      "context": {
+        "environment": "dev"
+      },
+      "toggleName": "parent.with.constraint.child.expects.disabled",
+      "expectedResult": {
+        "name": "child.variant",
+        "payload": {
+          "type": "string",
+          "value": "variantValue"
+        },
+        "enabled": true,
+        "feature_enabled": true
+      }
+    },
+    {
+      "description": "Child yields a disabled variant when it requires the parent's variant to be \"disabled\" and the parent is off because its constraint does not match.",
+      "context": {
+        "environment": "dev"
+      },
+      "toggleName": "parent.with.constraint.child.expects.disabled.variant",
+      "expectedResult": {
+        "name": "disabled",
+        "enabled": false,
+        "feature_enabled": false
       }
     }
   ]
