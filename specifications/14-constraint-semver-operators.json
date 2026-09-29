@@ -467,13 +467,13 @@
             "expectedResult": true
         },
         {
-            "description": "F8.semverAlpha is less than release",
+            "description": "F8.semverAlphaLT is less than release",
             "context": {
                 "properties": {
                     "version": "2.0.0"
                 }
             },
-            "toggleName": "F8.semverAlpha",
+            "toggleName": "F8.semverAlphaLT",
             "expectedResult": false
         },
         {
