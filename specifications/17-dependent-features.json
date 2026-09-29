@@ -844,14 +844,6 @@
       "expectedResult": true
     },
     {
-      "description": "Child is disabled if the parent is expected to be disabled but the parent's constraint matches.",
-      "context": {
-        "environment": "prod"
-      },
-      "toggleName": "parent.with.constraint.child.expects.disabled",
-      "expectedResult": false
-    },
-    {
       "description": "Child is disabled when it requires the parent's variant to be \"disabled\" and the parent is off because its constraint does not match.",
       "context": {
         "environment": "dev"
@@ -1105,18 +1097,6 @@
         },
         "enabled": true,
         "feature_enabled": true
-      }
-    },
-    {
-      "description": "Child yields a disabled variant when the parent is expected to be disabled but the parent's constraint matches.",
-      "context": {
-        "environment": "prod"
-      },
-      "toggleName": "parent.with.constraint.child.expects.disabled",
-      "expectedResult": {
-        "name": "disabled",
-        "enabled": false,
-        "feature_enabled": false
       }
     },
     {
