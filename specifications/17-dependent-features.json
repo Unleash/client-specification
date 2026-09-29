@@ -852,7 +852,7 @@
       "expectedResult": false
     },
     {
-      "description": "Child is disabled if the parent's constraint does not match, even if the child's expected variant is the disabled variant",
+      "description": "Child is disabled when it requires the parent's variant to be \"disabled\" and the parent is off because its constraint does not match.",
       "context": {
         "environment": "dev"
       },
@@ -1120,7 +1120,7 @@
       }
     },
     {
-      "description": "Child yields a disabled variant when the parent's constraint does not match, even if the child's expected variant is the disabled variant.",
+      "description": "Child yields a disabled variant when it requires the parent's variant to be \"disabled\" and the parent is off because its constraint does not match.",
       "context": {
         "environment": "dev"
       },
