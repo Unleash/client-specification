@@ -12,7 +12,7 @@ the performance of the `is_enabled/get_variant` methods for event handling.
 The bus of events will be lossy, since we've seen that the engineering it takes to make
 delivery guarantees isn't sustainable
 
-## Ready is sent at least once and will always be the first event sent
+## Ready is sent at least once
 
 All SDKs emit a sort of "READY" event. We've decided that we will guarantee at-least-once
 delivery, and that the event will signify that the SDK has hydrated from at least one of it's API, bootstrap or backup sources.
