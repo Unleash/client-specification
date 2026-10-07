@@ -14,7 +14,7 @@ The bus of events will be lossy, because of the impact on performance that guara
 ## Ready is sent at least once
 
 All SDKs emit a sort of "READY" event. We've decided that we will guarantee at-least-once
-delivery, and that the event will signify that the SDK has hydrated from at least one of it's API, bootstrap or backup sources.
+delivery, and that the event will signify that the SDK has hydrated from at least one of its API, bootstrap or backup sources.
 
 ## SDK makes no guarantees about functionality before initialize is called
 
