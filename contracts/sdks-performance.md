@@ -14,7 +14,7 @@ delivery guarantees isn't sustainable
 ## Ready is sent at least once and will always be the first event sent
 
 All SDKs emit a sort of "READY" event. We've decided that we will guarantee at-least-once
-delivery, and that the event will signify that the SDK is ready to be used.
+delivery, and that the event will signify that the SDK has hydrated from at least one of it's API, bootstrap or backup sources.
 
 Therefore, it will be the first event that an SDK will emit.
 
