@@ -9,7 +9,7 @@ This callback can be too slow, or fail for whatever other reason.
 We've reached the decisions that dropping events if the callback cannot keep up is acceptable.
 
 The bus of events will be lossy, since we've seen that the engineering it takes to make
-delivery guarantees
+delivery guarantees isn't sustainable
 
 ## Ready is sent at least once and will always be the first event sent
 
