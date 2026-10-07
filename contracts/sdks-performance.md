@@ -9,8 +9,7 @@ This callback can be too slow, or fail for whatever other reason.
 We've reached the decision that it's not acceptable to degrade 
 the performance of the `is_enabled/get_variant` methods for event handling.
 
-The bus of events will be lossy, since we've seen that the engineering it takes to make
-delivery guarantees isn't sustainable
+The bus of events will be lossy, because of the impact on performance that guaranteeing delivery requires.
 
 ## Ready is sent at least once
 
