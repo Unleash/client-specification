@@ -631,7 +631,6 @@
       },
       {
         "name": "parent.with.constraint.child.expects.disabled",
-        "description": "The parent is enabled and has a constraint. The child expects the parent to be disabled.",
         "enabled": true,
         "dependencies": [{
           "feature": "parent.with.constraint",
@@ -658,7 +657,6 @@
       },
       {
         "name": "parent.with.constraint.child.expects.disabled.variant",
-        "description": "The parent is enabled and has a constraint. The child expects the parent's variant to be \"disabled\".",
         "enabled": true,
         "dependencies": [{
           "feature": "parent.with.constraint",

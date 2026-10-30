@@ -192,7 +192,6 @@
             },
             {
                 "name": "F8.semverMetadataEQ",
-                "description": "semver",
                 "enabled": true,
                 "strategies": [
                     {
@@ -210,7 +209,6 @@
             },
             {
                 "name": "F8.semverPreReleaseMetadataEQ",
-                "description": "semver",
                 "enabled": true,
                 "strategies": [
                     {
@@ -228,7 +226,6 @@
             },
             {
                 "name": "F8.semverPreReleaseMetadataLT",
-                "description": "semver",
                 "enabled": true,
                 "strategies": [
                     {
@@ -246,7 +243,6 @@
             },
             {
                 "name": "F8.semverPreReleaseMetadataGT",
-                "description": "semver",
                 "enabled": true,
                 "strategies": [
                     {

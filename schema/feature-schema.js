@@ -2,13 +2,10 @@ const Joi = require('joi');
 
 const featureSchema = Joi.object().keys({
     name: Joi.string().required(),
-    description: Joi.string().optional(),
     enabled: Joi.boolean().required(),
     project: Joi.string().optional(),
     type: Joi.string().optional(),
-    description: Joi.string().optional().allow(null),
     impressionData: Joi.boolean().optional(),
-    stale: Joi.boolean().optional(),
     dependencies: Joi.array().optional().items(
         Joi.object().keys({
             feature: Joi.string().required(),
@@ -16,7 +13,6 @@ const featureSchema = Joi.object().keys({
             variants: Joi.array().items(Joi.string()).optional()
         })
     ),
-    segments: Joi.array().items(Joi.number()),
     strategies: Joi.array().items(
         Joi.object().keys({
             name: Joi.string().required(),

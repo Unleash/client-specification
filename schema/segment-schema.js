@@ -2,7 +2,6 @@ const Joi = require('joi');
 
 const segmentSchema = Joi.object().keys({
     id: Joi.number().required(),
-    name: Joi.string().optional().allow(null),
     constraints: Joi.array().items(
         Joi.object().keys({
             contextName: Joi.string().required(),
