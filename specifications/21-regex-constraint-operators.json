@@ -5,7 +5,6 @@
         "features": [
             {
                 "name": "regex.case.sensitive",
-                "description": "Regex constraints are case sensitive by default",
                 "enabled": true,
                 "strategies": [
                     {
@@ -23,7 +22,6 @@
             },
             {
                 "name": "invalid-regex-defaults-to-false",
-                "description": "Invalid regex always results in toggle being disabled",
                 "enabled": true,
                 "strategies": [
                     {
@@ -41,7 +39,6 @@
             },
             {
                 "name": "R01.literal_and_anchors",
-                "description": "Anchors ^ $ basic email-ish check",
                 "enabled": true,
                 "strategies": [
                     {
@@ -59,7 +56,6 @@
             },
             {
                 "name": "R01.literal_and_anchors.referencing.property",
-                "description": "Anchors ^ $ basic email-ish check",
                 "enabled": true,
                 "strategies": [
                     {
@@ -77,7 +73,6 @@
             },
             {
                 "name": "R02.perl_digit_class",
-                "description": "\\d and quantifiers",
                 "enabled": true,
                 "strategies": [
                     {
@@ -95,7 +90,6 @@
             },
             {
                 "name": "R03.ascii_class",
-                "description": "[[:alpha:]] and +",
                 "enabled": true,
                 "strategies": [
                     {
@@ -113,7 +107,6 @@
             },
             {
                 "name": "R04.word_boundary_ascii",
-                "description": "\\b word boundary (ASCII semantics)",
                 "enabled": true,
                 "strategies": [
                     {
@@ -131,7 +124,6 @@
             },
             {
                 "name": "R05.alternation_prefer_left",
-                "description": "Alternation prefers left branch",
                 "enabled": true,
                 "strategies": [
                     {
@@ -149,7 +141,6 @@
             },
             {
                 "name": "R06.grouping_and_optional",
-                "description": "Capturing group + optional ?",
                 "enabled": true,
                 "strategies": [
                     {
@@ -167,7 +158,6 @@
             },
             {
                 "name": "R07.repetition_range_limits",
-                "description": "Bounded repetition {n,m}",
                 "enabled": true,
                 "strategies": [
                     {
@@ -185,7 +175,6 @@
             },
             {
                 "name": "R08.greedy_vs_nongreedy",
-                "description": "Non-greedy quantifier *?",
                 "enabled": true,
                 "strategies": [
                     {
@@ -203,7 +192,6 @@
             },
             {
                 "name": "R09.inline_flag_i",
-                "description": "Inline (?i) case-insensitive",
                 "enabled": true,
                 "strategies": [
                     {
@@ -221,7 +209,6 @@
             },
             {
                 "name": "Global.case.insensitive",
-                "description": "Global case-insensitive flag (should work the same as inline (?i))",
                 "enabled": true,
                 "strategies": [
                     {
@@ -240,7 +227,6 @@
             },
             {
                 "name": "Inverted.constraint",
-                "description": "Inverted regex constraint (should enable when regex does NOT match)",
                 "enabled": true,
                 "strategies": [
                     {
@@ -259,7 +245,6 @@
             },
             {
                 "name": "R10.inline_flag_m",
-                "description": "Inline (?m) multiline anchors",
                 "enabled": true,
                 "strategies": [
                     {
@@ -277,7 +262,6 @@
             },
             {
                 "name": "R11.inline_flag_s_dotall",
-                "description": "Inline (?s) dot matches newline",
                 "enabled": true,
                 "strategies": [
                     {
@@ -295,7 +279,6 @@
             },
             {
                 "name": "R90.reject_lookahead",
-                "description": "Should be rejected by server validation (lookahead not supported in RE2)",
                 "enabled": true,
                 "strategies": [
                     {
@@ -313,7 +296,6 @@
             },
             {
                 "name": "R91.reject_backreference",
-                "description": "Should be rejected by server validation (backrefs not supported in RE2)",
                 "enabled": true,
                 "strategies": [
                     {

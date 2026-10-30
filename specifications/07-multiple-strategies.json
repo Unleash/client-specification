@@ -5,7 +5,6 @@
     "features": [
       {
         "name": "Feature.multiStrategies.A",
-        "description": "Enabled for via last stratgy",
         "enabled": true,
         "strategies": [
           {
@@ -22,7 +21,6 @@
       },
       {
         "name": "Feature.multiStrategies.B",
-        "description": "Enabled for user=123",
         "enabled": true,
         "strategies": [
           {
@@ -41,7 +39,6 @@
       },
       {
         "name": "Feature.multiStrategies.C",
-        "description": "Enabled for user=123",
         "enabled": true,
         "strategies": [
           {

@@ -5,7 +5,6 @@
     "features": [
       {
         "name": "Feature.remoteAddress.A",
-        "description": "Enabled toggle for localhost",
         "enabled": true,
         "strategies": [
           {
@@ -18,7 +17,6 @@
       },
       {
         "name": "Feature.remoteAddress.B",
-        "description": "Enabled toggle for list of IPs",
         "enabled": true,
         "strategies": [
           {
@@ -32,7 +30,6 @@
       ,
       {
         "name": "Feature.remoteAddress.C",
-        "description": "Ignore invalid IP's in list",
         "enabled": true,
         "strategies": [
           {

@@ -5,7 +5,6 @@
         "features": [
             {
                 "name": "CIDR.exact.match",
-                "description": "Exact IP match using IN_CIDR",
                 "enabled": true,
                 "strategies": [
                     {
@@ -23,7 +22,6 @@
             },
             {
                 "name": "CIDR.range.match",
-                "description": "CIDR range match using IN_CIDR",
                 "enabled": true,
                 "strategies": [
                     {
@@ -41,7 +39,6 @@
             },
             {
                 "name": "CIDR.mixed.values",
-                "description": "Invalid values should be ignored when valid ones exist",
                 "enabled": true,
                 "strategies": [
                     {
@@ -59,7 +56,6 @@
             },
             {
                 "name": "CIDR.invalid.only",
-                "description": "Only invalid values should not match anything",
                 "enabled": true,
                 "strategies": [
                     {
@@ -77,7 +73,6 @@
             },
             {
                 "name": "CIDR.ipv6.exact.match",
-                "description": "Exact IPv6 match using IN_CIDR",
                 "enabled": true,
                 "strategies": [
                     {
@@ -95,7 +90,6 @@
             },
             {
                 "name": "CIDR.ipv6.range.match",
-                "description": "IPv6 CIDR range match using IN_CIDR",
                 "enabled": true,
                 "strategies": [
                     {
@@ -113,7 +107,6 @@
             },
             {
                 "name": "CIDR.ipv6.mixed.values",
-                "description": "Invalid values should be ignored when valid IPv6 CIDR exists",
                 "enabled": true,
                 "strategies": [
                     {

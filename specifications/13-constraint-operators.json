@@ -5,7 +5,6 @@
         "features": [
             {
                 "name": "F1.startsWith",
-                "description": "startsWith",
                 "enabled": true,
                 "strategies": [
                     {
@@ -24,7 +23,6 @@
             },
             {
                 "name": "F2.startsWith.multiple",
-                "description": "starts with",
                 "enabled": true,
                 "strategies": [
                     {
@@ -43,7 +41,6 @@
             },
             {
                 "name": "F2.startsWith.caseInsensitve",
-                "description": "starts with case insensitive",
                 "enabled": true,
                 "strategies": [
                     {
@@ -62,7 +59,6 @@
             },
             {
                 "name": "F3.endsWith",
-                "description": "endsWith",
                 "enabled": true,
                 "strategies": [
                     {
@@ -80,7 +76,6 @@
             },
             {
                 "name": "F3.endsWith.ignoringCase",
-                "description": "endsWith",
                 "enabled": true,
                 "strategies": [
                     {
@@ -99,7 +94,6 @@
             },
             {
                 "name": "F4.contains",
-                "description": "contains",
                 "enabled": true,
                 "strategies": [
                     {
@@ -118,7 +112,6 @@
             },
             {
                 "name": "F4.contains.inverted",
-                "description": "contains",
                 "enabled": true,
                 "strategies": [
                     {
@@ -138,7 +131,6 @@
             },
             {
                 "name": "F5.numEq",
-                "description": "contains",
                 "enabled": true,
                 "strategies": [
                     {
@@ -156,7 +148,6 @@
             },
             {
                 "name": "F5.numEq.float",
-                "description": "contains",
                 "enabled": true,
                 "strategies": [
                     {
@@ -174,7 +165,6 @@
             },
             {
                 "name": "F5.numEq.inverted",
-                "description": "contains",
                 "enabled": true,
                 "strategies": [
                     {
@@ -193,7 +183,6 @@
             },
             {
                 "name": "F5.numGT",
-                "description": "contains",
                 "enabled": true,
                 "strategies": [
                     {
@@ -211,7 +200,6 @@
             },
             {
                 "name": "F5.numGTE",
-                "description": "contains",
                 "enabled": true,
                 "strategies": [
                     {
@@ -229,7 +217,6 @@
             },
             {
                 "name": "F5.numLT",
-                "description": "contains",
                 "enabled": true,
                 "strategies": [
                     {
@@ -247,7 +234,6 @@
             },
             {
                 "name": "F5.numLTE",
-                "description": "contains",
                 "enabled": true,
                 "strategies": [
                     {
@@ -265,7 +251,6 @@
             },
             {
                 "name": "F6.number-range",
-                "description": "range of numbers",
                 "enabled": true,
                 "strategies": [
                     {
@@ -288,7 +273,6 @@
             },
             {
                 "name": "F7.dateAfter",
-                "description": "dates",
                 "enabled": true,
                 "strategies": [
                     {
@@ -306,7 +290,6 @@
             },
             {
                 "name": "F7.dateBefore",
-                "description": "dates",
                 "enabled": true,
                 "strategies": [
                     {
@@ -324,7 +307,6 @@
             },
             {
                 "name": "F7.date-range",
-                "description": "dates",
                 "enabled": true,
                 "strategies": [
                     {
@@ -347,7 +329,6 @@
             },
             {
                 "name": "F7.date-with-timezone",
-                "description": "dates",
                 "enabled": true,
                 "strategies": [
                     {
@@ -370,7 +351,6 @@
             },
             {
                 "name": "F7.invalid-operator",
-                "description": "invalid",
                 "enabled": true,
                 "strategies": [
                     {
@@ -388,7 +368,6 @@
             },
             {
                 "name": "F8.missing-field.IN",
-                "description": "missing field",
                 "enabled": true,
                 "strategies": [
                     {
@@ -406,7 +385,6 @@
             },
             {
                 "name": "F8.missing-field.NOT_IN",
-                "description": "missing field",
                 "enabled": true,
                 "strategies": [
                     {
@@ -424,7 +402,6 @@
             },
             {
                 "name": "F9.inverted.IN",
-                "description": "inverted IN",
                 "enabled": true,
                 "strategies": [
                     {
@@ -443,7 +420,6 @@
             },
             {
                 "name": "F10.inverted.NOT_IN",
-                "description": "inverted NOT_IN",
                 "enabled": true,
                 "strategies": [
                     {

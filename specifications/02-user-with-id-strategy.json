@@ -5,7 +5,6 @@
     "features": [
       {
         "name": "Feature.A2",
-        "description": "Enabled toggle",
         "enabled": true,
         "strategies": [
           {
@@ -18,7 +17,6 @@
       },
       {
         "name": "Feature.B2",
-        "description": "Disabled toggle",
         "enabled": true,
         "strategies": [
           {

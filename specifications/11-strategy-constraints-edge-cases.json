@@ -5,7 +5,6 @@
         "features": [
             {
                 "name": "Feature.constraints.no_values",
-                "description": "Not enabled with constraints and no values",
                 "enabled": true,
                 "strategies": [
                     {
@@ -24,7 +23,6 @@
             },
             {
                 "name": "Feature.constraints.no_values_NOT_IN",
-                "description": "Is enabled with constraints and NOT_IN empty values",
                 "enabled": true,
                 "strategies": [
                     {
@@ -43,7 +41,6 @@
             },
             {
                 "name": "Feature.constraints.empty",
-                "description": "Is enabled with empty constraints array",
                 "enabled": true,
                 "strategies": [
                     {

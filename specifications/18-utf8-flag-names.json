@@ -5,7 +5,6 @@
     "features": [
       {
         "name": "Feature.UTF-8.Hellø_Wørld",
-        "description": "Enabled basic UTF-8 toggle",
         "enabled": true,
         "strategies": [
           {
@@ -15,7 +14,6 @@
       },
       {
         "name": "Feature.UTF-8.😊_φriend_你好_🌍",
-        "description": "Enabled complex UTF-8 toggle",
         "enabled": true,
         "strategies": [
           {

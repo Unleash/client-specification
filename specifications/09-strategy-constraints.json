@@ -5,7 +5,6 @@
         "features": [
             {
                 "name": "Feature.constraints.simple",
-                "description": "Enabled only in dev",
                 "enabled": true,
                 "strategies": [
                     {
@@ -24,7 +23,6 @@
             },
             {
                 "name": "Feature.constraints.list",
-                "description": "Enabled in dev, stage, prod",
                 "enabled": true,
                 "strategies": [
                     {
@@ -43,7 +41,6 @@
             },
             {
                 "name": "Feature.constraints.multi",
-                "description": "Enabled in prod and only for users 1, 2, 3",
                 "enabled": true,
                 "strategies": [
                     {
@@ -74,7 +71,6 @@
             },
             {
                 "name": "Feature.constraints.userWithId",
-                "description": "Enabled in prod for userWithId=123",
                 "enabled": true,
                 "strategies": [
                     {
@@ -95,7 +91,6 @@
             },
             {
                 "name": "Feature.constraints.custom",
-                "description": "Enabled in prod in country IN (norway or sweeden)",
                 "enabled": true,
                 "strategies": [
                     {
@@ -120,7 +115,6 @@
             },
             {
                 "name": "Feature.constraints.dual",
-                "description": "Enabled in prod and not in qa and dev",
                 "enabled": true,
                 "strategies": [
                     {
@@ -145,7 +139,6 @@
             },
             {
                 "name": "Feature.constraints.empty",
-                "description": "Always disabled for empty list of values",
                 "enabled": true,
                 "strategies": [
                     {
@@ -164,7 +157,6 @@
             },
             {
                 "name": "Feature.constraints.empty-not-in",
-                "description": "Always enabled for value not in empty list",
                 "enabled": true,
                 "strategies": [
                     {
@@ -183,7 +175,6 @@
             },
             {
                 "name": "Feature.constraints.multiple.strategies",
-                "description": "Feature constraints has multiple strategies",
                 "enabled": true,
                 "strategies": [
                     {

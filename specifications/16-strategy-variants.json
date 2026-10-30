@@ -5,7 +5,6 @@
     "features": [
       {
         "name": "Feature.strategy.variant.with.constraint",
-        "description": "Strategy variants based on constraint",
         "enabled": true,
         "strategies": [
           {
@@ -38,7 +37,6 @@
       },
       {
         "name": "Feature.strategy.variant.overrides.feature.variant",
-        "description": "Strategy variants with feature variants",
         "enabled": true,
         "strategies": [
           {
@@ -80,7 +78,6 @@
       },
       {
         "name": "Feature.strategy.multiple.variants",
-        "description": "Strategy variants with multiple options",
         "enabled": true,
         "strategies": [
           {
@@ -115,7 +112,6 @@
       },
       {
         "name": "Feature.strategy.empty.variants",
-        "description": "Strategy variants with empty variant options",
         "enabled": true,
         "strategies": [
           {
@@ -133,7 +129,6 @@
       },
       {
         "name": "Feature.strategy.variant.fallback",
-        "description": "Strategy variants fall back to feature variants",
         "enabled": true,
         "strategies": [
           {
@@ -158,7 +153,6 @@
       },
       {
         "name": "Feature.strategy.numeric.variants",
-        "description": "Strategy variants with numeric payload",
         "enabled": true,
         "strategies": [
           {
@@ -193,7 +187,6 @@
       },
       {
         "name": "Feature.strategy.no.strategy.variants",
-        "description": "Toggle with no strategy variants",
         "enabled": true,
         "strategies": [
           {
@@ -220,7 +213,6 @@
       },
       {
         "name": "Feature.strategy.variants.stickiness",
-        "description": "Strategy variants with stickiness inherited from the strategy",
         "enabled": true,
         "strategies": [
           {

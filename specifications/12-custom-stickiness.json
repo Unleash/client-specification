@@ -5,7 +5,6 @@
         "features": [
             {
                 "name": "Feature.flexible.rollout.custom.stickiness_100",
-                "description": "Should support custom stickiness as option",
                 "enabled": true,
                 "strategies": [
                     {
@@ -59,7 +58,6 @@
             },
             {
                 "name": "Feature.flexible.rollout.custom.stickiness_50",
-                "description": "Should support custom stickiness as option",
                 "enabled": true,
                 "strategies": [
                     {

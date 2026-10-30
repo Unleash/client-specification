@@ -5,7 +5,6 @@
         "features": [
             {
                 "name": "Feature.Variants.A",
-                "description": "Enabled",
                 "enabled": true,
                 "strategies": [
                     {
@@ -26,7 +25,6 @@
             },
             {
                 "name": "Feature.Variants.B",
-                "description": "Enabled for user=123",
                 "enabled": true,
                 "strategies": [],
                 "variants": [
@@ -50,7 +48,6 @@
             },
             {
                 "name": "Feature.Variants.C",
-                "description": "Testing three variants",
                 "enabled": true,
                 "strategies": [],
                 "variants": [
@@ -82,7 +79,6 @@
             },
             {
                 "name": "Feature.Variants.D",
-                "description": "Variants with payload",
                 "enabled": true,
                 "strategies": [],
                 "variants": [
@@ -114,7 +110,6 @@
             },
             {
                 "name": "Feature.Variants.override.D",
-                "description": "Variant with overrides",
                 "enabled": true,
                 "strategies": [],
                 "variants": [
@@ -150,7 +145,6 @@
             },
             {
                 "name": "Feature.Variants.E",
-                "description": "Enabled",
                 "enabled": false,
                 "strategies": [
                     {
@@ -171,7 +165,6 @@
             },
             {
                 "name": "Feature.Variants.F",
-                "description": "Empty variants",
                 "enabled": true,
                 "strategies": [
                     {
@@ -183,7 +176,6 @@
             },
             {
                 "name": "Feature.Variants.G",
-                "description": "0% gradual rollout, but has variants",
                 "enabled": true,
                 "strategies": [
                     {
@@ -208,7 +200,6 @@
             },
             {
                 "name": "Feature.Variants.H",
-                "description": "variant with numeric payload",
                 "enabled": true,
                 "strategies": [
                     {

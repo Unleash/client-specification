@@ -5,7 +5,6 @@
     "features": [
       {
         "name": "Feature.A5",
-        "description": "Enabled toggle for 100%",
         "enabled": true,
         "strategies": [
           {
@@ -18,7 +17,6 @@
       },
       {
         "name": "Feature.B5",
-        "description": "Disabled toggle with 0% rollout",
         "enabled": true,
         "strategies": [
           {
@@ -46,7 +44,6 @@
       },
       {
         "name": "Feature.D5",
-        "description": "Disabled toggle should be disabled",
         "enabled": false,
         "strategies": [
           {

@@ -5,7 +5,6 @@
         "features": [
             {
                 "name": "F8.semverEQ",
-                "description": "semver",
                 "enabled": true,
                 "strategies": [
                     {
@@ -23,7 +22,6 @@
             },
             {
                 "name": "F8.semverGT",
-                "description": "semver",
                 "enabled": true,
                 "strategies": [
                     {
@@ -41,7 +39,6 @@
             },
             {
                 "name": "F8.semverGTE",
-                "description": "semver",
                 "enabled": true,
                 "strategies": [
                     {
@@ -59,7 +56,6 @@
             },
             {
                 "name": "F8.semverLT",
-                "description": "semver",
                 "enabled": true,
                 "strategies": [
                     {
@@ -77,7 +73,6 @@
             },
             {
                 "name": "F8.semverLTE",
-                "description": "semver",
                 "enabled": true,
                 "strategies": [
                     {
@@ -95,7 +90,6 @@
             },
             {
                 "name": "F8.semverAlphaGT",
-                "description": "semver",
                 "enabled": true,
                 "strategies": [
                     {
@@ -113,7 +107,6 @@
             },
             {
                 "name": "F8.semverAlphaLT",
-                "description": "semver",
                 "enabled": true,
                 "strategies": [
                     {
@@ -131,7 +124,6 @@
             },
             {
                 "name": "F8.semverAlphaVersioning",
-                "description": "semver",
                 "enabled": true,
                 "strategies": [
                     {
@@ -149,7 +141,6 @@
             },
             {
                 "name": "F8.alphaUnnumbered",
-                "description": "semver",
                 "enabled": true,
                 "strategies": [
                     {
@@ -167,7 +158,6 @@
             },
             {
                 "name": "F8.releaseCandidate",
-                "description": "semver",
                 "enabled": true,
                 "strategies": [
                     {
@@ -185,7 +175,6 @@
             },
             {
                 "name": "F8.invalidSemverWithLeadingV",
-                "description": "semver",
                 "enabled": true,
                 "strategies": [
                     {

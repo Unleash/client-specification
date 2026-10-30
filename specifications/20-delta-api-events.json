@@ -9,9 +9,7 @@
                     "impressionData": false,
                     "enabled": true,
                     "name": "delta.api.events.updated.1",
-                    "description": null,
                     "project": "default",
-                    "stale": false,
                     "type": "release",
                     "variants": [],
                     "strategies": [
@@ -28,9 +26,7 @@
                     "impressionData": false,
                     "enabled": true,
                     "name": "delta.api.events.updated.2",
-                    "description": null,
                     "project": "default",
-                    "stale": false,
                     "type": "release",
                     "variants": [],
                     "strategies": [
@@ -51,7 +47,6 @@
             "type": "segment-updated",
             "segment": {
                 "id": 1,
-                "name": "my-segment",
                 "constraints": [
                         {
                             "values": [
@@ -74,9 +69,7 @@
                     "impressionData": false,
                     "enabled": true,
                     "name": "delta.api.events.updated.3",
-                    "description": null,
                     "project": "default",
-                    "stale": false,
                     "type": "release",
                     "variants": [],
                     "strategies": [
